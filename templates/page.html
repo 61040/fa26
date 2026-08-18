@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.data.description | default: site.description }}">
+  <meta name="theme-color" content="#fafafa">
+  <title>{% unless page.data.home %}{{ page.data.title }} — {% endunless %}{{ site.title }}</title>
+  {% if page.canonicalUrl %}<link rel="canonical" href="{{ page.canonicalUrl }}">{% endif %}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="name" href="/">6.1040 Fall 2026</a>
+    <nav aria-label="Primary navigation">
+      <a href="/schedule">Schedule</a>
+      <a href="/assignments">Assignments</a>
+      <a href="/preps">Preps</a>
+      <a href="/hours">Recitation/Office Hours</a>
+      <a href="/resources">Resources</a>
+      <a href="/instructors">Instructors</a>
+      <a href="/guide">Class Guide</a>
+      <a href="/faq">FAQ</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    {% if page.data.home %}
+      <div class="intro">
+        <h1>6.1040: Software Design</h1>
+        <p>In this class, you’ll go beyond coding and learn how to design and build software that is elegant, powerful and flexible. In addition to classic software design and UX techniques, you’ll learn concept design, a new way to structure software functionality more effectively. You’ll also learn how to use LLMs in design and code, and how to incorporate AI agents into applications. AI coding is very much in flux, as the capabilities of tools change almost day by day. So this class offering will be a bit experimental, and you shouldn’t expect everything to be as predictable as it would be in a mature class.</p>
+
+        <p>This website will host all the important material, including the schedule (with links to lecture and recitation notes), assignments and problem sets, technical resources and preps (short intros to technologies, due before recitations). We will be using Piazza for class discussions and to answer any questions you might have about course material or assignments.</p>
+
+        <p>Make sure to read the class guide which explains the purpose and structure of the class and its expectations, and check out the FAQ. We have too much exciting stuff to talk about, so we won’t be explaining administrative things in class sessions.</p>
+      </div>
+      {{ page.content }}
+    {% else %}
+      <article>
+        <header class="article-header">
+          {% if page.data.date %}<time datetime="{{ page.data.date }}">{{ page.data.date }}</time>{% endif %}
+          <h1>{{ page.data.title }}</h1>
+          {% if page.data.description %}<p>{{ page.data.description }}</p>{% endif %}
+        </header>
+        <div class="prose">{{ page.content }}</div>
+      </article>
+    {% endif %}
+  </main>
+
+  <footer>
+      <span>© 2026 MIT <a href="https://github.com/mit-sdg/">Software Design Group</a> · <span class="easter-egg" title="Institute Has The Finest Pages">IHTFP</span></span>
+    <span>Built with <a href="https://github.com/mit-sdg/syncpress">Syncpress</a></span>
+  </footer>
+</body>
+</html>

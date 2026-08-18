@@ -1,0 +1,18 @@
+{
+  "name": "6.1040-software-design",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Course website for MIT's 6.1040 Software Design.",
+  "scripts": {
+    "build": "syncpress build .",
+    "dev": "syncpress dev --port 3002 .",
+    "inspect": "syncpress inspect"
+  },
+  "devDependencies": {
+    "@mit-sdg/syncpress": "0.2.0"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "packageManager": "npm@11.17.0"
+}

@@ -1,0 +1,56 @@
+site:
+  title: 6.1040 Software Design
+  tagline: Learn to design and build elegant, powerful, flexible software
+  description: Course website for MIT's 6.1040 Software Design. Learn design techniques, concept design, and how to use LLMs and AI agents in applications.
+  origin: https://mit-sdg.github.io
+  basePath: /
+  navigation:
+    - label: Home
+      url: /
+    - label: Schedule
+      url: /schedule
+    - label: Assignments
+      url: /assignments
+    - label: Preps
+      url: /preps
+    - label: Recitation/Office Hours
+      url: /hours
+    - label: Resources
+      url: /resources
+    - label: Instructors
+      url: /instructors
+    - label: Class Guide
+      url: /guide
+    - label: FAQ
+      url: /faq
+paths:
+  content: content
+  templates: templates
+  public: public
+  output: dist
+defaults:
+  - match: "**/*.md"
+    values:
+      build:
+        markup: markdown
+        template: page.html
+        publish: true
+collections:
+  posts:
+    match: "posts/**/*.md"
+    sort:
+      by: data.date
+      order: desc
+  projects:
+    match: "projects/**/*.md"
+    sort:
+      by: data.order
+      order: asc
+markdown:
+  extensions: [tables, autolinks]
+  raw: true
+  excerptSeparator: "<!--more-->"
+deploy:
+  nojekyll: true
+  requireNotFound: true
+  sitemap: true
