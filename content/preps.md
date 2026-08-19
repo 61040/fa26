@@ -1,6 +1,5 @@
 ---
 title: Preps
-description: Preparatory exercises before recitations
 ---
 
 ## About Preps

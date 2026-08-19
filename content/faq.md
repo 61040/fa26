@@ -1,6 +1,5 @@
 ---
 title: FAQ
-description: Frequently asked questions
 ---
 
 ## Registration & Access

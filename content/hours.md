@@ -1,6 +1,5 @@
 ---
 title: Recitation/Office Hours
-description: Class sessions and instructor availability
 ---
 
 ## Recitation Sessions

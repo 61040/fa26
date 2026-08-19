@@ -1,6 +1,5 @@
 ---
 title: Class Guide
-description: Course structure, grading, policies, and expectations
 ---
 
 ## Course Overview

@@ -1,6 +1,5 @@
 ---
 title: Assignments
-description: Problem sets, projects, and deliverables
 ---
 
 ## Course Assignments

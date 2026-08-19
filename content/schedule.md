@@ -1,6 +1,5 @@
 ---
 title: Schedule
-description: Lecture topics and course timeline
 ---
 
 ## Course Structure

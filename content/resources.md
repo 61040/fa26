@@ -1,6 +1,5 @@
 ---
 title: Resources
-description: Tools, guides, and references
 ---
 
 ## Markdown Resources
