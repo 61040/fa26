@@ -5,11 +5,11 @@
   "description": "Course website for MIT's 6.1040 Software Design.",
   "scripts": {
     "build": "syncpress build .",
-    "dev": "syncpress dev --port 3002 .",
+    "dev": "syncpress dev .",
     "inspect": "syncpress inspect"
   },
   "devDependencies": {
-    "@mit-sdg/syncpress": "0.2.0"
+    "@mit-sdg/syncpress": "^0.2.1"
   },
   "engines": {
     "node": ">=24 <25"
