@@ -10,7 +10,11 @@ title: Instructors
 
 ## Teaching Staff
 
-**Eagon Meng** — TA, PhD student working on software simplification
+**Eagon Meng** — Graduate TA, PhD student working on software simplification
 
-**[Carmel Schare](https://schare.space/)** — TA, PhD student working on malleable software
+**[Carmel Schare](https://schare.space/)** — Graduate TA, PhD student working on malleable software
+
+Christine Wu - Undergraduate TA, ...
+
+Amalia Toutziaridi - Undergraduate TA, ...
 
