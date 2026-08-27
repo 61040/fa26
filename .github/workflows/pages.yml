@@ -38,10 +38,12 @@ jobs:
           if [[ -n "$draft_branches" ]]; then
             # Convert each line to {"name":"draft/..."} format and append
             while IFS= read -r branch; do
-              sites=$(echo "$sites" | jq ". += [{\"name\":\"draft/$branch\"}]")
+              sites=$(echo "$sites" | jq -c ". += [{\"name\":\"draft/$branch\"}]")
             done <<< "$draft_branches"
           fi
 
+          # Output as compact JSON (no newlines)
+          sites=$(echo "$sites" | jq -c '.')
           echo "matrix=$sites" >> $GITHUB_OUTPUT
           echo "Build matrix: $sites"
 
