@@ -62,14 +62,22 @@ jobs:
         shell: bash
         run: |
           name="${{ matrix.name }}"
+          repository="${GITHUB_REPOSITORY#*/}"
+
+          # Determine base path based on repo type
+          if [[ "${repository}" == *.github.io ]]; then
+            repo_base_path="/"
+          else
+            repo_base_path="/${repository}/"
+          fi
 
           if [[ "$name" == "main" ]]; then
-            base_path="/"
+            base_path="${repo_base_path}"
             artifact_name="site-main"
           else
             # Extract draft name: draft/pset1 -> pset1
             draft_name="${name#draft/}"
-            base_path="/draft/${draft_name}/"
+            base_path="${repo_base_path}draft/${draft_name}/"
             artifact_name="site-draft-${draft_name}"
           fi
 
