@@ -2,7 +2,7 @@ site:
   title: 6.1040 Software Design
   tagline: Learn to design and build elegant, powerful, flexible software
   description: Course website for MIT's 6.1040 Software Design. Learn design techniques, concept design, and how to use LLMs and AI agents in applications.
-  origin: https://mit-sdg.github.io
+  origin: https://61040.github.io
   basePath: /
   navigation:
     - label: Home
