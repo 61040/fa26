@@ -2,7 +2,7 @@ name: Publish to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'draft/**']
   workflow_dispatch:
 
 permissions:
@@ -15,43 +15,151 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-matrix:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.generate.outputs.matrix }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate build matrix
+        id: generate
+        shell: bash
+        run: |
+          # Start with main
+          sites='[{"name":"main"}]'
+
+          # Get all draft branches and convert to JSON objects
+          draft_branches=$(git branch -r --list 'origin/draft/*' | sed 's|.*origin/draft/||' | sort)
+
+          if [[ -n "$draft_branches" ]]; then
+            # Convert each line to {"name":"draft/..."} format and append
+            while IFS= read -r branch; do
+              sites=$(echo "$sites" | jq ". += [{\"name\":\"draft/$branch\"}]")
+            done <<< "$draft_branches"
+          fi
+
+          echo "matrix=$sites" >> $GITHUB_OUTPUT
+          echo "Build matrix: $sites"
+
+  build-all:
+    runs-on: ubuntu-latest
+    needs: build-matrix
+    strategy:
+      matrix:
+        include: ${{ fromJson(needs.build-matrix.outputs.matrix) }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Determine configuration for ${{ matrix.name }}
+        id: config
+        shell: bash
+        run: |
+          name="${{ matrix.name }}"
+
+          if [[ "$name" == "main" ]]; then
+            base_path="/"
+            artifact_name="site-main"
+          else
+            # Extract draft name: draft/pset1 -> pset1
+            draft_name="${name#draft/}"
+            base_path="/draft/${draft_name}/"
+            artifact_name="site-draft-${draft_name}"
+          fi
+
+          echo "base_path=${base_path}" >> $GITHUB_OUTPUT
+          echo "artifact_name=${artifact_name}" >> $GITHUB_OUTPUT
+          echo "Building $name with base_path=${base_path}"
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
-      - name: Configure project Pages URL
+
+      - name: Update site.yaml
         shell: bash
+        env:
+          BASE_PATH: ${{ steps.config.outputs.base_path }}
         run: |
           owner="${GITHUB_REPOSITORY_OWNER}"
           repository="${GITHUB_REPOSITORY#*/}"
-          base_path="/${repository}/"
-          if [[ "${repository}" == *.github.io ]]; then base_path="/"; fi
+
           sed -i "s|origin: .*|origin: https://${owner}.github.io|" site.yaml
-          sed -i "s|basePath: .*|basePath: ${base_path}|" site.yaml
+          sed -i "s|basePath: .*|basePath: ${BASE_PATH}|" site.yaml
+
+          echo "Configuration for ${{ matrix.name }}:"
+          grep -E "origin:|basePath:" site.yaml
+
       - name: Install dependencies
         run: npm ci
+
       - name: Build site
         run: npm run build
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
 
-  deploy:
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.config.outputs.artifact_name }}
+          path: dist
+          retention-days: 1
+
+  merge-and-deploy:
+    runs-on: ubuntu-latest
+    needs: [build-matrix, build-all]
+    if: always() && needs.build-all.result != 'failure'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artifacts
+
+      - name: Merge all sites
+        shell: bash
+        run: |
+          mkdir -p merged-site
+
+          # Process main site
+          if [[ -d artifacts/site-main ]]; then
+            echo "Merging main site..."
+            cp -r artifacts/site-main/* merged-site/
+          fi
+
+          # Process all draft sites
+          for draft_artifact in artifacts/site-draft-*; do
+            if [[ -d "$draft_artifact" ]]; then
+              draft_name=$(basename "$draft_artifact" | sed 's/site-draft-//')
+              echo "Merging draft: $draft_name"
+              mkdir -p "merged-site/draft/${draft_name}"
+              cp -r "$draft_artifact"/* "merged-site/draft/${draft_name}/"
+            fi
+          done
+
+          # Ensure .nojekyll
+          touch merged-site/.nojekyll
+
+          echo "Merged structure:"
+          find merged-site -maxdepth 2 -type f | sort | head -40
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: merged-site
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
