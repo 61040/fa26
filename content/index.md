@@ -3,7 +3,6 @@ title: 6.1040 Software Design
 description: 6.1040 Software Design
 home: true
 ---
-
 # 6.1040: Software Design
 In this class, you’ll go beyond coding and learn how to design and build
 software that is elegant, powerful and flexible. In addition to classic
@@ -17,7 +16,7 @@ expect everything to be as predictable as it would be in a mature class.
 This website will host all the important material, including the schedule (with
 links to lecture and recitation notes), assignments and problem sets, technical
 resources and preps (short intros to technologies, due before recitations). We
-will be using Piazza for class discussions and to answer any questions you
+will be using the class forum for class discussions and to answer any questions you
 might have about course material or assignments.
 
 Make sure to read the class guide which explains the purpose and structure of
