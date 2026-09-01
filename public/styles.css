@@ -190,7 +190,6 @@ article { max-width: 75vw; margin: auto; padding: 3rem 0 1rem; }
 }
 
 .prose strong {
-  color: var(--accent-red);
   font-weight: 600;
 }
 
@@ -201,6 +200,44 @@ footer {
   border-top: 2px solid var(--border-light);
   color: var(--text-light);
   font-size: 0.8rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+}
+
+table th {
+  background: var(--text-primary);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid var(--border);
+}
+
+table td {
+  padding: 1rem;
+  border: 1px solid var(--border-light);
+  vertical-align: top;
+}
+
+table tbody tr:nth-child(odd) {
+  background: var(--bg-secondary);
+}
+
+table tbody tr:nth-child(even) {
+  background: var(--bg-primary);
+}
+
+table strong {
+  font-weight: 600;
+}
+
+table em {
+  font-style: italic;
 }
 
 .easter-egg { color: var(--accent-red); font-weight: 700; cursor: help; }

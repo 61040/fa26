@@ -2,7 +2,7 @@
 title: Recitation/Office Hours
 ---
 
-<span style="color: red">**Note:** The information below is a placeholder
+<span style="color: var(--accent-red)">**Note:** The information below is a placeholder
 containing out-of-date information from a previous semester.</span>
 
 ## Recitation Sessions
