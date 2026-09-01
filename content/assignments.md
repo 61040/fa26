@@ -8,7 +8,7 @@ Assignments progress from individual design exercises through a comprehensive pr
 
 ### Individual Assignments
 
-- **Assignment 1** — Problem framing [link](./assignments/assignment-1.md)
+- **Assignment 1** — Problem framing [link](assignment-a1.md)
 - **Problem Set 1** — Concept design (reading/writing concepts)
 - **Problem Set 2** — Modular design (composing concepts)
 - **Assignment 2** — Functional design
