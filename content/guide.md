@@ -1,7 +1,7 @@
 ---
 title: Class Guide
 ---
-
+Testing...
 ## Course Overview
 
 This is a 15-unit junior/senior design class covering software design principles, web development, and AI integration. The course emphasizes designing software that meets user needs while being flexible and easy to use.
