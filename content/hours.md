@@ -2,6 +2,9 @@
 title: Recitation/Office Hours
 ---
 
+<span style="color: red">**Note:** The information below is a placeholder
+containing out-of-date information from a previous semester.</span>
+
 ## Recitation Sessions
 
 Students can attend any recitation section that fits their schedule:
