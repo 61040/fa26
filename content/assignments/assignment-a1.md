@@ -1,8 +1,8 @@
 ---
-layout: assignment
 title: "Assignment A1: Problem Framing"
 categories: assignments
 due_date: 2026-09-14 23:59:00 -0400
+order: 1
 ---
 
 ## Overview

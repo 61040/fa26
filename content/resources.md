@@ -13,9 +13,10 @@ title: Resources
 - [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
 - [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-## Additional Resources
+<h2 id="additional-resources">Additional Resources</h2>
 
-- [Formatting Concepts Guide](https://github.com/61040-fa25)
-- [State Notation for Concepts](https://github.com/61040-fa25)
+- <span id="formatting-concepts-markdown"></span>[Formatting Concepts Guide](https://github.com/61040-fa25)
+- <span id="state-notation"></span>[State Notation for Concepts](https://github.com/61040-fa25)
+- <span id="concept-rubric"></span>Concept design rubric — see the course GitHub organization
 - [Gemini API Quickstart](https://ai.google.dev/gemini-api/docs/quickstart?lang=python)
 - [Deploying with Render](https://render.com/docs)
