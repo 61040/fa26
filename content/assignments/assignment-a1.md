@@ -1,0 +1,72 @@
+---
+title: "Assignment A1: Problem Framing"
+categories: assignments
+due_date: 2026-09-14 23:59:00 -0400
+order: 1
+---
+
+## Overview
+
+**Purposes**. The purposes of this assignment are to:
+- Teach you design skills related to problem selection and framing
+- Help you articulate your personal goals for the class
+- Develop an initial outline of the problem your personal project will address.
+
+**Phasing**. When you embark on your personal project in a few weeks' time, you'll be able to revisit your problem framing. Creating a first outline now is intended to:
+- Spread your workload and help you focus on problem analysis before considering design
+- Seed ideas in your mind so you can mull them over and refine them
+- Give you a chance to get feedback from the staff before you've committed to a problem.
+## Project Criteria
+
+It's up to you to decide what to build for your personal project. But your project must meet certain criteria, which you should bear in mind as you frame the problem:
+- **Appropriately scaled**. Your project should be small enough to be completed in about 60 hours of work, but ambitious enough to be more than a toy project.
+- **Authentic demand**. Your solution should fulfill some *authentic demand*, bringing real value to its users. This means that your app has some likelihood of being adopted by some (perhaps small) number of users. Note that value is subjective; it doesn't mean that your app is commercially viable, or that it solves some problem that everyone would agree is "important."
+- **Usable, complete and effective**. Your project should produce a usable app. It should be complete in the sense that all of its features are fully implemented and work correctly, and that it supports the intended workflows. It should be effective in the sense that it addresses the difficult issues that are likely to arise in practice. For example, an app that warns bikers about potholes would not be effective if it only allowed users to report potholes and see them on a map but had no way to prevent duplicate reports.
+- **Dynamic and collaborative**. Your app should be *dynamic*, meaning that the application stores state that evolves over time in response to actions by users (and in particular should not be a wrapper for a one-shot function that could be implemented as a local script). It should also be *collaborative*, meaning that the behaviors of different users are not independent of one another.
+- **Originality**. Your project does not have to be unprecedented in the sense that there are no other existing applications that address the same problem or have similar features. If your project is similar in function to an existing app, then make sure that it is innovative in terms of its particular combination of features, and in refinements that make it simpler, more flexible or easier to use.
+
+## Tasks
+
+**Personal goals**. Write a journal entry that describes your personal goals for the class for the term. It should be about half a page (a few hundred words) in length. It's up to you how to structure it and what to address, but here are some prompts that may be useful:
+- What motivates you to take this class and what do you hope to gain from it?
+- What particular skills or understanding do you want to acquire?
+- How do you plan to make it an enriching and enjoyable experience?
+- What concerns do you have about what might be hard or might go wrong?
+- How does the class fit in to your larger goals in life? To your career and intellectual journey?
+- What might have been missing in your education to date that you'd like to make up for?
+
+**Problem statement**. Develop a problem statement that outlines a problem that you would like to address in your personal project. It should include:
+- **Domain**. An explanation of the domain, or general area, in which the problem lies. Think of this as providing background to someone who is completely unfamiliar with the domain. It should include descriptions of the essential activities that comprise the domain, the stakeholders that engage in those activities, and what motivates them to participate.
+- **Bad situations**. Identify one or more bad situations that arise in the domain and that call for a design intervention. Don't be vague; describe the situations as concretely as you can, using detailed scenarios.
+- **Corroboration**. Seek evidence to corroborate the claim that the bad situations are not just your subjective impression but are real and have enough impact to matter. If you come across it, include evidence that casts doubt on your claim too. Make sure to cite the source of the evidence so the reader can check it for themselves.
+- **Comparables**. Describe some solutions that already exist for the problem you've identified, or for closely related problems. Explain clearly whey they don't mitigate the particular bad situations you plan to address.
+- **Solution idea**. Sketch an idea for a solution. The reason for doing this is not to embark on detailed design, but to gain some confidence that a plausible solution might exist.
+
+## Rubric
+
+// add links
+
+Your personal goals will be assessed for these competencies:
+- Reflective practice
+- Clear writing
+
+Your problem statement will be assessed for these competencies:
+- Problem framing
+- Clear writing
+
+## Advice
+
+**How to structure**. It's up to you how you organize and present your work, so long as you conform to the submission guidelines. You can put your problem statement in a single file, for example, or break it into multiple small linked files.
+
+**Quality not quantity**. You'll be assessed on how good your submission is, not how long it is. Obviously, however, a good problem statement will require more than a few sentences to explain. We expect one to three pages of text, and you're encouraged to include screenshots and diagrams as illustrations. 
+
+**Iterating**. In previous versions of this class, recognizing that finding a suitable problem usually requires some iteration, we required that students produce multiple examples of problems and then select the most promising. This term we've decided to align the assignments more closely with the kinds of tasks you'll do in your career ahead, and to give you more self agency, we are only requiring that you submit one problem. Note, however, that some iteration will undoubtedly be needed, and your first draft is unlikely to be compelling. As Fred Brooks famously said in The Mythical Man Month: "plan to throw one away; you will, anyhow." 
+
+**Bad situations aren't missing features**. The most common mistake that innovators make is to confuse a missing feature with a bad situation. A missing feature is just a pointer to some functionality that may turn out to solve a real problem, but may not, and anyway is an inflexible start for a design that leaves little room for creativity. Not being to vacuum in the corner of the room because the cord won't stretch far enough is a bad situation. Wanting your vacuum cleaner to be battery-powered is identifying a missing feature. The pattern "I can't do X" is not a reliable way to spot bad situations. "I can't keep track of all my files, because they're on different computers and cloud drives and I can never find the one I want" is a genuine bad situation. But "I can't search for a file by name across Google Drive and Dropbox" is a feature request in disguise.
+
+**An example**. Here's an example of what might go into a problem statement. You'll have to go back in time to before 2001 (before you were born) to imagine a world in which this is a problem, and you probably won't be able to find one this compelling,  but it should give you some idea of what a good problem looks like:
+- **Domain**: Personal music; explain how people have their own collections of albums and singles, in digital files, CDs, cassettes or vinyl, which they buy in stores or download on the web. The stakeholders are the listeners, artists, record companies, retailers, etc. Listeners are motivated to get the music they like and listen to it; record companies want to promote their artists and sell their music; etc.
+- **Bad situations**: You can't take your music with you, and you can't play it when you're not home.
+- **Corroboration**: Millions of people pirate music on the web, and have bought mobile devices for playing music like the Sony Walkman.
+- **Comparables**: MP3 players, file sharing networks, portable CD and cassette players, etc.
+- **Solution idea**: make a small device that can hold a person's entire music collection, with a fast enough port to upload in an hour, and create an online store to sell individual songs that smoothly integrates with the device so that songs that have been bought are easily transferred to the device.
