@@ -11,13 +11,13 @@ been determined.**</span>
 | Date | Topic | Assignment Due (11:59PM)
 | - | - | - |
 | Wed Sep 9 | **How to innovate**
-| Mon Sep 14 | **Intro to concept design** | A1: Problem & personal goals
+| Mon Sep 14 | **Intro to concept design** | <!--[-->E1: Problem & personal goals<!--](/assignments/e1)-->
 | Wed Sep 16 | **Designing a concept**
 | Thu Sep 17 | _GitHub_
-| Mon Sep 21 | **CTX framework** | A2: Understanding concepts
+| Mon Sep 21 | **CTX framework** | E2: Understanding concepts
 | Wed Sep 23 | **Designing states and actions**
 | Thu Sep 24 | _Markdown, HTML, CSS_
-| Mon Sep 28 | **Designing reactions** | A3: Understanding composition
+| Mon Sep 28 | **Designing reactions** | E3: Understanding composition
 | Wed Sep 30 | **Designing modular systems**
 | Thu Oct 1 | _HTTP and REST_
 | Mon Oct 5 | **Client server apps** | P1: Design

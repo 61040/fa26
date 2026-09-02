@@ -3,18 +3,6 @@
 A course website for MIT's 6.1040 Software Design, built with
 [Syncpress](https://github.com/mit-sdg/syncpress) and ready for GitHub Pages.
 
-## Use this template
-
-1. Select **Use this template** on GitHub and create a public repository.
-2. In the new repository, open **Settings → Pages** and select **GitHub Actions**
-   as the source.
-3. Edit `site.yaml`, the Markdown files in `content/`, and `public/styles.css`.
-4. Push to `main`. The Pages workflow builds and publishes the site.
-
-The workflow derives the production URL from the repository owner and name, so
-you do not need to update `origin` or `basePath` after creating a repository from
-this template.
-
 ## Work locally
 
 Syncpress requires Node.js 24.
@@ -46,3 +34,19 @@ The static build is written to `dist/`.
 | `public/styles.css` | The complete visual theme |
 | `site.yaml` | Site metadata, collections, and build settings |
 | `.github/workflows/pages.yml` | GitHub Pages build and deployment |
+
+## Draft deployments
+
+The deployment action script has a special feature allowing authors to publish
+git branches to a public URL, so long as the branch name is prefixed with
+`draft/` (e.g. `draft/new-assignment-page`). The branch will be visible at
+`<BASE_URL>/draft/new-assigment-page/`, e.g.
+`https://61040.github.io/fa26/draft/new-assignment-page/schedule`.
+
+## Link syntax
+- Link to other Markdown content files using relative links: `[link](about.md)`, `[link](./about.md)`, `[link](../posts/start.md)`, `[link](subfolder/index.md)`
+- Link to non-Markdown files using absolute links: `[style](/styles.css)`
+
+Absolute links are always OK (for content files, don't include the extension:
+`[link](/about)`) but it is nicer for Obsidian and GitHub to use
+relative links with Markdown extensions.

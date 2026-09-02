@@ -2,37 +2,33 @@
 title: Assignments
 ---
 
-## Course Assignments
+### Individual Exercises
 
-Assignments progress from individual design exercises through a comprehensive project to a final team project with staged deliverables.
+- [**E1:** Problem framing](./assignments/e1.md)
+- **E2:** Concept design (reading/writing concepts)
+- **E3:** Modular design (composing concepts)
 
-### Individual Assignments
+### Personal Project
 
-- [**Assignment 1** — Problem framing](/assignments/assignment-a1)
-- **Problem Set 1** — Concept design (reading/writing concepts)
-- **Problem Set 2** — Modular design (composing concepts)
-- **Assignment 2** — Functional design
-- **Assignment 3** — AI-augmented concepts
+- **P1:** Design
+- **P2:** Alpha (MVP)
+- **P3:** Beta
+- **P4:** Code Complete
+- **P5:** User Testing
 
-### Project Assignments
+### Final Team Project
 
-- **Assignment 4a** — Backend coding
-- **Assignment 4b** — Frontend UI coding
-- **Assignment 4c** — Project completion
+- **F0:** Team Contract
+- **F1:** Problem framing
+- **F2:** Pitches
+- **F3:** Functional design
+- **F4:** Alpha/beta releases
+- **F5:** User testing
+- **F6:** Final demonstrations
 
-### Team Project
-
-The capstone team project includes multiple checkpoints:
-- Problem framing
-- Pitches
-- Functional design
-- Alpha/beta releases
-- User testing
-- Final demonstrations
-
-**Project Fair**: December 10
+**Project Fair**: December 9
 
 ## Due Dates
 
-Preps are due at 10am and regular assignments at 11:59pm on specified dates.
-
+Assignments at 11:59pm on specified dates.
+See [Schedule](schedule.md).
