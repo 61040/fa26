@@ -4,6 +4,11 @@ description: 6.1040 Software Design
 home: true
 ---
 # 6.1040: Software Design
+
+<!--
+Welcome to new students for Fall 2026! Please check as soon as possible that you can access the [class forum] and let us know by completing [this form]() if you cannot. All important messages and updates will be distributed there.
+-->
+
 In this class, you’ll go beyond coding and learn how to design and build
 software that is elegant, powerful and flexible. In addition to classic
 software design and UX techniques, you’ll learn concept design, a new way to
