@@ -1,3 +1,7 @@
+---
+title: Advice on selecting an LLM and coding harness
+---
+
 # Advice on selecting an LLM and coding harness
 
 There’s a growing array of agentic coding and work tools. New models are released often. Releases, particularly from Anthropic and OpenAI, tend to leapfrog each other with new state of the art capabilities, only to be overtaken a short time later by another release. At the same time, all models and tools have their own unique strengths and weaknesses. 
