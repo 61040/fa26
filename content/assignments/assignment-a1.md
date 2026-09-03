@@ -41,19 +41,21 @@ It's up to you to decide what to build for your personal project. But your proje
 - **Corroboration**. Seek evidence to corroborate the claim that the bad situations are not just your subjective impression but are real and have enough impact to matter. If you come across it, include evidence that casts doubt on your claim too. Make sure to cite the source of the evidence so the reader can check it for themselves.
 - **Workarounds and comparables**. Describe the workarounds that people currently use to mitigate the bad situations. If solutions already exist for the problem you've identified, or for closely related problems, list them, and explain clearly whey they don't mitigate the particular bad situations you plan to address. 
 - **Solution sketch**. Sketch an idea for a solution. The reason for doing this is not to embark on detailed design, but to gain some confidence that a plausible solution might exist.
+## Resources
 
-## Rubric
+Your work will be evaluated using the following rubrics:
+- [Problem framing]() (for the problem framing part)
+- [Reflective practice]() (for the personal goals part)
+- [Technical writing]() (for both parts)
 
-// add links
+Relevant background documents for this assignment are:
+- [How to innovate from bad situations]()
 
-Your personal goals will be assessed for these competencies:
-- Reflective practice
-- Clear writing
-
-Your problem statement will be assessed for these competencies:
-- Problem framing
-- Clear writing
-
+Relevant resources and guides include:
+- [Setting up your repo]()
+- [How to submit your assignment]()
+- [Markdown]()
+- [Git and GitHub]()
 ## Advice
 
 **How to structure**. It's up to you how you organize and present your work, so long as you conform to the submission guidelines. You can put your problem statement in a single file, for example, or break it into multiple small linked files.
