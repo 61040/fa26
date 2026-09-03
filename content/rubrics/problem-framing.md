@@ -1,3 +1,6 @@
+---
+title: Rubric for problem framing
+---
 
 # Rubric for problem framing
 

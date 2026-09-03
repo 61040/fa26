@@ -1,3 +1,6 @@
+---
+title: How to innovate from bad situations
+---
 
 # How to innovate from bad situations
 
