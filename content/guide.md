@@ -57,7 +57,7 @@ Some students are reluctant to ask questions on the forum for fear of looking ba
 
 ## Attendance
 
-Why is lecture attendance is required? First, we’ve found that students who attend lecture do better: they learn more, they’re happier, and they get better grades. Second, when students don’t attend lectures they often become a burden to the staff because, when the assignment comes and they discover they are unprepared, they try to learn the lecture ideas in office hours and by asking questions online.
+Why is lecture attendance required? First, we’ve found that students who attend lecture do better: they learn more, they’re happier, and they get better grades. Second, when students don’t attend lectures they often become a burden to the staff because, when the assignment comes and they discover they are unprepared, they try to learn the lecture ideas in office hours and by asking questions online.
 
 We put a lot of work into making lectures engaging and educational, and we believe there is no substitute for being there in person, joining your peers on class activities, and participating in discussions. If you have suggestions for how to improve lectures, we will be glad to hear them.
 
