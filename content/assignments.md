@@ -4,7 +4,7 @@ title: Assignments
 
 ### Individual Exercises
 
-- [**E1:** Problem framing](./assignments/e1.md)
+- **E1:** Problem framing <!--[](./assignments/e1.md)-->
 - **E2:** Concept design (reading/writing concepts)
 - **E3:** Modular design (composing concepts)
 
