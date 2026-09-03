@@ -1,6 +1,7 @@
+
 # How to innovate from bad situations
 
-[Downloadable markdown version of this file](../public/how-to-innovate-from-bad-situations.md)
+[Downloadable markdown version of this file](/how-to-innovate-from-bad-situations.md)
 
 ## Successful innovation from the start
 
