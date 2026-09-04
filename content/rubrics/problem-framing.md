@@ -1,7 +1,6 @@
 ---
 title: Rubric for problem framing
 ---
-
 # Rubric for problem framing
 
 A problem framing should include:
