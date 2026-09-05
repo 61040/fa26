@@ -16,5 +16,4 @@ title: Instructors
 
 Christine Wu - Undergraduate TA, ...
 
-Amalia Toutziaridi - Undergraduate TA, ...
-
+**[Amalia Toutziaridi](https://www.linkedin.com/in/amalia-toutziaridi/)** - Undergraduate TA, senior majoring in 6-3
