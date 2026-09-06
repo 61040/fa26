@@ -14,6 +14,6 @@ title: Instructors
 
 **[Carmel Schare](https://schare.space/)** — Graduate TA, PhD student working on malleable software
 
-Christine Wu - Undergraduate TA, ...
+Christine Wu - Undergraduate TA, senior majoring in 6-3
 
 **[Amalia Toutziaridi](https://www.linkedin.com/in/amalia-toutziaridi/)** - Undergraduate TA, senior majoring in 6-3
