@@ -16,7 +16,6 @@ title: Instructors
 
 **Kartik Pingle** - Graduate TA
 
-**Christine Wu** - Undergraduate TA, ...
+**Christine Wu** - Undergraduate TA, senior majoring in 6-3
 
-**Amalia Toutziaridi** - Undergraduate TA, ...
-
+**[Amalia Toutziaridi](https://www.linkedin.com/in/amalia-toutziaridi/)** - Undergraduate TA, senior majoring in 6-3
