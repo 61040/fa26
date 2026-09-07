@@ -115,11 +115,15 @@ senior majoring in 6-3
 
 <div class="bio">
 
-![]()
+![](instructors/amalia.jpeg)
 
 <div class="bio-text">
 
-senior majoring in 6-3
+I’m a senior majoring in 6-3 and minoring in 15-1. I took 6.104 in Fall 2025 and loved how much freedom the class gives you to be creative and build something you genuinely care about.
+
+I’m interested in computational sustainability and have previously worked at the intersection of AI and education, including getting the chance to teach at a local charter high school in Cambridge! Throughout my undergrad, I’ve also been UROPing at [MIx](https://mix.mit.edu), where I’m currently working on an ensemble deep learning model for [early wildfire detection](https://picogrid.com/newsroom/picogrid-and-mit-mix-win-1-75m-program-to-help-first-responders-put-an-eye-on-wildfires) in collaboration with the U.S. Space Force.
+
+Outside of school, I’m on the MIT Track & Field team, love baking, and am originally from Greece. I’m looking forward to a fun semester and seeing what everyone builds :)
 
 </div>
 </div>
