@@ -91,6 +91,12 @@ Here are some tips for using AI in the context of this class:
 - **Brainstorming**. One of the best ways to come up with novel ideas is to brainstorm with some friends or colleagues. An LLM can play this role too, less creatively and more predictably than people, but also with more background knowledge.
 - **Social isolation**. Keep track of how much of your time is spent interacting with an LLM. Everyone needs social contact, fresh air and time without devices. Consider setting aside times to think and work with just pencil and paper. If you haven't done this before, you'll be amazed at how much you can accomplish---how much creativity and clarity comes when the noise is gone. When you hit a problem you don't know how to solve, take a walk.
 
+## Reflective practice
+
+[Reflective practice](https://en.wikipedia.org/wiki/Reflective_practice) is the deliberate process of thinking about, analyzing, and critically evaluating your own actions, decisions, and experiences to continuously learn and improve. While the concept can be traced back to educational theorist John Dewey, it gained modern prominence in 1983 when MIT professor Donald Schön published *The Reflective Practitioner*, proving that reflection sits at the very heart of professional expertise. In short, reflection is the secret weapon that transforms everyday experiences into expert skills.
+
+To help you develop this crucial habit, you will write short personal reflections as part of several assignments. If you approach this not as a chore but as an opportunity, you will get far more out of your coursework and become more effective in your future career. Especially in a workplace increasingly driven by AI, your metacognitive abilities (thinking about how you think) are what will distinguish you—not only from those who use AI thoughtlessly, but from AI agents themselves.
+
 ## Student repositories
 
 Your individual work for the term will be within two GitHub repositories, one for your personal reflections and problem sets, and one for your project. For the team project, all team members will share a single repo. Your own personal reflections on the team project will be in your personal repo.
