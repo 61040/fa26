@@ -8,7 +8,7 @@ There’s a growing array of agentic coding and work tools. New models are relea
 
 Currently, Anthropic’s Claude Code and OpenAI’s Codex are the most popular and capable tools. However, MIT does not provide students with free subscriptions to them. Parley’s $10/month of credits, via [https://platform.parley.mit.edu/my-keys](https://platform.parley.mit.edu/my-keys), can be used for the CLI versions of both, but will likely be depleted quickly. 
 
-We therefore recommend signing up for **Google AI Pro’s free student plan**, because Google offers this year-long plan for free and because we expect it to be a sufficient daily driver for the course. Please note, however, that it’s not hard to blow through usage limits. Balancing LLM usage with cost is a pervasive challenge in real-world software development today. It is your responsibility to be strategic with your usage and keep an eye on limits. 
+We therefore recommend signing up for **Google AI Pro’s free student plan**, because Google offers this year-long plan for free and because we expect it to be a sufficient daily driver for the course. Please note, however, that it’s not hard to blow through usage limits. Balancing LLM usage with cost is a pervasive challenge in real-world software development today. It is your responsibility to be strategic with your usage and keep an eye on limits.  *Note*: verifying with an MIT ID does not work because it does not have an expiration date; use a billing statement from MITPay instead, for example.
 
 Below, we summarize what we view as the most promising free options for your use this semester.
 
