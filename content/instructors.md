@@ -12,9 +12,9 @@ title: Instructors
 
 <div class="bio-text">
 
-I've just started at MIT as a new professor, and I'm excited to be teaching 6.1040 as my first course! There's never been a more interesting time to think about how to design software.
+I’m excited to be teaching 6.1040 for the second time! With AI, we can build things in hours that would recently have taken weeks or months. Thus, there's never been a more interesting or important time to think about how to *design software well*.
 
-My research bridges human-computer interaction and AI, particularly focused on alignment and safety problems. Come talk to me if that sounds cool!
+My research bridges human-computer interaction and AI, particularly focused on alignment and safety problems. Come talk to me if that sounds interesting to you!
 
 </div>
 </div>
