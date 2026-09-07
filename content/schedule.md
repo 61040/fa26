@@ -4,37 +4,34 @@ title: Schedule
 
 **Lecture** / _Recitation_; links to slides are provided once available.
 
-<span style="color: var(--accent-red)">**Note:** Recitations are temporarily listed on
-the Thursday of the week they are taught although the final schedule has not yet
-been determined.**</span>
-
-| Date | Topic | Assignment Due (11:59PM)
-| - | - | - |
+| Date | Topic | Assignment Due (11:59PM) | Prep Due (10AM) |
+| - | - | - | - |
 | Wed Sep 9 | **How to innovate**
+| Thu Sep 10 | _Markdown_ | | Prep 1: Markdown
 | Mon Sep 14 | **Intro to concept design** | <!--[-->E1: Problem & personal goals<!--](/assignments/e1)-->
 | Wed Sep 16 | **Designing a concept**
-| Thu Sep 17 | _GitHub_
+| Thu Sep 17 | _HTML, CSS_ | | Prep 2: HTML, CSS
 | Mon Sep 21 | **CTX framework** | E2: Understanding concepts
 | Wed Sep 23 | **Designing states and actions**
-| Thu Sep 24 | _Markdown, HTML, CSS_
+| Thu Sep 24 | _HTTP and REST_ | | Prep 3: HTTP and REST
 | Mon Sep 28 | **Designing reactions** | E3: Understanding composition
 | Wed Sep 30 | **Designing modular systems**
-| Thu Oct 1 | _HTTP and REST_
+| Thu Oct 1 | _Mongo_ | | Prep 4: Mongo
 | Mon Oct 5 | **Client server apps** | P1: Design
 | Wed Oct 7 | **Context & AI coding**
-| Thu Oct 8 | _Mongo_
+| Thu Oct 8 | _Vue_ | | Prep 5: Vue
 | Tue Oct 13 | **Interaction design (Monday schedule)** | P2: Alpha (MVP)
 | Wed Oct 14 | **Visual design**
-| Thu Oct 15 | _Vue_
+| Thu Oct 15 | _Cookies and sessions_ | | Prep 6: Cookies and sessions
 | Mon Oct 19 | **Engaging users: problem, design** | P3: Beta (complete functionality)
 | Wed Oct 21 | **Engaging users: evaluation, signals**
-| Thu Oct 22 | _Cookies and sessions_
+| Thu Oct 22 | _LLM APIs, MCP_ | | Prep 7: LLM APIs, MCP
 | Mon Oct 26 | **Value-sensitive design** | P4: Personal project code complete
 | Wed Oct 28 | **Designing agentic features** | F0: Team Contract
-| Thu Oct 29 | _LLM APIs, MCP_
+| Thu Oct 29 | _Injection attacks (SQL, prompt)_ | | Prep 8: Injection attacks
 | Mon Nov 2 | **Designing AI-powered features** | P5: User Testing
 | Wed Nov 4 | **Team pitches**
-| Thu Nov 5 | _Injection attacks (SQL, prompt)_
+| Thu Nov 5 | _GitHub_ | | Prep 9: GitHub
 | Mon Nov 9 | **Team pitches** | F1: Team Problem
 | Wed Nov 11 | Holiday; no class
 | Mon Nov 16 | TBD | F2: Team Design

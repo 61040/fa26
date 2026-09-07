@@ -11,6 +11,4 @@ Attend recitations to discuss any difficulties with the prep work.
 ## Available Prep Assignments
 
 1. **Setting up Portfolio Repository using Markdown**
-2. **Setting Up an LLM API**
-3. **Context and MongoDB**
-4. **HTML & CSS**
+2. **HTML & CSS**
