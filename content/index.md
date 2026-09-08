@@ -29,6 +29,7 @@ the class and its expectations, and check out the FAQ. We have too much
 exciting stuff to talk about, so we won’t be explaining administrative things
 in class sessions.
 
+If you didn't receive an email to Commons, our class forum, please request access using [this form](https://forms.gle/j2XYxr2zUoAFSN5D9).
 
 <!--
 <section id="work">
