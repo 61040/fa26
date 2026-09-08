@@ -57,7 +57,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref_name }}
+          ref: ${{ matrix.name }}
 
       - name: Determine configuration for ${{ matrix.name }}
         id: config
@@ -118,12 +118,13 @@ jobs:
         with:
           name: ${{ steps.config.outputs.artifact_name }}
           path: dist
+          include-hidden-files: true
           retention-days: 1
 
   merge-and-deploy:
     runs-on: ubuntu-latest
     needs: [build-matrix, build-all]
-    if: always() && needs.build-all.result != 'failure'
+    if: needs.build-all.result == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
