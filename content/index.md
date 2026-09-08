@@ -25,7 +25,7 @@ will be using the class forum for class discussions and to answer any questions 
 might have about course material or assignments.
 
 Make sure to read the [class guide](./guide.md) which explains the purpose and structure of
-the class and its expectations, and check out the FAQ. We have too much
+the class and its expectations. We have too much
 exciting stuff to talk about, so we won’t be explaining administrative things
 in class sessions.
 
