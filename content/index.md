@@ -18,9 +18,8 @@ coding is very much in flux, as the capabilities of tools change almost day by
 day. So this class offering will be a bit experimental, and you shouldn’t
 expect everything to be as predictable as it would be in a mature class.
 
-This website will host all the important material, including the schedule (with
-links to lecture and recitation notes), assignments and problem sets, technical
-resources and preps (short intros to technologies, due before recitations). We
+This website will host all the important material, including the [schedule](./schedule.md) (with
+links to lecture and recitation notes), [assignments and problem sets](./assignments/index.md), [resources](./resources.md) and [preps](./preps/index.md) (short intros to technologies, due before recitations). We
 will be using the class forum for class discussions and to answer any questions you
 might have about course material or assignments.
 
