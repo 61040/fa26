@@ -92,7 +92,7 @@ I am very excited to help teach this course!
 
 <div class="bio-text">
 
-I'm a first-year M.Eng. student in the Systems Architecture and Infrastructure Lab at CSAIL, working on the integration of ML and computer systems. I completed my undergrad here at MIT earlier this year in Courses 8 & 6-3. 
+I'm a first-year M.Eng. student in the Systems Architecture and Infrastructure Lab at CSAIL, working on the integration of ML and computer systems. I completed my undergrad here at MIT earlier this year in Courses 8 & 6-3.
 
 Outside of MIT, I love midday coffee runs, Lego sets with my roommates, and everything Star Wars. My family lives super close by, so you might catch me walking my dog down Mem Drive from time to time!
 
@@ -105,11 +105,13 @@ Outside of MIT, I love midday coffee runs, Lego sets with my roommates, and ever
 
 <div class="bio">
 
-![]()
+![](instructors/christine.jpg)
 
 <div class="bio-text">
 
-senior majoring in 6-3
+I'm a senior majoring in 6-3. I took this class last fall and had a great time learning about all about code design! I'm excited to work with everyone this semester and see the cool projects you'll all create!
+
+Outside of MIT, you might see me at cafes or crocheting while watching a drama. I also love Miffy -- I'm hoping to go to one of the Miffy hotels in the near future!
 
 </div>
 </div>
