@@ -84,13 +84,18 @@ I am very excited to help teach this course!
 
 <br>
 
-**Kartik Pingle** (Graduate TA)
+**[Kartik Pingle](https://www.linkedin.com/in/kartik-a-pingle/)** (Graduate TA)
 
 <div class="bio">
 
-![]()
+![](instructors/kartik.jpeg)
 
 <div class="bio-text">
+
+I'm a first-year M.Eng. student in the Systems Architecture and Infrastructure Lab at CSAIL, working on the integration of ML and computer systems. I completed my undergrad here at MIT earlier this year in Courses 8 & 6-3. 
+
+Outside of MIT, I love midday coffee runs, Lego sets with my roommates, and everything Star Wars. My family lives super close by, so you might catch me walking my dog down Mem Drive from time to time!
+
 </div>
 </div>
 
