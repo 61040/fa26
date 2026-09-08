@@ -5,8 +5,11 @@ title: Resources
 ## Markdown Resources
 
 - [Markdown Template Repository](https://github.com/mit-sdg/syncpress-template)
-- [Markdown Guide](https://www.markdownguide.org/)
+- [Markdown Guide](https://www.markdownguide.org/) ([Cheat
+  Sheet](https://www.markdownguide.org/cheat-sheet/))
 - [GitHub Markdown Documentation](https://docs.github.com/en/get-started/writing-on-github)
+- [Playground](resources/markdown-preview.md)
+- [Using a README.md in your GitHub repo](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
 
 ## GitHub Resources
 
