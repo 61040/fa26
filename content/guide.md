@@ -113,7 +113,7 @@ Your grade for each assignment will be a competency level for each skill. The le
 - **Competent**. You demonstrated the skill in all aspects.
 - **Expert**. You applied the skill with the insight and creativity that distinguishes an expert from a routine practitioner.
 
-These levels correspond roughly to grades (A for expert, B for competent, C for emergent). For each assignment, the competency levels will be turned into a numeric grade according to weightings of the relevant skills specified for that assignment. Roughly 70% of your overall grade will depend on your personal work and participation, and 30% on team work.
+These levels correspond roughly to grades (A for expert, B for competent, C for emergent). For each assignment, the competency levels will be turned into numeric grades (with expert = 4, competent = 3, emergent = 2, deficient = 1) and then scaled with an assignment-specific weights. Roughly 70% of your overall grade will depend on your personal work and participation, and 30% on team work.
 <!-- When establishing final grades, we will consider, for borderline students, what competency levels they showed in the most important skills (those related to design) and the trajectory of their skill development. To receive an A, you are expected to do work that is uniformly competent and frequently (but not necessarily always) expert, and to have participated consistently in class. 
 -->
 Team work will be graded by team and not participant. Adjustments and compensations will be made to account for circumstances. For example, a team member who fails to turn up for team mentoring meetings, or who does not do their fair share of team work, can expect a lower grade.
