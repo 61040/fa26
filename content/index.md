@@ -5,10 +5,6 @@ home: true
 ---
 # 6.1040: Software Design
 
-<!--
-Welcome to new students for Fall 2026! Please check as soon as possible that you can access the [class forum] and let us know by completing [this form]() if you cannot. All important messages and updates will be distributed there.
--->
-
 In this class, you’ll go beyond coding and learn how to design and build
 software that is elegant, powerful and flexible. In addition to classic
 software design and UX techniques, you’ll learn concept design, a new way to
@@ -30,6 +26,15 @@ in class sessions.
 
 We will send invitations to Commons, our class forum, on Thursday Sept 10. 
 If you haven't received an invitation by the evening, please request access using [this form](https://forms.gle/j2XYxr2zUoAFSN5D9).
+
+## Action Items (Week 1)
+1. **Join the class forum** (today). All announcements will be there! If you can't get in, [submit this form](https://forms.gle/j2XYxr2zUoAFSN5D9).
+2. **Read the [class guide](./guide.md)** (this week), so you know how this class works and why.
+3. **Complete the [prep](./preps.md)** (by 10am Thursday): set up your GitHub repo and play with Markdown so you're ready for recitation.
+4. **Attend [recitation](./hours.md)** (Thursday). Pick the time you prefer; you can change later.
+5. **Start the [problem framing assignment](./assignments/e1.md)** (due midnight Monday). Get going early so you have time to mull it over.
+
+
 
 <!--
 <section id="work">
