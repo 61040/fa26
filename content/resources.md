@@ -14,6 +14,7 @@ title: Resources
 <h2 id="github">GitHub</h2>
 
 - [**How to set up your repo for the class**](guides/repo.md)
+- [**How to submit a git commit hash**](guides/hash.md)
 - [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
 - [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 

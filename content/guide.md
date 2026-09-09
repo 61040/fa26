@@ -49,6 +49,8 @@ This guide tells you the main things you need to know about the class and how it
 [Commons](https://class.mit-sdg.dev/).
 Enrolled students will receive an email inviting them to join.
 Contact the course staff if you run into problems accessing the site.
+Typically, we will ask you to submit git commit hashes. See our
+[guide](../guides/hash.md) on how to find these.
 
 <p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
 
