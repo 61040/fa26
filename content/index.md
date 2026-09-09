@@ -14,8 +14,9 @@ expect everything to be as predictable as it would be in a mature class.
 
 This website will host all the important material, including the [schedule](./schedule.md) (with
 links to lecture and recitation notes), [assignments and problem sets](./assignments.md), [resources](./resources.md) and [preps](./preps.md) (short intros to technologies, due before recitations). We
-will be using the class forum for class discussions and to answer any questions you
-might have about course material or assignments.
+will be using the [class forum](https://class.mit-sdg.dev/) for class discussions and to answer any questions you
+might have about course material or assignments. Do not directly email
+the staff.
 
 Make sure to read the [class guide](./guide.md) which explains the purpose and structure of
 the class and its expectations. We have too much
