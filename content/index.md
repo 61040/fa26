@@ -22,9 +22,6 @@ the class and its expectations. We have too much
 exciting stuff to talk about, so we won’t be explaining administrative things
 in class sessions.
 
-We will send invitations to Commons, our class forum, on Thursday Sept 10. 
-If you haven't received an invitation by the evening, please request access using [this form](https://forms.gle/j2XYxr2zUoAFSN5D9).
-
 ## Action Items (Week 1)
 1. **Read the [class guide](./guide.md)** (this week), so you know how this class works and why.
 2. **Complete the [prep](./preps.md)** (by 10am Thursday): set up your GitHub repo and play with Markdown so you're ready for recitation.
