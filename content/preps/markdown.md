@@ -22,6 +22,10 @@ should take about 30 minutes.
 
 4. **Commit to GitHub.** Use git to add, commit and push your local changes to the remote repo in GitHub.
 
-5. **Submit on Commons.** Submit the link to your cloned repository in the assignment submission form on Commons.
+5. **Add the instructors as collaborators.** Viewing your repo on GitHub, go to
+   "Settings" -> "Collaborators". Click "Add people", enter in
+   `61040-fa26-staff` and click "Add".
 
-6. **Recitation.** Come to recitation with your laptop and your cloned repository running locally so you can participate in some small exercises to further your understanding. And of course, bring whatever questions you might have!
+6. **Submit on Commons.** Submit the link to your cloned repository in the assignment submission form on Commons.
+
+7. **Recitation.** Come to recitation with your laptop and your cloned repository running locally so you can participate in some small exercises to further your understanding. And of course, bring whatever questions you might have!
