@@ -19,7 +19,7 @@ day. So this class offering will be a bit experimental, and you shouldn’t
 expect everything to be as predictable as it would be in a mature class.
 
 This website will host all the important material, including the [schedule](./schedule.md) (with
-links to lecture and recitation notes), [assignments and problem sets](./assignments/), [resources](./resources.md) and [preps](./preps/) (short intros to technologies, due before recitations). We
+links to lecture and recitation notes), [assignments and problem sets](./assignments/), [resources](./resources/) and [preps](./preps/) (short intros to technologies, due before recitations). We
 will be using the class forum for class discussions and to answer any questions you
 might have about course material or assignments.
 
