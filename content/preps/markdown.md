@@ -18,7 +18,7 @@ should take about 30 minutes.
 3. **Create your repository.** Create a blank private repository (see [GitHub's
    instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository))
    and use Markdown to write the skeleton for your [first assignment](../assignments/e1.md).
-   Use the structure described [here](../guides/repo.md).
+   Use the [structure described here](../guides/repo.md).
 
 4. **Commit to GitHub.** Use git to add, commit and push your local changes to the remote repo in GitHub.
 
@@ -26,6 +26,4 @@ should take about 30 minutes.
    "Settings" -> "Collaborators". Click "Add people", enter in
    `61040-fa26-staff` and click "Add".
 
-6. **Submit on Commons.** Submit the link to your cloned repository in the assignment submission form on Commons.
-
-7. **Recitation.** Come to recitation with your laptop and your cloned repository running locally so you can participate in some small exercises to further your understanding. And of course, bring whatever questions you might have!
+6. **Recitation.** Come to recitation with your laptop and your repository running locally so you can participate in some small exercises to further your understanding. And of course, bring whatever questions you might have!
