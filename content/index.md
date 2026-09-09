@@ -1,9 +1,7 @@
 ---
-title: 6.1040 Software Design
-description: 6.1040 Software Design
+title: "6.1040: Software Design"
 home: true
 ---
-# 6.1040: Software Design
 
 In this class, you’ll go beyond coding and learn how to design and build
 software that is elegant, powerful and flexible. In addition to classic

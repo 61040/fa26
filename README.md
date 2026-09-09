@@ -30,10 +30,48 @@ The static build is written to `dist/`.
 | Path | Purpose |
 | --- | --- |
 | `content/` | Markdown pages, projects, and posts |
+| `content/announcements/` | Announcement posts listed on the front page |
 | `templates/page.html` | Shared Liquid page layout |
+| `templates/announcements.html` | Front-page announcement list |
 | `public/styles.css` | The complete visual theme |
 | `site.yaml` | Site metadata, collections, and build settings |
 | `.github/workflows/pages.yml` | GitHub Pages build and deployment |
+
+## Announcements
+
+Announcement posts live in `content/announcements/` as one Markdown file each:
+
+```md
+---
+title: Problem Set 1 released
+date: 2026-09-15
+published: true
+---
+
+The one- or two-sentence summary that appears on the front page.
+
+<!--more-->
+
+The rest of the post, shown only on the announcement page itself.
+```
+
+| Field | Purpose |
+| --- | --- |
+| `title` | Heading, used on the front page and the announcement page |
+| `date` | Sorts the front-page list, newest first |
+| `published` | `true` lists it on the front page; `false` hides it from the list |
+
+`published: false` only controls the front-page list. The post is still built
+into `dist/announcements/<slug>/` and stays reachable at its own URL, which is
+handy for staging a post or sharing a link before it goes up on the front page.
+
+Everything above `<!--more-->` is the excerpt shown on the front page. Without
+that separator the list shows the title and date only.
+
+The front-page list is rendered by `templates/announcements.html`, which
+`templates/page.html` includes on the home page. Syncpress 0.2.1 does not
+resolve `render` names in template subdirectories, so this include has to stay
+at the templates root.
 
 ## Draft deployments
 

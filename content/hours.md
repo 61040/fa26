@@ -18,8 +18,10 @@ Other times provided by registrar:
 
 ## Office Hours
 
-Weekly office hours will be scheduled soon. We will likely provide two 2-hour
-blocks on Fridays and Sundays.
+| Date | Time | Room |
+| - | - | - |
+| Sun Sep 13 | 1-3 PM | TBD |
+| Mon Sep 14 | 6-8 PM | TBD |
 
 From November 2nd onwards, office hours are replaced with weekly one-on-one
 meetings with TA mentors for team projects.

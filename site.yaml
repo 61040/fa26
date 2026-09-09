@@ -36,6 +36,14 @@ defaults:
         template: page.html
         publish: true
 collections:
+  announcements:
+    match: "announcements/**/*.md"
+    where:
+      field: data.published
+      equals: true
+    sort:
+      by: data.date
+      order: desc
   posts:
     match: "posts/**/*.md"
     sort:
