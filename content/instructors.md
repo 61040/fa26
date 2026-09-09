@@ -29,10 +29,9 @@ My research bridges human-computer interaction and AI, particularly focused on a
 
 <div class="bio-text">
 
-I'm very excited to be teaching 6.1040 again this term. I'm especially excited
-about the new AI components in the class. I love interacting with students,
-especially talking about design, so don't be shy! When I'm not working on my
-research in software design or my teaching, I like to do [photography](https://dnj.photo/).
+I'm very excited to be teaching 6.1040 again this term. I'm passionate about design, and I'm encourage by how AI tools
+are making it easier to build great software and to focus on the design issues that have the biggest impact. I love interacting with students,
+so don't be shy! When I'm not working on my research in software design or my teaching, I like to do [photography](https://dnj.photo/).
 
 </div>
 </div>
