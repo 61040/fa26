@@ -6,7 +6,7 @@ title: Schedule
 
 | Date | Topic | Assignment Due (11:59PM) | Prep Due (10AM) |
 | - | - | - | - |
-| Wed Sep 9 | **How to innovate**
+| Wed Sep 9 | **How to innovate** [Welcome](/lectures/welcome-no-builds.pdf), [How to ](/lectures/how-to-innovate-no-builds.pdf), 
 | Thu Sep 10 | _Markdown_ | | Prep 1: Markdown
 | Mon Sep 14 | **Intro to concept design** | <!--[-->E1: Problem & personal goals<!--](/assignments/e1)-->
 | Wed Sep 16 | **Designing a concept**
