@@ -13,13 +13,20 @@ title: Resources
 
 <h2 id="github">GitHub</h2>
 
+- [**How to set up your repo for the class**](guides/repo.md)
 - [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
 - [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-<h2 id="additional-resources">Additional Resources</h2>
+<h2 id="concept-design">Concept design</h2>
 
-- <span id="formatting-concepts-markdown"></span>[Formatting Concepts Guide](https://github.com/61040-fa25)
-- <span id="state-notation"></span>[State Notation for Concepts](https://github.com/61040-fa25)
-- <span id="concept-rubric"></span>Concept design rubric — see the course GitHub organization
+- [How to innovate from bad situations](background/how-to-innovate-from-bad-situations.md)
+
+<!--<h2 id="additional-resources">Additional Resources</h2>-->
+
+<!--- <span id="formatting-concepts-markdown"></span>[Formatting Concepts Guide](https://github.com/61040-fa25)-->
+<!--- <span id="concept-rubric"></span>Concept design rubric — see the course GitHub organization-->
+
+<!--
 - [Gemini API Quickstart](https://ai.google.dev/gemini-api/docs/quickstart?lang=python)
 - [Deploying with Render](https://render.com/docs)
+-->

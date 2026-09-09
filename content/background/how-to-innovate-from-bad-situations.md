@@ -2,8 +2,6 @@
 title: How to innovate from bad situations
 ---
 
-# How to innovate from bad situations
-
 [Downloadable markdown version of this file](/how-to-innovate-from-bad-situations.md)
 
 ## Successful innovation from the start

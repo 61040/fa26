@@ -10,9 +10,11 @@ order: 1
 
 2. **Configure and authenticate your GitHub account on your machine.** If you have not previously used Git and your personal GitHub account on your computer, you will need to create an SSH token on your computer and add it to GitHub to verify your identity. See [GitHub's documentation on generating an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and [adding it to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
-3. **Create your repository.** Clone [this template repository](https://github.com/mit-sdg/syncpress-template) (see [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) for details on using a template repository) and name the repository "61040-portfolio".
+3. **Create your repository.** Create a blank repository (see [GitHub's
+   instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)).
+   Use the structure described [here](../guides/repo.md).
 
-4. **Commit to GitHub.** Issue the git commands (add, commit and push) so that your local changes are reflected in the remote repo on your README file.
+4. **Commit to GitHub.** Use git to add, commit and push your local changes to the remote repo in GitHub.
 
 5. **Submit on Commons.** Submit the link to your cloned repository in the assignment submission form on Commons.
 

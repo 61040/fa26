@@ -3,7 +3,27 @@ title: Class Guide
 ---
 This guide tells you the main things you need to know about the class and how it runs. Please read it carefully! We will **not** be using class time to explain this, but we'll be happy to answer any questions you may have on the class forum. 
 
-## Admin details
+<nav class="toc" id="contents" aria-label="Table of contents">
+
+**Contents**
+
+- [Admin details](#admin-details)
+- [What the class is about](#what-the-class-is-about)
+- [Does the class meet industry standards?](#industry-standards)
+- [A learning community](#a-learning-community)
+- [Attendance](#attendance)
+- [Collaboration](#collaboration)
+- [Using AI](#using-ai)
+- [Reflective practice](#reflective-practice)
+- [Student repositories](#student-repositories)
+- [Grading and lateness policy](#grading-and-lateness-policy)
+- [Advice](#advice)
+- [Getting Help](#getting-help)
+- [Life at MIT](#life-at-mit)
+
+</nav>
+
+<h2 id="admin-details">Admin details</h2>
 
 **Prereqs and credits.** 6.104 (aka 6.1040) is a 15-unit junior/senior level class, and offers AUS2, DLAB2, and II credit. You can use the class to provide all of these credits at once. Prerequisites are 6.1020 Software Construction (6.031) and 6.1200[J] Mathematics for Computer Science (6.042). From 6.1020 (6.031), we rely on the ability to think about a program in an abstract and code-independent way (using notions such as specifications, interfaces, representation independence, abstraction functions and invariants), and on some practical skills (knowledge of JavaScript, basic familiarity with Node/Express, and programming maturity, notably the ability to deal with sometimes messy and under-documented frameworks). From 6.1200, we rely on the ability to understand structures in terms of sets, relations and graphs. We don't enforce the prerequisites strictly but students are warned that without the background they provide this class can be extremely challenging.
 
@@ -25,7 +45,14 @@ This guide tells you the main things you need to know about the class and how it
 
 **Meeting with lecturers.** The lecturers will be happy to discuss the ideas they introduced in class with you, to talk about software design in general, and to hear thoughts and ideas about the class. Lecturer meetings are by appointment; please email the lecturers individually to arrange.
 
-## What the class is about
+**Commons.** The forum and assignment submission are hosted on our course software,
+[Commons](https://class.mit-sdg.dev/).
+Enrolled students will receive an email inviting them to join.
+Contact the course staff if you run into problems accessing the site.
+
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
+
+<h2 id="what-the-class-is-about">What the class is about</h2>
 
 This class is about _design_. You’ll learn how to design software that is fit for purpose: that fulfills the needs of users, and is flexible, powerful and easy to use. Design happens at the meeting point of technology and people. It’s not primarily about the user interface; the focus of the class is about how to shape the underlying functionality that the user experiences.
 
@@ -33,13 +60,17 @@ Skills taught in the class includes (1) designing functionality, and achieving m
 
 Although the focus of the class is not technology, you'll learn all the tools you need to be a proficient web stack developer. These include: GitHub for maintaining a repository and GitHub Pages for hosting a static website; Node/Express for backend development; deployment playforms; MongoDB, for persistent storage; and a frontend reactive framework (TBD, but probably Vue).
 
-## Does the class meet industry standards?
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
+
+<h2 id="industry-standards">Does the class meet industry standards?</h2>
 
 Students sometimes ask if the design approach that we teach in the class is the "standard industry approach." Of course it isn’t! If it was, you could learn it on the job and you wouldn’t need an MIT degree. Or to put it another way: the role of education is to shape the future (including yours!), not to reiterate the past.
 
 The class will teach you some of the most effective techniques currently used in industry but it would be a pretty poor class if that was all. In particular, we teach [concept design](https://essenceofsoftware.com) to empower you to be a better designer than you could ever be just by learning on the job, or by taking a UX bootcamp. Concept design is consistent with current best practices (spec-driven development, event-based architectures, microservices, domain-driven design) but offers better modularity and alignment with AI coding tools.
 
-## A learning community
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
+
+<h2 id="a-learning-community">A learning community</h2>
 
 **Goals**. Our goal is for this class to for you to acquire skills, insights and sensibilities that will serve you well for your entire life. Knowing how to build an app may help you get a summer job, but remember that’s not why you’re taking this class. Learning how to think deeply about design matters more. 
 
@@ -55,13 +86,17 @@ Some students are reluctant to ask questions on the forum for fear of looking ba
 
 **Class feedback**. Some classes provide a way for students to offer feedback anonymously. But we believe that anonymous feedback is not a great idea, because it gives the impression that the class is an impersonal product and the students are consumers, rather than the students and teachers embarking on a shared journey. We also believe that it's an important skill for students to learn how to provide candid and constructive feedback. So although we won't be providing an anonymous feedback line, we strongly encourage you to share your thoughts with the lecturers and TAs. We will also be asking for regular feedback about the assignments. We will be very grateful for your ideas, suggestions and constructive criticism.
 
-## Attendance
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
+
+<h2 id="attendance">Attendance</h2>
 
 Why is lecture attendance required? First, we’ve found that students who attend lecture do better: they learn more, they’re happier, and they get better grades. Second, when students don’t attend lectures they often become a burden to the staff because, when the assignment comes and they discover they are unprepared, they try to learn the lecture ideas in office hours and by asking questions online.
 
 We put a lot of work into making lectures engaging and educational, and we believe there is no substitute for being there in person, joining your peers on class activities, and participating in discussions. If you have suggestions for how to improve lectures, we will be glad to hear them.
 
-## Collaboration
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
+
+<h2 id="collaboration">Collaboration</h2>
 
 Design is all about collaboration, so we encourage it in all aspects of the class. You can talk with anyone about anything; you can share ideas; and you can use other people’s ideas in your own submissions with appropriate credit. The only constraint is that you must write up your work by yourself (this ensures that you really understand it!) and note the set of people you collaborated with.
 
@@ -69,7 +104,9 @@ The class will run on an honor code. We will assume that you are not cheating by
 
 You are free to use any third-party code, whether as libraries or code fragments, and to adopt any idea you find online or in a book, so long as it is publicly available and appropriately cited (see the [section on code](http://integrity.mit.edu/handbook/writing-code) in the MIT [handbook](https://integrity.mit.edu) on academic integrity for details).
 
-## Using AI
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
+
+<h2 id="using-ai">Using AI</h2>
 
 An important part of this class is learning how to use AI effectively in software development, so in general you are encouraged to use LLMs extensively.
 
@@ -91,19 +128,25 @@ Here are some tips for using AI in the context of this class:
 - **Brainstorming**. One of the best ways to come up with novel ideas is to brainstorm with some friends or colleagues. An LLM can play this role too, less creatively and more predictably than people, but also with more background knowledge.
 - **Social isolation**. Keep track of how much of your time is spent interacting with an LLM. Everyone needs social contact, fresh air and time without devices. Consider setting aside times to think and work with just pencil and paper. If you haven't done this before, you'll be amazed at how much you can accomplish---how much creativity and clarity comes when the noise is gone. When you hit a problem you don't know how to solve, take a walk.
 
-## Reflective practice
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
+
+<h2 id="reflective-practice">Reflective practice</h2>
 
 [Reflective practice](https://en.wikipedia.org/wiki/Reflective_practice) is the deliberate process of thinking about, analyzing, and critically evaluating your own actions, decisions, and experiences to continuously learn and improve. While the concept can be traced back to educational theorist John Dewey, it gained modern prominence in 1983 when MIT professor Donald Schön published *The Reflective Practitioner*, proving that reflection sits at the very heart of professional expertise. In short, reflection is the secret weapon that transforms everyday experiences into expert skills.
 
 To help you develop this crucial habit, you will write short personal reflections as part of several assignments. If you approach this not as a chore but as an opportunity, you will get far more out of your coursework and become more effective in your future career. Especially in a workplace increasingly driven by AI, your metacognitive abilities (thinking about how you think) are what will distinguish you—not only from those who use AI thoughtlessly, but from AI agents themselves.
 
-## Student repositories
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
+
+<h2 id="student-repositories">Student repositories</h2>
 
 Your individual work for the term will be within two GitHub repositories, one for your personal reflections and problem sets, and one for your project. For the team project, all team members will share a single repo. Your own personal reflections on the team project will be in your personal repo.
 
 To submit each assignment, you will commit it in your repo **and** complete a submission form that will ask you for the commit hash corresponding to the last time you updated the submission prior to the deadline.
 
-## Grading and lateness policy
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
+
+<h2 id="grading-and-lateness-policy">Grading and lateness policy</h2>
 
 Your work in this class will be evaluated by its quality, not its quantity. Each assignment will have a list of a few skills that the assignment aims to teach you. There will be a rubric for each skill, which you can also use as a background document to have an LLM give you feedback on your work prior to submission.
 
@@ -124,14 +167,18 @@ Team work will be graded by team and not participant. Adjustments and compensati
 
 **Completion plan**. Sadly, some students find that even with extensions they are unable to make adequate progress. If, just prior to the team project, your overall grade is not a C or better, you will not be able to join a project team. In this case, we may offer you the option to use the rest of the term to complete the individual assignments, which must be handed in one week before the end of term. Your final grade will be one letter grade lower than what it would have been if all your assignments had been submitted on time, and will be no better than a C. Students may not elect to take this option unilaterally.
 
-## Advice
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
+
+<h2 id="advice">Advice</h2>
 
 Some general advice:
 
 - **Get started early**. We know that 6.104 isn't your only obligation. You’re busy and have to juggle many other classes and other responsibilities. But don't underestimate the time 6.104 assignments will take. They can look deceptively straightforward, and thinking through a design often requires some elapsed time. It's amazing how just having a problem in the back of your mind will make it easier to solve, as ideas will spontaneously occur to you when you're walking, showering, etc. So don't wait until the day an assignment is due to start thinking about it. That will (a) make you stressed, (b) give you few chances to get help, and (c) lose the advantage of mulling a problem over in the back of your mind. So try and get started early on, and figure out what you’ll need to do, and what help you might need.
 - **Ask for help**. Don’t be shy to ask the staff for help in office hours, or to post questions on the class forum. In our experience, students who ask for help enjoy the class more, learn more, and get better grades.
 
-## Getting Help
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
+
+<h2 id="getting-help">Getting Help</h2>
 
 Do make good use of all the resources the class offers. We're here to help you!
 
@@ -145,7 +192,9 @@ Students are sometimes wary of posting basic questions in the class forum, but b
 - If you have a question or are confused about something, other students almost certainly are too, and you will be doing them a service by articulating a question.
 - Learning how to be straightforward about what you don’t understand, and where you need help, is an important professional skill. People who confidently ask for help are better team members than those who struggle silently.
 
-## Life at MIT
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
+
+<h2 id="life-at-mit">Life at MIT</h2>
 
 Life at MIT is intense, fast-paced and exciting. But it can also be exhausting, and almost all students have times when they feel demoralized or frustrated. And a campus can be a lonely place even when you’re surrounded by others.
 
@@ -154,3 +203,5 @@ MIT is committed to helping students deal with the pressures and challenges of s
 The staff of this class is deeply committed to making your experience this term one that will not only give you valuable skills and insights, but will also bring you confidence and joy in your work. We hope that if the class does not live up to our aspirations of supporting you effectively in any way, you will let us know. The lecturers are also keen to engage with students individually, so be in touch if we can help.
 
 You might find Daniel Jackson's book [Portraits of Resilience](https://portraitsofresilience.com) helpful. It includes stories of MIT students who have experienced serious challenges in their life at MIT and how they handled them.
+
+<p class="back-to-top"><a href="#contents">&uarr; Back to top</a></p>
