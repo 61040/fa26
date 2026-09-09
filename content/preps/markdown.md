@@ -5,13 +5,19 @@ due_date: 2026-09-10 10:00:00 -0400
 order: 1
 ---
 
+**Due:** Thursday, September 10th, 10am
+
+This prep will guide you through getting set up to do your first assignment. It
+should take about 30 minutes.
+
 ## Your Tasks
 1. **Background reading.** If you have not used Markdown before, briefly review the [Markdown resources on the class's resource page](../resources.md#markdown).
 
 2. **Configure and authenticate your GitHub account on your machine.** If you have not previously used Git and your personal GitHub account on your computer, you will need to create an SSH token on your computer and add it to GitHub to verify your identity. See [GitHub's documentation on generating an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and [adding it to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
 3. **Create your repository.** Create a blank repository (see [GitHub's
-   instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)).
+   instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository))
+   and use Markdown to write the skeleton for your [first assignment](../assignments/e1.md).
    Use the structure described [here](../guides/repo.md).
 
 4. **Commit to GitHub.** Use git to add, commit and push your local changes to the remote repo in GitHub.
