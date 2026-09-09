@@ -27,9 +27,15 @@
 
   <main id="main">
     {% if page.data.home %}
-      <div class="intro">
-      {{ page.content }}
-      </div>
+      <article>
+        <header class="article-header">
+          <h1>{{ page.data.title }}</h1>
+        </header>
+        <div class="home-panes">
+          <div class="prose"> {{ page.content }} </div>
+          {% render "announcements.html" %}
+        </div>
+      </article>
     {% else %}
       <article>
         <header class="article-header">

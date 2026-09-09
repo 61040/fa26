@@ -1,0 +1,18 @@
+{% if collections.announcements.size > 0 %}
+<section id="announcements">
+  <h2>Announcements</h2>
+  <ol class="announcement-list">
+    {% for announcement in collections.announcements %}
+    <li>
+      <div class="announcement-body">
+        <h3><a href="{{ announcement.url }}">{{ announcement.data.title }}</a></h3>
+        <div class="announcement-meta">
+          <time datetime="{{ announcement.data.date }}">{{ announcement.data.date }}</time>
+        </div>
+        {% if announcement.excerpt %}{{ announcement.excerpt }}{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}

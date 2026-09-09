@@ -1,9 +1,7 @@
 ---
-title: 6.1040 Software Design
-description: 6.1040 Software Design
+title: "6.1040: Software Design"
 home: true
 ---
-# 6.1040: Software Design
 
 <!--
 Welcome to new students for Fall 2026! Please check as soon as possible that you can access the [class forum] and let us know by completing [this form]() if you cannot. All important messages and updates will be distributed there.
