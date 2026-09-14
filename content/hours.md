@@ -20,8 +20,9 @@ Other times provided by registrar:
 
 | Date | Time | Room |
 | - | - | - |
-| Sun Sep 13 | 1-3 PM | 32-044 |
-| Mon Sep 14 | 6-8 PM | 32-044 |
+| Sunday | 1-3 PM | 34-304 |
+| Monday | 6-8 PM | 34-304 |
+| Friday | 3-5 PM | 34-304 |
 
 From November 2nd onwards, office hours are replaced with weekly one-on-one
 meetings with TA mentors for team projects.
