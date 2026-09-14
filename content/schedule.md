@@ -8,7 +8,7 @@ title: Schedule
 | - | - | - | - |
 | Wed Sep 9 | **How to innovate** ([Welcome](/lectures/welcome-no-builds.pdf), [How to](/lectures/how-to-innovate-no-builds.pdf))
 | Thu Sep 10 | [_Markdown_](/recitations/recitation-1.pdf) | | Prep 1: Markdown
-| Mon Sep 14 | **Intro to concept design** [Slides](/lectures/intro-to-concepts.pdf) | <!--[-->E1: Problem & personal goals<!--](/assignments/e1)-->
+| Mon Sep 14 | **Intro to concept design** ([Slides](/lectures/intro-to-concepts.pdf)) | <!--[-->E1: Problem & personal goals<!--](/assignments/e1)-->
 | Wed Sep 16 | **Designing a concept**
 | Thu Sep 17 | _HTML, CSS_ | | Prep 2: HTML, CSS
 | Mon Sep 21 | **CTX framework** | E2: Understanding concepts
