@@ -1,5 +1,5 @@
 ---
-title: "A notation for state declarations in concept specifications"
+title: "How to write concept state: SSF"
 ---
 
 For the surrounding concept definition and action notation, see [Specifying a concept](specifying-concepts.md).

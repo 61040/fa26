@@ -5,7 +5,7 @@ title: Assignments
 ### Individual Exercises
 
 - [**E1:** Problem framing](./assignments/e1.md)
-- [**E2:** Understanding Concepts](./assignments/e1.md)
+- [**E2:** Understanding Concepts](./assignments/e2.md)
 - **E3:** Modular design (composing concepts)
 
 ### Personal Project
