@@ -22,6 +22,15 @@ title: Resources
 - [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
 - [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
+<h3 id="html">HTML &amp; CSS</h3>
+
+- [W3Schools HTML Tutorial](https://www.w3schools.com/Html/)
+- [W3Schools CSS Tutorial](https://www.w3schools.com/css/)
+- [Firefox View Source](https://firefox-source-docs.mozilla.org/devtools-user/view_source/index.html)
+- [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/open)
+- [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools)
+
+
 <h2 id="background">Background docs</h2>
 
 - [How to innovate from bad situations](background/how-to-innovate-from-bad-situations.md)

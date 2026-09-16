@@ -7,11 +7,11 @@ title: Schedule
 | Date | Topic | Assignment Due (11:59PM) | Prep Due (10AM) |
 | - | - | - | - |
 | Wed Sep 9 | **How to innovate** ([Welcome](/lectures/welcome-no-builds.pdf), [How to](/lectures/how-to-innovate-no-builds.pdf))
-| Thu Sep 10 | [_Markdown_](/recitations/recitation-1.pdf) | | Prep 1: Markdown
-| Mon Sep 14 | **Intro to concept design** ([Slides](/lectures/intro-to-concepts.pdf)) | <!--[-->E1: Problem & personal goals<!--](/assignments/e1)-->
+| Thu Sep 10 | [_Markdown_](/recitations/recitation-1.pdf) | | [Prep 1: Markdown](./preps/markdown.md)
+| Mon Sep 14 | **Intro to concept design** ([Slides](/lectures/intro-to-concepts.pdf)) | [E1: Problem & personal goals](./assignments/e1.md)
 | Wed Sep 16 | **Designing a concept**
-| Thu Sep 17 | _HTML, CSS_ | | Prep 2: HTML, CSS
-| Mon Sep 21 | **CTX framework** | E2: Understanding concepts
+| Thu Sep 17 | _HTML, CSS_ | | [Prep 2: HTML, CSS](./preps/html-css.md)
+| Mon Sep 21 | **CTX framework** | [E2: Understanding concepts](./assignments/e2.md)
 | Wed Sep 23 | **Designing states and actions**
 | Thu Sep 24 | _HTTP and REST_ | | Prep 3: HTTP and REST
 | Mon Sep 28 | **Designing reactions** | E3: Understanding composition

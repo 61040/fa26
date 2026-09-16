@@ -11,11 +11,6 @@ Students can attend any recitation section that fits their schedule:
 - **R2**: 2pm-3pm in 34-302
 - **R3**: 3pm-4pm in 34-304
 
-<!--
-Other times provided by registrar:
-- **R12**: 12pm-1pm in 26-314
--->
-
 ## Office Hours
 
 | Date | Time | Room |

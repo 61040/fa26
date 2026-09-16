@@ -11,7 +11,4 @@ Attend recitations to discuss any difficulties with the prep work.
 ## Available Prep Assignments
 
 1. [**Setting up Portfolio Repository using Markdown**](./preps/markdown.md)
-
-<!--
-2. **HTML & CSS**
--->
+2. [**HTML & CSS**](./preps/html-css.md)
