@@ -5,7 +5,7 @@ published: true
 ---
 
 [Exercise 2](../assignments/e2.md)
-(due next Wednesday)
+(due Monday)
 and
 [Prep 2](../preps/html-css.md)
 (due tomorrow morning)
