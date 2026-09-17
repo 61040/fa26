@@ -162,6 +162,8 @@ article { max-width: 75vw; margin: auto; padding: 3rem 0 1rem; }
 
 .article-header { margin-bottom: 3rem; }
 .article-header time { color: var(--text-light); font-size: 0.875rem; }
+.article-header time.due-date { color: var(--text-primary); font-size: 1.05rem; }
+.article-header time.due-date strong { color: var(--accent-red); }
 .article-header h1 {
   margin: 1rem 0 1.5rem;
   font-family: 'Space Grotesk', sans-serif;
