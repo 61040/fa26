@@ -20,7 +20,7 @@ No. We appreciate how frustrating it can be when you want to take two classes th
 No. Students are expected to attend in person. We may be able to provide recordings to individual students who missed particular lectures due to extenuating circumstances.
 
 **Do I really need the prereqs?**
-See the [class guide](/guide) for more information about the prereqs. We don't strictly enforce them, but in our experience students who have only some basic programming experience and are not adept with JavaScript will struggle to keep up, and will find learning the technology stack overwhelming. The class builds on program structuring fundamentals such as data abstraction (immutability, representation independence and representation invariants) and declarative specification (pre/post conditions) taught in 6.102. Students not familiar with these notions find it much harder to grasp the design ideas of the class.
+See the [class guide](/guide/) for more information about the prereqs. We don't strictly enforce them, but in our experience students who have only some basic programming experience and are not adept with JavaScript will struggle to keep up, and will find learning the technology stack overwhelming. The class builds on program structuring fundamentals such as data abstraction (immutability, representation independence and representation invariants) and declarative specification (pre/post conditions) taught in 6.102. Students not familiar with these notions find it much harder to grasp the design ideas of the class.
 
 **Is the class a CIM?**
 No, it isn't. The amount of writing required in the class is minimal.

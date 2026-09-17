@@ -8,7 +8,7 @@ title: Instructors
 
 <div class="bio">
 
-![](instructors/mitchell.jpg)
+<img src="instructors/mitchell.jpg" alt="" sizes="200px">
 
 <div class="bio-text">
 
@@ -25,7 +25,7 @@ My research bridges human-computer interaction and AI, particularly focused on a
 
 <div class="bio">
 
-![](instructors/daniel.jpg)
+<img src="instructors/daniel.jpg" alt="" sizes="200px">
 
 <div class="bio-text">
 
@@ -42,7 +42,7 @@ so don't be shy! When I'm not working on my research in software design or my te
 
 <div class="bio">
 
-![](instructors/eagon.jpg)
+<img src="instructors/eagon.jpg" alt="" sizes="200px">
 
 <div class="bio-text">
 
@@ -63,7 +63,7 @@ drop by - I'd love to meet you!
 
 <div class="bio">
 
-![](instructors/carmel.jpg)
+<img src="instructors/carmel.jpg" alt="" sizes="200px">
 
 <div class="bio-text">
 
@@ -87,7 +87,7 @@ I am very excited to help teach this course!
 
 <div class="bio">
 
-![](instructors/kartik.jpeg)
+<img src="instructors/kartik.jpeg" alt="" sizes="200px">
 
 <div class="bio-text">
 
@@ -104,7 +104,7 @@ Outside of MIT, I love midday coffee runs, Lego sets with my roommates, and ever
 
 <div class="bio">
 
-![](instructors/christine.jpg)
+<img src="instructors/christine.jpg" alt="" sizes="200px">
 
 <div class="bio-text">
 
@@ -121,7 +121,7 @@ Outside of MIT, you might see me at cafes or crocheting while watching a drama. 
 
 <div class="bio">
 
-![](instructors/amalia.jpeg)
+<img src="instructors/amalia.jpeg" alt="" sizes="200px">
 
 <div class="bio-text">
 

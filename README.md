@@ -8,13 +8,13 @@ A course website for MIT's 6.1040 Software Design, built with
 Syncpress requires Node.js 24.
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
-Open <http://127.0.0.1:3000>. The checked-in `basePath` matches this template's
-published URL; change it to `/` in `site.yaml` while previewing if you want local
-links to use the server root.
+Open <http://127.0.0.1:3000>. The checked-in `basePath` is `/` for local
+preview. The deployment workflow sets `/fa26/` or the appropriate draft prefix
+when publishing to GitHub Pages.
 
 Other useful commands:
 
@@ -24,6 +24,19 @@ npm run inspect -- /
 ```
 
 The static build is written to `dist/`.
+
+### Image build performance
+
+Syncpress 0.5.1 caches verified image renditions across builds and `dev` restarts.
+The Pages workflow also caches these renditions across runs. Deleting the image
+cache only causes regeneration; it does not delete sources or published files.
+
+`site.yaml` requests WebP plus exact original fallbacks, avoiding the cold-build
+cost of AVIF encoding. This trades AVIF's potential download-size savings for
+faster builds. Default rendition widths remain available for large instructional
+screenshots. Portraits declare `sizes="200px"` to match their CSS display size,
+so browsers do not choose a rendition as if each portrait filled the viewport.
+Original images and PDFs are kept unchanged.
 
 ## Structure
 
@@ -69,9 +82,9 @@ Everything above `<!--more-->` is the excerpt shown on the front page. Without
 that separator the list shows the title and date only.
 
 The front-page list is rendered by `templates/announcements.html`, which
-`templates/page.html` includes on the home page. Syncpress 0.2.1 does not
-resolve `render` names in template subdirectories, so this include has to stay
-at the templates root.
+`templates/page.html` includes on the home page. `render` names are relative
+to `templates/`; if the file moves into a subdirectory, update the render name
+to include that subdirectory.
 
 ## Draft deployments
 
@@ -86,5 +99,5 @@ git branches to a public URL, so long as the branch name is prefixed with
 - Link to non-Markdown files using absolute links: `[style](/styles.css)`
 
 Absolute links are always OK (for content files, don't include the extension:
-`[link](/about)`) but it is nicer for Obsidian and GitHub to use
+`[link](/about/)`) but it is nicer for Obsidian and GitHub to use
 relative links with Markdown extensions.
