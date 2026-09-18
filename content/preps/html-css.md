@@ -11,15 +11,15 @@ order: 2
 ## Tasks
 
 1. **Background reading.** If you are unfamiliar with HTML and CSS, briefly
-   review the [resources](../resources.md#html).
+   review the [resources](../resources/technical.md#html).
 
 2. **View source.** Explore the HTML and CSS used in this website by viewing the source of this page and other pages on the course site. This functionality is available in all major web
    browsers, typically in a right-click context menu. See
-   [resources](../resources.md#html) for instructions in Firefox; other
+   [resources](../resources/technical.md#html) for instructions in Firefox; other
    browsers work similarly.
 
 
-3. **Developer tools.** Use developer tools to change the client DOM live in your browser. Try manipulating the CSS using the styles tab and editing the HTML element tree in the DOM tab. Like with view source, this affordance is ubiquitous among common browser. The [resources](../resources.md#html) pages contains instructions for Chrome and Firefox; documentation for other browser is readily available online.
+3. **Developer tools.** Use developer tools to change the client DOM live in your browser. Try manipulating the CSS using the styles tab and editing the HTML element tree in the DOM tab. Like with view source, this affordance is ubiquitous among common browser. The [resources](../resources/technical.md#html) pages contains instructions for Chrome and Firefox; documentation for other browser is readily available online.
 
 4. **Make a webpage.** Make a simple HTML file in your private repo with some static content. Using the style
    tag in the HTML or a linked CSS file, add some styling. **Do NOT use LLMs to

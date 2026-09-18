@@ -5,7 +5,7 @@ title: Setting up your private repo
 Every student maintains a private repo for their exercises and reflections.
 This page will describe how to structure this repo.
 
-For information on how to use GitHub, see [resources](../resources.md#github).
+For information on how to use GitHub, see [resources](../resources/technical.md#github).
 
 ## Structure
 

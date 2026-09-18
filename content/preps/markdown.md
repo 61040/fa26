@@ -12,7 +12,7 @@ should take about 30 minutes.
 
 ## Your Tasks
 
-1. **Background reading.** If you have not used Markdown before, briefly review the [Markdown resources on the class's resource page](../resources.md#markdown).
+1. **Background reading.** If you have not used Markdown before, briefly review the [Markdown resources on the class's resource page](../resources/technical.md#markdown).
 
 2. **Configure and authenticate your GitHub account on your machine.** If you have not previously used Git and your *personal* GitHub account (**not** your MIT Enterprise GitHub account) on your computer, you will need to create an SSH token on your computer and add it to GitHub to verify your identity. See [GitHub's documentation on generating an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and [adding it to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account). Please do not use the MIT Enterprise GitHub for this class.
 

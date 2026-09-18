@@ -9,27 +9,7 @@ title: Resources
 
 <h2>Technical resources</h2>
 
-<h3 id="markdown">Markdown</h3>
-
-- [Markdown Guide](https://www.markdownguide.org/) ([Cheat
-  Sheet](https://www.markdownguide.org/cheat-sheet/))
-- [GitHub Markdown Documentation](https://docs.github.com/en/get-started/writing-on-github)
-- [Playground](resources/markdown-preview.md)
-- [Using a README.md in your GitHub repo](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
-
-<h3 id="github">GitHub</h3>
-
-- [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
-- [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-
-<h3 id="html">HTML &amp; CSS</h3>
-
-- [W3Schools HTML Tutorial](https://www.w3schools.com/Html/)
-- [W3Schools CSS Tutorial](https://www.w3schools.com/css/)
-- [Firefox View Source](https://firefox-source-docs.mozilla.org/devtools-user/view_source/index.html)
-- [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/open)
-- [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools)
-
+See the [Technical Resources](./resources/technical.md) page.
 
 <h2 id="background">Background docs</h2>
 
