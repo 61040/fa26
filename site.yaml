@@ -8,21 +8,21 @@ site:
     - label: Home
       url: /
     - label: Schedule
-      url: /schedule
+      url: /schedule/
     - label: Assignments
-      url: /assignments
+      url: /assignments/
     - label: Preps
-      url: /preps
+      url: /preps/
     - label: Recitation/Office Hours
-      url: /hours
+      url: /hours/
     - label: Resources
-      url: /resources
+      url: /resources/
     - label: Instructors
-      url: /instructors
+      url: /instructors/
     - label: Class Guide
-      url: /guide
+      url: /guide/
     - label: FAQ
-      url: /faq
+      url: /faq/
 paths:
   content: content
   templates: templates
@@ -54,6 +54,11 @@ collections:
     sort:
       by: data.order
       order: asc
+# WebP keeps responsive images without the cold-build cost of AVIF encoding.
+# Exact originals remain available as fallbacks; leave widths at their defaults
+# so large instructional screenshots retain useful high-resolution candidates.
+images:
+  formats: [webp, original]
 markdown:
   extensions: [tables, autolinks]
   raw: true

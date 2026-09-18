@@ -110,6 +110,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Cache image renditions
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/syncpress/images
+          key: ${{ runner.os }}-${{ runner.arch }}-syncpress-images-v1-${{ hashFiles('package-lock.json') }}-${{ matrix.name }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-${{ runner.arch }}-syncpress-images-v1-${{ hashFiles('package-lock.json') }}-${{ matrix.name }}-
+            ${{ runner.os }}-${{ runner.arch }}-syncpress-images-v1-${{ hashFiles('package-lock.json') }}-
+
       - name: Build site
         run: npm run build
 
