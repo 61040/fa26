@@ -25,7 +25,6 @@ title: Technical Resources
 - [W3Schools CSS Tutorial](https://www.w3schools.com/css/)
 
 ### Documentation
-- [
 - [Firefox View Source](https://firefox-source-docs.mozilla.org/devtools-user/view_source/index.html)
 - [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/open)
 - [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools)
