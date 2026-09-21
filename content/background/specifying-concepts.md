@@ -20,7 +20,7 @@ A concept definition has the following parts:
 - The action definitions
 - The query definitions, if any
 
-Designers tend to augment this minimal definition with additional elements, such as links to related concepts, typical synchronizations associated with the concept, a history of revisions, and (perhaps most importantly) informal notes that explain the definition and its alternatives.
+Designers tend to augment this minimal definition with additional elements, such as links to related concepts, typical reactions associated with the concept, a history of revisions, and (perhaps most importantly) informal notes that explain the definition and its alternatives.
 
 The concept *name* should signal the essential functionality of the concept. The functionality will generally be an activity occurring over a prolonged period, so names that would be appropriate for actions that occur instantaneously will not be appropriate. And although the functionality may be primarily associated with one type of individual, it's preferable not to choose a name that could be confused with such a type.
 
@@ -155,7 +155,7 @@ The operational principle can be written formally and precisely, but because it 
 
 A concept definition should  *not* make reference to the actions or states of other concepts within the sections describing its own states and actions. But in the operational principle (and to a degree within the purpose), it can make sense to imply the existence of actions and states belonging to other concepts.
 
-**Example: Operational principle that suggests actions from other concepts**. For example, the operational principle of the `Notifying` concept might be: 'If a user registers for a particular event type, then when an event of that type occurs, the user will be notified.' This `Notifying` concept might have an action called `notify` that is executed in response to an event, but that action is unlikely to actually notify a user. Instead, it would typically be synchronized with an action from another concept that causes some communication to occur (for example, an email or text or in-app announcement). So strictly speaking, the operational principle of the `Notifying` concept assumes this synchronization. Likewise, when we specified the purpose of `Notifying` above as 'provide users with timely notifications of events of interest', it should be recognized that this purpose is contingent on the presence of other actions that will actually convey the information to the user.
+**Example: Operational principle that suggests actions from other concepts**. For example, the operational principle of the `Notifying` concept might be: 'If a user registers for a particular event type, then when an event of that type occurs, the user will be notified.' This `Notifying` concept might have an action called `notify` that is executed in response to an event, but that action is unlikely to actually notify a user. Instead, you would typically define a reaction with another concept that causes some communication to occur (for example, an email or text or in-app announcement). So strictly speaking, the operational principle of the `Notifying` concept assumes this reaction. Likewise, when we specified the purpose of `Notifying` above as 'provide users with timely notifications of events of interest', it should be recognized that this purpose is contingent on the presence of other actions that will actually convey the information to the user.
 
 The *state* section of the concept defines the state that the concept stores in order to perform the actions. In behavioral terms, the state of a concept is a collection of relations, each holding some particular relationships.
 
@@ -273,9 +273,9 @@ notify (user: User, type: EventType, link: EventLink) : return (notification: No
 
 When the application invokes `notify`, it supplies the user, event type and link as inputs. The action creates a notification and returns it as an output, so the distinction between inputs and outputs is the same as for any other action.
 
-In conventional function call settings, only the outputs of a function call can be used to constrain subsequent calls. This is not true in concept design, since a synchronization can bind variables based on inputs as well.
+In conventional function call settings, only the outputs of a function call can be used to constrain subsequent calls. This is not true in concept design, since a reaction can bind variables based on inputs as well.
 
-**Example: Synchronization for notification**. A sync for notification might specify that when the system `notify` action happens, a `send` action of a Messaging concept follows, with the same arguments (and the event type and link concatenated into a single string):
+**Example: Reaction for notification**. A reaction for notification might specify that when the system `notify` action happens, a `send` action of a Messaging concept follows, with the same arguments (and the event type and link concatenated into a single string):
 ```
 when Notifying.notify (user, type, link)
 then Messaging.send (user, type ^ link)
@@ -339,7 +339,7 @@ cancel (reservation: Reservation) : return ()
 
 Note that the existence of reservations is with respect to the set defined by the state declaration (`a set of Reservations`). Creating a new reservation means adding a new individual to this set, and removing a reservation means removing a reservation individual from this set. 
 
-Conceptually, an action adds and removes relationships (that is, adds and removes tuples of relations), but it's common to write the postcondition more informally as if the relations were fields of objects being updated. It's important to remember, however, that this is just a convenient way to describe how the relations change, and there aren't any composite objects being stored. This is important because when individuals are passed between concepts (in synchronizations), it's only the individuals that are being passed (that is, their identities), and none of their properties are passed with them.
+Conceptually, an action adds and removes relationships (that is, adds and removes tuples of relations), but it's common to write the postcondition more informally as if the relations were fields of objects being updated. It's important to remember, however, that this is just a convenient way to describe how the relations change, and there aren't any composite objects being stored. This is important because when individuals are passed between concepts (in reactions), it's only the individuals that are being passed (that is, their identities), and none of their properties are passed with them.
 
 **Example: Changes to a relation expressed as field updates**.  A `UserAuthentication` concept with this state
 
