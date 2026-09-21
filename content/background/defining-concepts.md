@@ -41,14 +41,14 @@ The definition of a concept differs from its outline in the following respects:
 
 ### Example: HoldingBooking concept
 
-> **concept** HoldingBooking
-> **purpose** let you book something while available and buy later;  prevents losing the booking or being forced to buy immediately
+> **concept** HoldingBooking  
+> **purpose** let you book something while available and buy later;  prevents losing the booking or being forced to buy immediately  
 > **principle** when booking an item, you can hold it without buying; if you buy before the hold expires, the booking will still be available; if it expires before you buy, you lose the booking but no payment or cancellation is needed.
 
 **Delineating this concept's actions**. There are three steps that are implied by the principle: holding the booking, hold expiring, and buying the booking. Losing the booking doesn't need to be an action in its own right because it's implied by the hold expiring. The payment and cancellation that aren't needed are by way of explaining what the concept does not do, so they don't correspond to actions. To clarify this delineation, we can mark the actions of the concept by italics or underlining:
 
-> **concept** HoldingBooking
-> **purpose** let you book something while available and buy later;  prevents losing the booking or being forced to buy immediately
+> **concept** HoldingBooking  
+> **purpose** let you book something while available and buy later;  prevents losing the booking or being forced to buy immediately  
 > **principle** when considering purchasing an item, you can *hold* it without buying, obtaining a booking with a limited lifetime; if you *buy* before the booking *expires*, the item will still be available; if it *expires* before you *buy*, you lose the booking but no payment or cancellation is needed.
 
 **Additional actions**. Now we consider additional actions. Let's consider compensating actions:
@@ -88,16 +88,16 @@ The remaining actions are easier to find arguments for, because they all involve
 
 The Reserving concept is a more challenging example. It follows a similar pattern to the HoldingBooking example, with a reservation in place of a booking. Here is the concept outline:
 
-> **concept** Reserving
-> **purpose** let you reserve a resource in advance so it will be available; prevents wanting to use a resource and finding it unavailable
+> **concept** Reserving  
+> **purpose** let you reserve a resource in advance so it will be available; prevents wanting to use a resource and finding it unavailable  
 > **principle** you reserve a resource for a particular date and time in the future, and can redeem it at that date and time and then make use of it.
 
 **Delineating this concept's actions**. There are three steps that are implied by the principle: reserving the resource, redeeming it and using it. Delineating responsibility, we might identify only the first two as actions of the Reserving concept. The use of the resource is resource dependent; in a restaurant, it involves being seated and served a meal, whereas at a barber, it involves having a haircut. We'd expect a different lifecycle for these uses also: seating a diner involves selecting a table, which would likely be managed by a different concept.
 
 To clarify this delineation, we mark the actions of the concept by italics or underlining:
 
-> **concept** Reserving
-> **purpose** let you reserve a resource in advance so it will be available; prevents wanting to use a resource and finding it unavailable
+> **concept** Reserving  
+> **purpose** let you reserve a resource in advance so it will be available; prevents wanting to use a resource and finding it unavailable  
 > **principle** you *reserve* a resource for a particular date and time in the future, and can *redeem* it at that date and time and then make use of it.
 
 **Additional actions**. Now we consider additional actions. Let's consider compensating actions:
@@ -132,8 +132,8 @@ All of these are individuals, except for time and party size, which are values.
 
 The remaining actions are much easier to find arguments for, because they all involve a reservation that is already in hand. So they will simply take that reservation as an input:
 
-> cancel (reservation)
-> redeem (reservation)
+> cancel (reservation)  
+> redeem (reservation)  
 > noshow (reservation)
 
 **Providing an individual just means providing an identity**. Remember that having a reservation as an argument does not mean that whoever invokes the action needs to provide some structured object that represents the reservation. The reservation is an individual, so the argument is just the identity of that individual. In practice, the identity will be represented by some identifier (like a reservation number) and it will be provided by the user typing it in or clicking on a link that contains it.
@@ -188,20 +188,20 @@ The final task is to connect the states with the actions, by saying when each ac
 
 Taking each action in turn, starting with reserve:
 
-> reserve (reserver, resource, time, party size) : return (reservation)
-> **where** there's no reservation already for this resource
+> reserve (reserver, resource, time, party size) : return (reservation)  
+> **where** there's no reservation already for this resource  
 > **then** create a new reservation for this reserver, resource, time and party size and return it
 
-> cancel (reservation)
-> **where** this reservation exists
+> cancel (reservation)  
+> **where** this reservation exists  
 > **then** remove the reservation
 
-> redeem (reservation)
-> **where** this reservation exists and its time is now
+> redeem (reservation)  
+> **where** this reservation exists and its time is now  
 > **then** remove the reservation
 
-> noshow (reservation)
-> **where** this reservation exists and its time has passed
+> noshow (reservation)  
+> **where** this reservation exists and its time has passed  
 > **then** remove the reservation
 
 The reservation existing just means that it's in the pool of reservations stored in the state, and removing a reservation means that it's taken out of the pool along with all of its facts. The reference to "its time" for a reservation uses the fact that is stored that remembers a time for each reservation. Note that these definitions are a bit vague about what it means for a reservation's time to be now or to have passed; before the design is deployed, these details will need to be filled in (for example, by saying that "now" means within 15 minutes of the reservation time).
@@ -260,20 +260,20 @@ Sometimes it will be fairly obvious how the actions are connected to the state, 
 > 
 > **actions**
 > 
-> reserve (reserver, resource, time, party size) : return (reservation)
-> **where** there's no reservation already for this resource
+> reserve (reserver, resource, time, party size) : return (reservation)  
+> **where** there's no reservation already for this resource  
 > **then** create a new reservation for this reserver, resource, time and party size and return it
 > 
-> cancel (reservation)
-> **where** this reservation exists
+> cancel (reservation)  
+> **where** this reservation exists  
 > **then** remove the reservation
 
-> redeem (reservation)
-> **where** this reservation exists and its time is now
+> redeem (reservation)  
+> **where** this reservation exists and its time is now  
 > **then** remove the reservation
 
-> noshow (reservation)
-> **where** this reservation exists and its time has passed
+> noshow (reservation)  
+> **where** this reservation exists and its time has passed  
 > **then** remove the reservation
 
 For the more detailed notation, see [Specifying a concept](specifying-concepts.md). [Specifying concept state](specifying-concept-state.md) explains how to turn the informal state descriptions used here into state declarations.
