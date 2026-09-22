@@ -6,7 +6,7 @@ title: Assignments
 
 - [**E1:** Problem framing](./assignments/e1.md)
 - [**E2:** Understanding Concepts](./assignments/e2.md)
-- **E3:** Modular design (composing concepts)
+- [**E3:** Modular design (composing concepts)](./assignments/e3.md)
 
 ### Personal Project
 
