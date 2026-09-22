@@ -12,3 +12,4 @@ Attend recitations to discuss any difficulties with the prep work.
 
 1. [**Setting up Portfolio Repository using Markdown**](./preps/markdown.md)
 2. [**HTML & CSS**](./preps/html-css.md)
+3. [**HTTP and REST**](./preps/http-rest.md)

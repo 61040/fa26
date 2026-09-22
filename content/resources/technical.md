@@ -29,5 +29,13 @@ title: Technical Resources
 - [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/open)
 - [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools)
 
+<h2 id="http">HTTP &amp; REST</h2>
+
+- [MDN: An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview)
+- [MDN: HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers)
+- [MDN: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status)
+- [httpbin](https://httpbin.org) (HTTP request playground)
+- [Swagger Petstore](https://petstore.swagger.io) (interactive REST API)
+
 
 
