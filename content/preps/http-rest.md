@@ -62,7 +62,9 @@ Pick a unique integer to use as your pet's ID throughout this section (e.g., 123
 ### Task 4. GET a resource
 
 Scroll to the pet section, expand the `GET /pet/{petId}` row, and click *Try it out*.
+
 In the petId field, type your chosen ID number and click *Execute*.
+
 Scroll down to the Responses panel and notice the response code: 404
 
 ### Task 5. PUT a new resource
@@ -83,8 +85,10 @@ Click *Execute* and verify the response code is 200
 
 ### Task 6. GET a resource (part 2)
 
-Go back to `GET /pet/{petId}` and click *Try it out* again
-Enter your same ID number and click *Execute*
+Go back to `GET /pet/{petId}` and click *Try it out* again. 
+
+Enter your same ID number and click *Execute*. 
+
 Verify server response code is 200 AND the response body JSON contains “Tim_The_Beaver”
 
 ## Submission
