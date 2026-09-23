@@ -12,7 +12,7 @@ title: Schedule
 | Wed Sep 16 | **Designing a concept** ([Slides](/lectures/designing-a-concept.pdf))
 | Thu Sep 17 | [_HTML, CSS_ ](/recitations/recitation-2.pdf)| | [Prep 2: HTML, CSS](./preps/html-css.md)
 | Mon Sep 21 | **Designing coordination** ([Slides](/lectures/designing-coordination.pdf))| [E2: Understanding concepts](./assignments/e2.md)
-| Wed Sep 23 | **Designing states and actions**
+| Wed Sep 23 | **Modularity** ([Slides](/lectures/modularity.pdf))
 | Thu Sep 24 | _HTTP and REST_ | | [Prep 3: HTTP and REST](./preps/http-rest.md)
 | Mon Sep 28 | **Designing reactions** | [E3: Understanding composition](./assignments/e3.md)
 | Wed Sep 30 | **Designing modular systems**
