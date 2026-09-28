@@ -62,6 +62,7 @@ description: A real-time GitHub-flavored Markdown previewer
     overflow-y: auto;
     padding: 16px;
     background: #fff;
+    font-size: 90%;
   }
 
   /* GitHub Markdown Styles */
@@ -85,19 +86,19 @@ description: A real-time GitHub-flavored Markdown previewer
   }
 
   .markdown-body h1 {
-    font-size: 32px;
+    font-size: 24pt;
     border-bottom: 1px solid #eaecef;
   }
 
   .markdown-body h2 {
-    font-size: 24px;
+    font-size: 20pt;
     border-bottom: 1px solid #eaecef;
   }
 
-  .markdown-body h3 { font-size: 20px; }
-  .markdown-body h4 { font-size: 16px; }
-  .markdown-body h5 { font-size: 14px; }
-  .markdown-body h6 { font-size: 12px; color: #6a737d; }
+  .markdown-body h3 { font-size: 16pt; }
+  .markdown-body h4 { font-size: 14pt; }
+  .markdown-body h5 { font-size: 12pt; }
+  .markdown-body h6 { font-size: 12pt; color: #6a737d; }
 
   .markdown-body p {
     margin-bottom: 16px;
@@ -199,7 +200,7 @@ description: A real-time GitHub-flavored Markdown previewer
 
     #editor,
     #preview {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 </style>
@@ -230,23 +231,78 @@ description: A real-time GitHub-flavored Markdown previewer
 
   editor.addEventListener('input', updatePreview);
 
-  const sampleMarkdown = `# GitHub-flavored Markdown Example
+  const sampleMarkdown = `# Markdown Example
 
-## Usage
+**Note:** This is a live preview! You can edit the left pane and see the result
+immediately rendered on the right side.
+
+What's on this page:
+
+1. Example of writing concept specifications in Markdown
+2. Overview of Markdown syntax, with links to documentation
+
+## Concept Specification Example
+**concept** GiftRegistering [User, Item]\\
+  **purpose** track purchases of requested gifts; prevent people buying you things you don't want\\
+  **principle**\\
+    a recipient creates a registry, and adds items to it indicating the number of each requested;\\
+    opens the registry so it becomes publicly visible;\\
+    then givers can view which items are still available and purchase them;\\
+    and finally the recipient closes the registry, after which it is no longer publicly visible\\
+    but the recipient can see which items were purchased and by whom.\\
+  **state**\\
+    a set of Registries with\\
+      an owner User\\
+      an active Flag\\
+      a set of Requests
+
+    a set of Requests with\\
+      an Item\\
+      a count Number\\
+      a set of Purchases
+
+    a set of Purchases with\\
+      a purchaser User\\
+      an Item\\
+      a count Number\\
+  **actions**\\
+    create (owner: User) : return (registry: Registry)\\
+      **then** create a new registry with this owner, active set to false and no requests, and return it
+
+    addItem (registry: Registry, item: Item, count: Number)\\
+      **where** registry exists and count is greater than zero\\
+      **then** if a request for this item exists in this registry, add the given count to its count\\
+      otherwise create a new request for the item with this count and no purchases, and add it to the registry
+
+    removeItem (registry: Registry, item: Item)\\
+      **where** a request for this item exists in the registry\\
+      **then** remove the request from the registry and delete the request
+
+    open (registry: Registry)\\
+      **where** registry exists and is not active\\
+      **then** make registry active
+
+    close (registry: Registry)\\
+      **where** registry exists and is active\\
+      **then** make registry not active
+
+    purchase (purchaser: User, registry: Registry, item: Item, count: Number)\\
+      **where** registry exists and is active, count is greater than zero, and the registry has a request for this item with a count no less than the given count plus the sum of the counts of purchases for that request\\
+      **then** create a new purchase for this purchaser, item and count, and add it to that request's purchases
+
+## Markdown Syntax
 [Github-flavored Markdown Manual](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-
-## Example
 
 This is an example of **GitHub-flavored Markdown**.
 
-## Text Formatting
+### Text Formatting
 
 - **Bold** with \`**\` or \`__\`.
 - *Italic* with \`*\` or \`_\`.
 - ~~Strikethrough~~ with \`~~\`.
 - \`Monospace\` with backticks.
 
-## Lists
+### Lists
 
 - Item 1
 - Item 2
@@ -258,21 +314,21 @@ This is an example of **GitHub-flavored Markdown**.
    1. Subordered item 2.1
    2. Subordered item 2.2
 
-## Links
+### Links
 
 [GitHub](https://github.com)
 
-## Images
+### Images
 
 ![Alt text](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)
 
-## Blockquotes
+### Blockquotes
 
 > To be, or not to be, that is the question.
 >
 > -- William Shakespeare
 
-## Code Blocks
+### Code Blocks
 
 Inline \`code\` has \`back-ticks around\` it.
 
@@ -282,7 +338,7 @@ const greeting = 'Hello, world!';
 console.log(greeting);
 \`\`\`
 
-## Tables
+### Tables
 
 | Header1 | Header2 | Header3 |
 | --- | --- | --- |
@@ -290,7 +346,7 @@ console.log(greeting);
 | Row2Col1 | Row2Col2 | Row2Col3 |
 | Row3Col1 | Row3Col2 | Row3Col3 |
 
-## Task Lists
+### Task Lists
 * [x] Write some Markdown
 * [ ] World domination
 
