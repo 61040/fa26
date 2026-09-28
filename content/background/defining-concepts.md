@@ -176,6 +176,7 @@ For example, a state of the Reserving concept might hold two reservations that h
 | ------------- | -------- | ---------- | ---------------------- | ---------- |
 | Reservation 1 | Alice    | Resource 3 | May 10, 2027 at 7:30pm | 4          |
 | Reservation 2 | Bob      | Resource 4 | May 12, 2027 at 7:00pm | 2          |
+
 The table records that two reservations exist, along with eight facts relating them to reservers, resources, times and party sizes. There are four of these facts for each row. For the first row they are: (1) that Reservation 1 has Alice as its reserver, (2) that Reservation 1 has Resource 3 as its resource, (3) that Reservation 1 has May 10, 2027 at 7:30pm as its time, and (4) that Reservation 1 has 4 as its party size.
 
 Note that Alice and Bob are being used here as identities of reservers. This was to make it a bit easier to grasp, but it would have been more consistent to have used identities similar to the other individuals. For example, they might have been Reserver 23 and Reserver 12. Just remember that the reserver of a reservation is the identity of the individual who reserved (and not their first name!).
