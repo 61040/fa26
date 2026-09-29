@@ -29,7 +29,7 @@
     {% if page.data.home %}
       <article>
         <header class="article-header">
-          <h1>{{ page.data.title }}</h1>
+        {% if page.data.title %}<h1>{{ page.data.title }}</h1>{% endif %}
         </header>
         <div class="home-panes">
           <div class="prose"> {{ page.content }} </div>
@@ -40,7 +40,7 @@
       <article>
         <header class="article-header">
           {% if page.data.date %}<time datetime="{{ page.data.date }}">{{ page.data.date }}</time>{% endif %}
-          <h1>{{ page.data.title }}</h1>
+          {% if page.data.title %}<h1>{{ page.data.title }}</h1>{% endif %}
           {% if page.data.categories == "assignments" %}<p><time class="due-date" datetime="{{ page.data.due_date }}"><strong>Due:</strong> {{ page.data.due_date }}</time></p>{% endif %}
           {% if page.data.description %}<p>{{ page.data.description }}</p>{% endif %}
         </header>
