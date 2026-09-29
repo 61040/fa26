@@ -50,7 +50,7 @@ Use the [problem framing](https://61040.github.io/fa26/rubrics/problem-framing/)
 
 ### Overview
 
-**Advice.** Read the advice section before you start\! It’ll help you succeed in this assignment, enjoy it more and complete it in less time. Note especially the part about keeping a design notebook.
+**Advice.** Read the [advice section](#advice) before you start\! It’ll help you succeed in this assignment, enjoy it more and complete it in less time. Note especially the part about keeping a design notebook.
 
 **Design elements.** In this assignment, you’ll design the essential parts of the application you’re building for your personal project. These include: an articulation of the problem being addressed; an outline of the key features; a conceptual design comprising the main concepts (and a few representative reactions); some user interface sketches and a user journey explaining how some key features will be used.
 
