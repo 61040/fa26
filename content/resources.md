@@ -14,10 +14,18 @@ See the [Technical Resources](./resources/technical.md) page.
 
 <h2 id="background">Background docs</h2>
 
-- [How to innovate from bad situations](background/innovating-from-bad-situations.md)
-- [Defining a concept](background/defining-concepts.md)
-- [Specifying a concept](background/specifying-concepts.md)
-- [Specifying concept state](background/specifying-concept-state.md)
+1. [What concept design is](background/what-concept-design-is.md)
+1. [Concept design and software development](background/concept-design-and-software-dev.md)
+1. [Concept design and agentic AI](background/concept-design-and-agentic-ai.md)
+1. [What a concept is and is not](background/what-a-concept-is.md)
+1. [How to innovate from bad situations](background/innovating-from-bad-situations.md)
+1. [How to identify concepts](background/identifying-concepts.md)
+1. [Defining concepts](background/defining-concepts.md)
+1. [How to write concept specifications](background/specifying-concepts.md)
+1. [A notation for state declarations in concept specifications](background/specifying-concept-state.md)
+1. [How to decompose into concepts](background/decomposing-into-concepts.md)
+1. [Flaws in concept definitions](background/flaws-in-concept-definitions.md)
+1. [Flaws in concept decompositions](background/flaws-in-concept-decompositions.md)
 
 <!--<h2 id="additional-resources">Additional Resources</h2>-->
 
