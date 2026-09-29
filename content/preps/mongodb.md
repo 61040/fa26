@@ -16,7 +16,7 @@ MongoDB is a **document database**. Unlike a relational database, which organize
 
 ## Tasks
 
-1. **Set up MongoDB.** Follow the instructions in the [MongoDB Setup Guide](https://61040.github.io/fa26/resources/mongodb-setup/) to set up your MongoDB Atlas account and database and connect MongoDB to your local development environment.
+1. **Set up MongoDB.** Follow the instructions in the [MongoDB Setup Guide](../resources/mongodb-setup.md) to set up MongoDB in your local development environment.
 
 2. **Complete the setup tests.** Complete all steps in the setup guide through **Step 5** and make sure that all 5 test cases pass.
 
