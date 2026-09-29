@@ -1,4 +1,6 @@
-# How to write concept specifications
+---
+title: How to write concept specifications
+---
 
 Writing concepts down is useful. Most straightforwardly, you want to define what a concept *is*, namely the behaviors that it offers. By focusing on behavior rather than appearance (in a user interface) or implementation (in the code), you can ensure that the same definition can serve different people coming from different perspectives, whether concerned with user experience, software architecture, engineering, marketing, sales, and so on. The concept becomes a bridge between roles. And because a concept can capture common functionality between apps and services, it becomes a bridge also between teams.
 

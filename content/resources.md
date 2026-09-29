@@ -14,7 +14,7 @@ See the [Technical Resources](./resources/technical.md) page.
 
 <h2 id="background">Background docs</h2>
 
-- [How to innovate from bad situations](background/how-to-innovate-from-bad-situations.md)
+- [How to innovate from bad situations](background/innovating-from-bad-situations.md)
 - [Defining a concept](background/defining-concepts.md)
 - [Specifying a concept](background/specifying-concepts.md)
 - [Specifying concept state](background/specifying-concept-state.md)

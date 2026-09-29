@@ -1,4 +1,6 @@
-# Concept design and agentic AI
+---
+title: Concept design and agentic AI
+---
 
 ## What the problems are
 

@@ -1,4 +1,6 @@
-# Flaws in concept decompositions
+---
+title: Flaws in concept decompositions
+---
 
 This document lists and explains common flaws in concept decompositions. 
 

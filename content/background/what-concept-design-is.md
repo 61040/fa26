@@ -1,4 +1,6 @@
-# What concept design is
+---
+title: What concept design is
+---
 
 Concept design is a language and a method for designing **courses of action**: behaviors that fulfill specified purposes. Concept design was developed originally for designing software, in which the behaviors were executed by machines. But because concept design views behaviors abstractly, rather than in terms of particular physical or computational mechanisms, it is not specific to software. Behaviors can be executed by humans, machines or agents. This means that concept design can help in any domain in which behaviors are important. In particular, it can help with the design of **software, AI agents, organizations, business processes and policies**.
 

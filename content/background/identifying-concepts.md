@@ -1,4 +1,6 @@
-# How to identify concepts
+---
+title: How to identify concepts
+---
 
 ## Concepts as granular design elements
 

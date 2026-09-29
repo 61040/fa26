@@ -32,4 +32,4 @@ Competency levels:
 
 * **Expert.** The design meets the competent criteria and reveals an insightful decomposition or composition that makes a difficult part of the problem simpler. The choice of responsibilities and behavior makes the design simpler and clearer.
 
-See the background documents on [defining a concept](https://61040.github.io/fa26/background/defining-concepts/), [specifying a concept](https://61040.github.io/fa26/background/specifying-concepts/), and [specifying concept state](https://61040.github.io/fa26/background/specifying-concept-state/).
+See the background documents on [defining a concept](../background/defining-concepts.md), [specifying a concept](../background/specifying-concepts.md), and [specifying concept state](../background/specifying-concept-state.md).

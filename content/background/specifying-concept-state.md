@@ -1,4 +1,6 @@
-# A notation for state declarations in concept specifications
+---
+title: A notation for state declarations in concept specifications
+---
 
 ## Purpose
 Simple State Form (SSF) is a syntax for data modeling that is designed to be both easy to read (especially by non-technical people) and also easily translatable into a formal database schema (either by an LLM or by a conventional parser). It is intended to be compatible with collection databases (such as MongoDB), relational databases (such as SQLLite), relational modeling languages (such as Alloy), and also graph databases (such as Neo and GraphQL). SSF was motivated by the need for a simple language for state declarations for concepts in concept design.

@@ -18,7 +18,7 @@ In this project, you’ll design and build a web application that addresses a pr
 
 ### Submission process
 
-Your **project code and design documents** belong in your **project repository**. Keep your **design notebook and personal reflections** in your **private individual repository**, as described in the [class guide](https://61040.github.io/fa26/guide/#student-repositories).
+Your **project code and design documents** belong in your **project repository**. Keep your **design notebook and personal reflections** in your **private individual repository**, as described in the [class guide](../guide.md#student-repositories).
 
 For each milestone:
 
@@ -28,7 +28,7 @@ For each milestone:
 
 3. Submit the GitHub repository link and commit hash for each repository containing required work through the corresponding assignment in [Commons](https://class.mit-sdg.dev/). Include the deployed app URL and video link when required.
 
-See the [guide to submitting a commit hash](https://61040.github.io/fa26/guides/hash/). Follow the [class guide](https://61040.github.io/fa26/guide/#grading-and-lateness-policy) for lateness and extensions.
+See the [guide to submitting a commit hash](../guides/hash.md). Follow the [class guide](../guide.md#grading-and-lateness-policy) for lateness and extensions.
 
 ### Grading
 
@@ -42,7 +42,7 @@ Your work in this class will be evaluated by its quality, not its quantity. Your
 
 - **Expert.** You applied the skill with the insight and creativity that distinguishes an expert from a routine practitioner.
 
-Use the [problem framing](https://61040.github.io/fa26/rubrics/problem-framing/), [technical writing](https://61040.github.io/fa26/rubrics/technical-writing/), and [reflective practice](https://61040.github.io/fa26/rubrics/reflective-practice/) rubrics, along with the project rubrics below.
+Use the [problem framing](../rubrics/problem-framing.md), [technical writing](../rubrics/technical-writing.md), and [reflective practice](../rubrics/reflective-practice.md) rubrics, along with the project rubrics below.
 
 ## P1: Design
 
@@ -58,7 +58,7 @@ Use the [problem framing](https://61040.github.io/fa26/rubrics/problem-framing/)
 
 **Design notebook.** Keep a chronological Markdown notebook in your personal repository throughout the project. Record your design decisions and interesting moments: what happened, what you learned, and any relevant links to your work. Keep these notes to support your final reflection, which will be graded in P5.
 
-**Problem framing.** Include a separate problem-framing section. You may copy or revise your framing from E1, taking account of feedback. Follow the [problem-framing rubric](https://61040.github.io/fa26/rubrics/problem-framing/).
+**Problem framing.** Include a separate problem-framing section. You may copy or revise your framing from E1, taking account of feedback. Follow the [problem-framing rubric](../rubrics/problem-framing.md).
 
 Include a stakeholder list, with a name for each kind of stakeholder, and a sentence explaining their role (if any) in the problem.
 
@@ -122,13 +122,13 @@ The sections may link to separate Markdown files. These sections must be linked 
 
 Your work will be evaluated using these rubrics:
 
-* [**Problem framing**](https://61040.github.io/fa26/rubrics/problem-framing/): your problem-framing section.
+* [**Problem framing**](../rubrics/problem-framing.md): your problem-framing section.
 
 * [**Concept design**](../rubrics/concept-design.md): your concept specifications, essential reactions, and the note explaining their roles in the application.
 
 * [**Communicating a proposed solution**](../rubrics/communicating-a-proposed-solution.md): your application pitch, UI sketches, and user journey.
 
-* [**Technical writing**](https://61040.github.io/fa26/rubrics/technical-writing/): all written parts of your submission.
+* [**Technical writing**](../rubrics/technical-writing.md): all written parts of your submission.
 
 ### Advice
 
@@ -170,6 +170,4 @@ Realizing this feature might require four concepts: a Wishing concept for record
 
 Often, developers are sloppy about this and then they have to introduce modularity in the code, when everything is more complicated and that can require a lot of reworking. Put another way, it’s a difficult task whenever you do it, but it’s easier to do at the design phase, and will make coding much easier. You might find it helpful to review the lecture on modularity and the associated slides.
 
-**Identifying concepts**. See this [tutorial on criteria](https://essenceofsoftware.com/tutorials/concept-basics/criteria/) that you can apply to ensure that your concepts really are coherent concepts and not just arbitrary pieces of functionality. You can also read more about identifying concepts in Chapter 2 of Daniel’s book: [The Essence of Software](https://www.degruyter.com/document/doi/10.1515/9780691230542/html).
-
-**Writing concept specs**. The concept notation is pretty minimal, so try and keep your concept specifications short and to the point. Include only the essential actions. Any additional commentary that you might want to include should be in a notes section at the end of the concept specification. Use the course background documents on [defining a concept](https://61040.github.io/fa26/background/defining-concepts/), [specifying a concept](https://61040.github.io/fa26/background/specifying-concepts/), and [specifying concept state](https://61040.github.io/fa26/background/specifying-concept-state/), together with [the concept-design rubric](../rubrics/concept-design.md).
+**Use the background docs**. The lectures, recitations, and exercises have given you a general overview of concept design. Now that you are developing a complete project, you will certainly need to refer to the [background docs linked on the resources page](../resources.md#background). These contain everything from basic introduction to concept design, detailed reference material on how to write formal concept specifications, and advice on good design. You might find it useful to provide these documents as input to LLM agents, either to enable them to confidently answer questions you have about concept design, or as coding assistants.

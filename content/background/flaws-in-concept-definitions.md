@@ -1,5 +1,6 @@
-
-# Flaws in concept definitions
+---
+title: Flaws in concept definitions
+---
 
 This document lists and explains common flaws in concept definitions. 
 

@@ -1,4 +1,6 @@
-# What a concept is and is not
+---
+title: What a concept is and is not
+---
 
 ## What a concept is
 
