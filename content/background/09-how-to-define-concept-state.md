@@ -1,26 +1,22 @@
----
-title: "How to write concept state: SSF"
----
-
-For the surrounding concept definition and action notation, see [Specifying a concept](specifying-concepts.md).
+# A notation for state declarations in concept specifications
 
 ## Purpose
-Simple State Form (SSF) is a syntax for data modeling that is designed to be both easy to read (especially by non-technical people) and also easily translatable into a formal database schema (either by an LLM or by a conventional parser). It is intended to be compatible with collection databases (such as MongoDB), relational databases (such as SQLite), relational modeling languages (such as Alloy), and also graph databases (such as Neo and GraphQL). SSF was motivated by the need for a simple language for state declarations for concepts in concept design.
+Simple State Form (SSF) is a syntax for data modeling that is designed to be both easy to read (especially by non-technical people) and also easily translatable into a formal database schema (either by an LLM or by a conventional parser). It is intended to be compatible with collection databases (such as MongoDB), relational databases (such as SQLLite), relational modeling languages (such as Alloy), and also graph databases (such as Neo and GraphQL). SSF was motivated by the need for a simple language for state declarations for concepts in concept design.
 
 ## Semantic Features
-The key semantic features of SSF are: the ability to declare sets and sequences of individuals, along with relations that map them to other individuals or primitive values, and subsets of these sets, with additional relations. A basic set of primitive types is provided, as well as enumerations. The language is first-order, so an individual can be mapped to a set of individuals or scalars, but not to a set of sets. Union types are currently not supported.
- 
+The key semantic features of SSF are: the ability to declare sets of individuals, along with relations that map them to other individuals or primitive values, and subsets of these sets, with additional relations. A basic set of primitive types is provided, as well as enumerations. The language is first-order, so an individidual can be mapped to a set of individuals or scalars, but not to a set of sets. Union types are currently not supported. 
+
 ## Grammar
 - *schema* ::= ( *set-decl* | *subset-decl* | *alias-decl* | *rule* )\*
 - *set-decl* ::= \[ "a" | "an" \]  ("element" | "set" | "seq") \[ "of" \] *individual-type* \[ "with" ( *field-decl* | *unique-decl* ) \+ \]
-- *subset-decl* ::= \[ "a" | "an" \]  *sub-type*  ("element" | "set") \[ "of" \] ( *individual-type* | *sub-type* | *alias-name* ) \[ *condition* \] \[ "with" ( *field-decl* | *unique-decl* ) \+ \]
+- *subset-decl* ::= \[ "a" | "an" \]  *subset-name*  ("element" | "set") \[ "of" \] ( *individual-type* | *sub-type* | *alias-name* ) \[ *condition* \] \[ "with" ( *field-decl* | *unique-decl* ) \+ \]
 - *field-decl* ::= \[ "a" | "an" \] *modifier* \* \[ *field-name* \] ( *scalar-type* | *set-type* )
 - *modifier* ::= "optional" | "unique"
 - *unique-decl* ::= "unique" *field-name* ( "and" *field-name* ) \*
 - *scalar-type* ::= *individual-type* | *parameter-type* | *enumeration-type* | *primitive-type* | *alias-name*
 - *set-type* ::= ("set" | "seq" ) \[ "of" \] *scalar-type*
 - *condition* ::= "where" *field-name* "is" *enum-constant* ( "or" *enum-constant* ) \*
-- *alias-decl* ::= "alias" *alias-name* "for" ( *individual-type* | *sub-type* )
+- *alias-decl* ::= "alias" *alias-name* "for" ( *individual-type* | *subset-name* )
 - *rule* ::= "Rule:" *text*
 
 A rule can stand on its own or be indented beneath the declaration it concerns. Adding a rule does not require `with`, which introduces fields and uniqueness constraints.
@@ -29,12 +25,34 @@ An *enumeration-type* is the name of an enumeration declared in the concept's `T
 
 - *enumeration-decl* ::= *enumeration-type* "is" *enum-constant* ( "or" *enum-constant* ) \+
 
+<!--
+## Grammar
+- *schema* ::= ( *set-decl* | *subset-decl* )\*
+- *set-decl* ::= \[ "a" | "an" \]  ("element" | "set") \[ "of" \] *individual-type* \[ "with" *field-decl* \+ \]
+- *subset-decl* ::= \[ "a" | "an" \]  *sub-type*  ("element" | "set") \[ "of" \] ( *individual-type* | *sub-type* ) \[ "with" *field-decl* \+ \]
+- *field-decl* ::=  \[ "a" | "an" \] \["optional"\] \["unique'\]\[*field-name*\] (*scalar-type*  | *set-type*)
+- *scalar-type* ::= *individual-type* | *parameter-type* | *enumeration-type* | *primitive-type* 
+- *set-type* ::= ("set" | "seq" ) \[ "of" \] *scalar-type*
+- *enumeration-type* ::= "of" (*enum-constant* "or" )\+ *enum-constant*
+
+-->
+
 ## Grammar conventions
 - \[ x \] means x is optional
-- In ( x ), the parens are used for grouping, and do not appear in the actual language
+- In ( x ), the parens used for grouping, and do not appear in the actual language
 - a | b means either a or b
 - x \* means an iteration of zero or more of x
 - x \+ means an iteration of one or more of x
+
+## Grammar constraints
+- A *field-name* may be omitted only for declaring a field of *individual-type* or *parameter-type*. Omitting the field name is equivalent to including a name that is the same as the name of the type but with the first character in lower case.
+- The hierarchy that is specified by *subset-decls* cannot contain cycles. Thus, a *subset-decl* may not, for example, declare a subset with a *sub-type* that is the same as the *sub-type* that it is a subset of.
+- The *field-names* within a *set-decl* or *subset-decl* must be unique. Also, within all the decls that are in the hierarchy beneath a *set-decl*, *field-names* must be unique.
+
+<!--
+- A *field-decl* that has a *set-type* cannot use the *optional* or *unique* keyword.
+- A *field-decl* cannot have both the *optional* and *unique* keywords.
+-->
 
 ## Grammar constraints
 - A *field-name* may be omitted for a field referring to individuals, including external individuals, or a set or sequence of them. The implicit name begins with a lowercase letter and uses the singular form for a scalar and the plural form for a collection, as in `a User` for `a user User` and `a set of Options` for `a options set of Options`.
@@ -45,7 +63,7 @@ An *enumeration-type* is the name of an enumeration declared in the concept's `T
 - An enumeration declares at least two distinct values. A subset condition tests a scalar enumeration field declared in the subset or inherited from a parent, using values from that enumeration.
 
 ## Lexical considerations: identifiers
-- The identifiers *enum-constant*, *field-name*, *sub-type*, *individual-type*, *parameter-type*, *enumeration-type* and *primitive-type* are sequences of alphabetic characters, digits and underscores, starting with an alphabetic character. The alphabetic characters in an *enum-constant* must all be uppercase. A *field-name* must start with a lower case alphabetic character. A *sub-type*, *individual-type*, *parameter-type*, *enumeration-type* or *primitive-type* must start with an upper case alphabetic character.
+- The identifiers *enum-constant*, *field-name*, *subset-name*, *individual-type*, *parameter-type*, *enumeration-type* and *primitive-type* are sequences of alphabetic characters, digits and underscores, starting with an alphabetic character. The alphabetic characters in an *enum-constant* must all be uppercase. A *field-name* and *subset-name* must start with a lower case alphabetic character. An *individual-type*, *parameter-type*, *enumeration-type* or *primitive-type* must start with an upper case alphabetic character.
 - The standard values from which a *primitive-type* is drawn are "Number", "String", "Flag", "Date", "DateTime".
 
 ## Lexical considerations: layout
@@ -86,14 +104,12 @@ A set of users whose usernames are optional, but distinct when present:
 	a set of Users with
 	  an optional unique username String
 
-A set of votes, with at most one vote per item and voter. Here `Item` and `User` are external types:
+A set of votes, with at most one vote per item and voter, allowing many users to vote for the same item and a user to vote for many items, while allowing at most one recorded vote for each user and item:
 
 	a set of Votes with
 	  an item Item
 	  a voter User
 	  unique item and voter
-
-This allows many users to vote for the same item and a user to vote for many items, while allowing at most one recorded vote for each user and item.
 
 A set of users, each with a set of followers who are users:
 
@@ -118,7 +134,7 @@ Then use that name in the state declaration:
 
 We can extend this state with a subset containing the users whose status is `PENDING`:
 
-	a Pending set of Users where status is PENDING
+	a pending set of Users where status is PENDING
 
 Here, membership in `Pending` is determined by the user's status. To include several possible status values, list them in the condition separated by `or`. A subset can also have no condition, as in the banned-user example below, in which case the concept records membership separately.
 
@@ -127,12 +143,10 @@ An ordered collection of entries:
 	a seq of Entries with
 	  a text String
 
-Another name for a declared type:
+Another name for a declared type, where `Member` and `Users` refer to the same individuals:
 
 	a set of Users
 	alias Member for Users
-
-Here `Member` and `Users` refer to the same individuals.
 
 A singleton set used for global settings
 
@@ -147,7 +161,7 @@ A set of users, and a subset that have been banned on a particular date and by a
 	  a username String
 	  a password String
 	
-	a Banned set of Users with
+	a banned set of Users with
 	  a bannedOn Date
 	  a bannedBy User
 
@@ -157,7 +171,7 @@ A subset without any relations:
 	  a username String
 	  a password String
 	
-	a Banned set of Users
+	a banned set of Users
 
 A set of items, classified into books and movies:
 
@@ -165,19 +179,21 @@ A set of items, classified into books and movies:
 	  a title String
 	  a created Date
 	
-	a Books set of Items with
+	a books set of Items with
 	  an isbn String
 	  a pageCount Number
 	  an author Person
 	  
-	a Movies set of Items with
+	a movies set of Items with
 	   an imdb String
 	   a director String 
 	   an actors set of Persons
-	
+
+<!--
 	a set of Persons with
 	   a name String
 	   a dob Date
+-->
 
 A mapping defined separately on a set, using a subset (defining a relation called *followers* mapping users in the subset *Followed* to users):
 
@@ -204,33 +220,31 @@ A model of a simple folder scheme in which folders and files have names:
 	  an optional parent Folder
 	  a name String
 	  
-	a RootFolder element of Folder
+	a rootFolder element of Folder
 	
 	a set of Files with 
 	  a Folder
 	  a name String
 
-To rule out cycles in this folder model, we can add a constraint in prose:
-
-	Rule: a folder cannot be its own ancestor through the parent relation.
-
 A model of a Unix like scheme in which names are local to directories:
 
 	a set of FileSystemObjects
 	
-	a Files set of FileSystemObjects
+	a files set of FileSystemObjects
 	
-	a Directories set of FileSystemObjects with
+	a directories set of FileSystemObjects with
 	  a set of Entries
 	  
-	a RootDirectory element of Directories
+	a rootDirectory element of Directories
 	
 	a set of Entries with
 	  a name String
 	  a member FileSystemObject
 
+<!--
 A schema is easily translated into a diagram as follows:
 - Create a node for each set or subset declaration and label it with the set or subset name.
 - For each subset declaration, draw a dotted arrow to the node that it is declared to be a subset of.
 - For each field of a set or a subset, draw a solid arrow labeled by the field name to the target type, which is either a set or subset node, or a fresh node with an appropriate label for a primitive type.
 - An enumeration is drawn by introducing a set node for the type as a whole, and a subset node for each of the enumeration constants.
+-->

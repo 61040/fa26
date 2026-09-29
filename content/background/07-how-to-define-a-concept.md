@@ -1,6 +1,3 @@
----
-title: "How to define a concept"
----
 
 The outline of a concept, comprising its name, purpose and principle, can be enough to decide whether the concept is suitable for the task at hand. It provides a helpful summary of the concept that is sufficient for many uses. But to explore and evaluate a design more fully will require a *definition* of each concept.
 
@@ -14,7 +11,7 @@ The definition of a concept differs from its outline in the following respects:
 
 ## Detailing actions and delineating responsibility
 
-**Actions in the principle**. To construct the action list, start by considering each of the steps in the principle and deciding if it should be an action of the concept. Not all the actions of a concept need be performed by the same actor. Some might be performed by a user, for example, or autonomously by the system in response to another action. In an agentic system, some actions will be performed by agents, some by standard deterministic machines, and some by users.
+**Actions in the principle**. To construct the action list, start by considering each of the steps in the principle and deciding if it should be an action of the concept. Not all the actions of a concept need be performed by the same actor. Some might be performed by a user, for example, or autonomously by the system in response to another action. In an agentic system, some actions will be performed by agents, some my standard deterministic machines, and some by users.
 
 **Delineating responsibility**. Some steps in the principle may correspond to actions in *other* concepts, and are included only to provide context for the concept's principle. Hints that a step is not part of this concept include:
 - You could imagine a separate concept with its own principle that governs that step and the lifecycle it belongs to.
@@ -31,7 +28,7 @@ The definition of a concept differs from its outline in the following respects:
 - **Individuals**. An individual represents some entity with a persistent identity. It might be an actor or physical thing in the real world (such as a person, a company, a car), or it might be something virtual that is created by software (such as a restaurant reservation, or a paragraph style, or a digital photo). Just because an individual is virtual doesn't mean that it doesn't have physical representations, but it's important to distinguish the individual from those representations. For example, an airline ticket is a virtual entity representing the airline's commitment to fly you from one place to another; you can print it out, but the printout is not the ticket.
 - **Values**. A value, in contrast, has no persistent identity that is distinct from its representation. Examples of values include numbers, strings and boolean flags. A value may carry a unit that determines how it is interpreted: a temperature in Celsius, a distance in miles. Values often have some structure: a string is a sequence of characters, for example, and a mailing address has a building number, street, city and zip code. Values, unlike individuals, are *interpreted*, which means that operations can be performed on them to compare them and create new values from old ones: for example, you can add numbers together, decide which is larger.
 
-**Individuals aren't structured**. Note that an individual is represented *only* by its identity. If something is defined by its structure, then it must be a value and not an individual. So a pixel comprising three color values (for red, green and blue channels) must be a value and not an individual. Individuals have no inherent structure but they have properties that change over their lifetimes, and these properties do not define the individual. A company, for example, has divisions, employees, and products, but these don't define it; the company exists as an identifiable entity, and if two companies happen at some point to both have no divisions, employees or products, that does not make them the same company! But two pixels with the same color values are the same; they are one pixel, not two.
+**Individuals aren't structured**. Note that an individual is represented *only* by its identity. If something is defined by its structure, then it must be a value and not an individual. So a pixel comprising three color values (for red, green and blue channels) must be a value and not an individual. Individuals have no inherent structure but they have properties that change over their lifetimes, and these properties do not define the individual. A company, for example, has divisions, employees, and products, but these don't define it; the company exists as an identifiable entity, and if two companies happens at some point to both have no divisions, employees or products, that does not make them the same company! But two pixels with the same color values are the same; they are one pixel, not two.
 
 **A common misunderstanding**. This is extremely important because when an individual is an argument to an action, it does not bring with it any "attributes" or "properties". To the extent that a concept knows that an individual has some properties, those properties must have been associated with the individual by *this concept*. This is what ensures that concepts are truly independent of one another.
 
@@ -41,14 +38,14 @@ The definition of a concept differs from its outline in the following respects:
 
 ### Example: HoldingBooking concept
 
-> **concept** HoldingBooking  
-> **purpose** let you book something while available and buy later;  prevents losing the booking or being forced to buy immediately  
+> **concept** HoldingBooking
+> **purpose** let you book something while available and buy later;  prevents losing the booking or being forced to buy immediately
 > **principle** when booking an item, you can hold it without buying; if you buy before the hold expires, the booking will still be available; if it expires before you buy, you lose the booking but no payment or cancellation is needed.
 
 **Delineating this concept's actions**. There are three steps that are implied by the principle: holding the booking, hold expiring, and buying the booking. Losing the booking doesn't need to be an action in its own right because it's implied by the hold expiring. The payment and cancellation that aren't needed are by way of explaining what the concept does not do, so they don't correspond to actions. To clarify this delineation, we can mark the actions of the concept by italics or underlining:
 
-> **concept** HoldingBooking  
-> **purpose** let you book something while available and buy later;  prevents losing the booking or being forced to buy immediately  
+> **concept** HoldingBooking
+> **purpose** let you book something while available and buy later;  prevents losing the booking or being forced to buy immediately
 > **principle** when considering purchasing an item, you can *hold* it without buying, obtaining a booking with a limited lifetime; if you *buy* before the booking *expires*, the item will still be available; if it *expires* before you *buy*, you lose the booking but no payment or cancellation is needed.
 
 **Additional actions**. Now we consider additional actions. Let's consider compensating actions:
@@ -64,7 +61,7 @@ Take the *hold* action first:
 
 So we have defined this action:
 
-> hold (holder, item) : return (booking)
+> hold (holder, item): (booking)
 
 in which
 - *holder* is the person who makes the booking
@@ -72,8 +69,6 @@ in which
 - *booking* is the temporary booking giving the holder the right to buy it
 
 All of these are individuals.
-
-The inputs appear before `: return` and the outputs after it. We show outputs when an action produces them, and leave out the return notation otherwise. For now, we leave out the types of the arguments to focus on their roles.
 
 The remaining actions are easier to find arguments for, because they all involve a booking that is already in hand. So they will both take that booking as an input. In addition, the buy action will take the holder as an input, to ensure that the person buying the item is the same person who booked it:
 
@@ -88,16 +83,16 @@ The remaining actions are easier to find arguments for, because they all involve
 
 The Reserving concept is a more challenging example. It follows a similar pattern to the HoldingBooking example, with a reservation in place of a booking. Here is the concept outline:
 
-> **concept** Reserving  
-> **purpose** let you reserve a resource in advance so it will be available; prevents wanting to use a resource and finding it unavailable  
+> **concept** Reserving
+> **purpose** let you reserve a resource in advance so it will be available; prevents wanting to use a resource and finding it unavailable
 > **principle** you reserve a resource for a particular date and time in the future, and can redeem it at that date and time and then make use of it.
 
 **Delineating this concept's actions**. There are three steps that are implied by the principle: reserving the resource, redeeming it and using it. Delineating responsibility, we might identify only the first two as actions of the Reserving concept. The use of the resource is resource dependent; in a restaurant, it involves being seated and served a meal, whereas at a barber, it involves having a haircut. We'd expect a different lifecycle for these uses also: seating a diner involves selecting a table, which would likely be managed by a different concept.
 
 To clarify this delineation, we mark the actions of the concept by italics or underlining:
 
-> **concept** Reserving  
-> **purpose** let you reserve a resource in advance so it will be available; prevents wanting to use a resource and finding it unavailable  
+> **concept** Reserving
+> **purpose** let you reserve a resource in advance so it will be available; prevents wanting to use a resource and finding it unavailable
 > **principle** you *reserve* a resource for a particular date and time in the future, and can *redeem* it at that date and time and then make use of it.
 
 **Additional actions**. Now we consider additional actions. Let's consider compensating actions:
@@ -120,7 +115,7 @@ Take the *reserve* action first:
 
 Summarizing, we have defined this action:
 
-> reserve (reserver, resource, time, party size) : return (reservation)
+> reserve (reserver, resource, time, partySize): (reservation)
 
 in which
 - *reserver* is the person who makes the reservation
@@ -128,12 +123,12 @@ in which
 - *time* is the date/time that the redemption is expected 
 - *party size* is the number of people who will use the resource
 - *reservation* is the agreement that was created by the action
-All of these are individuals, except for time and party size, which are values.
+All of these are individuals, except for time and partySize which are values.
 
 The remaining actions are much easier to find arguments for, because they all involve a reservation that is already in hand. So they will simply take that reservation as an input:
 
-> cancel (reservation)  
-> redeem (reservation)  
+> cancel (reservation)
+> redeem (reservation)
 > noshow (reservation)
 
 **Providing an individual just means providing an identity**. Remember that having a reservation as an argument does not mean that whoever invokes the action needs to provide some structured object that represents the reservation. The reservation is an individual, so the argument is just the identity of that individual. In practice, the identity will be represented by some identifier (like a reservation number) and it will be provided by the user typing it in or clicking on a link that contains it.
@@ -156,7 +151,7 @@ When you define the state of a concept, it's never ok to define too little state
 
 Often the inputs and outputs of actions point immediately to what should be in the state. Take the Reserving concept. The reserve action had the following inputs and outputs:
 
-> reserve (reserver, resource, time, party size) : return (reservation)
+> reserve (reserver, resource, time, partySize): (reservation)
 
 This suggests that the state should include:
 
@@ -176,33 +171,32 @@ For example, a state of the Reserving concept might hold two reservations that h
 | ------------- | -------- | ---------- | ---------------------- | ---------- |
 | Reservation 1 | Alice    | Resource 3 | May 10, 2027 at 7:30pm | 4          |
 | Reservation 2 | Bob      | Resource 4 | May 12, 2027 at 7:00pm | 2          |
-
-The table records that two reservations exist, along with eight facts relating them to reservers, resources, times and party sizes. There are four of these facts for each row. For the first row they are: (1) that Reservation 1 has Alice as its reserver, (2) that Reservation 1 has Resource 3 as its resource, (3) that Reservation 1 has May 10, 2027 at 7:30pm as its time, and (4) that Reservation 1 has 4 as its party size.
+There are 8 facts here, corresponding to each cell in the table. There are four facts for each row. For the first row they are: (1) that Reservation 1 has Alice as its reserver, (2) that Reservation 1 has Resource 3 as its resource, (3) that Reservation 1 has May 10, 2027 at 7:30pm as its time, and (4) that Reservation 1 has 4 as its party size.
 
 Note that Alice and Bob are being used here as identities of reservers. This was to make it a bit easier to grasp, but it would have been more consistent to have used identities similar to the other individuals. For example, they might have been Reserver 23 and Reserver 12. Just remember that the reserver of a reservation is the identity of the individual who reserved (and not their first name!).
 
 ## Connecting states with actions
 
-The final task is to connect the states with the actions, by saying when each action can occur and how it updates the state. We label the condition with `where` and the effect with `then`. When an action has outputs, you say how the outputs come from the inputs and the state.
+The final task is to connect the states with the actions, by saying, for each action, how to use the state to decide *when* it can occur, and *then* how the state is updated. When an action has outputs, you say how the outputs come from the inputs and the state.
 
 ### Example of connecting states with  the Reserving concept
 
 Taking each action in turn, starting with reserve:
 
-> reserve (reserver, resource, time, party size) : return (reservation)  
-> **where** there's no reservation already for this resource  
-> **then** create a new reservation for this reserver, resource, time and party size and return it
+> reserve (reserver, resource, time, partySize): (reservation)
+> **when** there's no reservation already for this resource
+> **then** create a new reservation for this reserver, resource, time and party size
 
-> cancel (reservation)  
-> **where** this reservation exists  
+> cancel (reservation)
+> **when** this reservation exists
 > **then** remove the reservation
 
-> redeem (reservation)  
-> **where** this reservation exists and its time is now  
+> redeem (reservation)
+> **when** this reservation exists and its time is now
 > **then** remove the reservation
 
-> noshow (reservation)  
-> **where** this reservation exists and its time has passed  
+> noshow (reservation)
+> **when** this reservation exists and its time has passed
 > **then** remove the reservation
 
 The reservation existing just means that it's in the pool of reservations stored in the state, and removing a reservation means that it's taken out of the pool along with all of its facts. The reference to "its time" for a reservation uses the fact that is stored that remembers a time for each reservation. Note that these definitions are a bit vague about what it means for a reservation's time to be now or to have passed; before the design is deployed, these details will need to be filled in (for example, by saying that "now" means within 15 minutes of the reservation time).
@@ -213,9 +207,9 @@ As an example of how the state impacts what actions can happen, consider changin
 
 The behavior embodied in a concept usually involves collections of individuals. Some of these individuals start in the environment; they are passed from the environment to the concept as inputs of actions, stored in the state and then passed back as outputs of other actions. Other individuals start in the concept itself, and are passed to the environment as outputs and then passed back from the environment to the concept as inputs.
 
-> Example. In the Reserving concept, the reservers are individuals that start in the environment; the reservations are individuals that start in the concept itself. The reserve action takes a reserver as an input, creates a reservation for that reserver, and returns the reservation as an output.
+> Example. In the Reserving concept, the reservers are individuals that start in the environment; the reservations are individuals that start in the concept itself. The reserve action takes a reserver as an input creates a reservation for that reserver, and returns the reservation as an output.
 
-These concept-created individuals often correspond to some kind of resource that a user can hold onto. Remember that individuals aren't "objects" in the object-oriented sense. They can't be "opened up" outside the concept, and they don't have any built-in properties or attributes. In the terminology of programming, the individuals of concept design are "handles" or "identifiers" whose meaning comes from how they are mapped within the concept state.
+These concept-created individuals often correspond to some kind of resource that a user can hold onto. Remember that individuals aren't "objects" in the object-oriented sense. They can't be "opened up" outside the concept, and they don't have any built-in properties or attributes. In the terminology of programming, the individuals of concept design are "handles" or "identifiers" whose meaning comes from how they mapped within the concept state.
 
 > Example. The reservation individual is a handle that a reserver can use to cancel or change a reservation. It doesn't carry the time of the reservation or the name of the restaurant. Of course a reservation app will send a confirmation message that includes all these things, but these will be provided along with the reservation, not within it. The reservation may be represented as a number or an alphanumeric string. More commonly the message would include a URL which when accessed lets the reserver see and modify the reservation. In this case, a separate concept, ResourceLinking say, would manage the creation of links and their association with reservations.
 
@@ -261,20 +255,19 @@ Sometimes it will be fairly obvious how the actions are connected to the state, 
 > 
 > **actions**
 > 
-> reserve (reserver, resource, time, party size) : return (reservation)  
-> **where** there's no reservation already for this resource  
-> **then** create a new reservation for this reserver, resource, time and party size and return it
+> reserve (reserver, resource, time, partySize): (reservation)
+> **when** there's no reservation already for this resource
+> **then** create a new reservation for this reserver, resource, time and party size
 > 
-> cancel (reservation)  
-> **where** this reservation exists  
+> cancel (reservation)
+> **when** this reservation exists
 > **then** remove the reservation
 
-> redeem (reservation)  
-> **where** this reservation exists and its time is now  
+> redeem (reservation)
+> **when** this reservation exists and its time is now
 > **then** remove the reservation
 
-> noshow (reservation)  
-> **where** this reservation exists and its time has passed  
+> noshow (reservation)
+> **when** this reservation exists and its time has passed
 > **then** remove the reservation
 
-For the more detailed notation, see [Specifying a concept](specifying-concepts.md). [Specifying concept state](specifying-concept-state.md) explains how to turn the informal state descriptions used here into state declarations.

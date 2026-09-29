@@ -1,8 +1,4 @@
----
-title: How to innovate from bad situations
----
-
-[Downloadable markdown version of this file](/how-to-innovate-from-bad-situations.md)
+# How to innovate from bad situations
 
 ## Successful innovation from the start
 
@@ -90,4 +86,4 @@ In these behavioral systems, the design elements are distinct activities. Each a
 These activities are called concepts, because they have a conceptual integrity by virtue of their independent value, and often their familiarity and possibility for reuse. For example, the same reserving concept might be used for restaurant tables and hair salon appointments; the same notifying concept might be used to inform you when someone replies to your social media post; the same rating concept might be used for products in an online store.
 
 ### Acknowledgment
-These ideas are largely due to Merrick Furst, whose approach to innovation is described in the recent book [The Heart of Innovation](http://theheartofinnovationbook.com).
+The idea of bad situations emerged in discussions with Merrick Furst, whose book [The Heart of Innovation](http://theheartofinnovationbook.com) argues that to uncover "authentic demand," innovators must map and study the situations people find themselves in to find hidden behavioral conflicts.
