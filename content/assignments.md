@@ -10,7 +10,8 @@ title: Assignments
 
 ### Personal Project
 
-- **P1:** Design
+
+- [**P1:** Design](./assignments/personal-project.md)
 - **P2:** Alpha (MVP)
 - **P3:** Beta
 - **P4:** Code Complete

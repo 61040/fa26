@@ -2,8 +2,6 @@
 title: "Personal Project"
 ---
 
-6.1040 Software Design · Fall 2026
-
 ## Overview
 
 In this project, you’ll design and build a web application that addresses a problem you care about. You’ll develop the design, build an alpha and a beta, complete and deploy the app, and test it with potential end users.
