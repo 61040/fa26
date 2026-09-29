@@ -407,7 +407,7 @@ and in `UserDisplaying` a user may be associated with a displayname and bio:
 ```
 concept UserDisplaying [User]
 state
-  a displaying set of Users with
+  a set of Users with
     a displayName String
     a bio String
 ```
