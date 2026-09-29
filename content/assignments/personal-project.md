@@ -56,7 +56,7 @@ Use the [problem framing](https://61040.github.io/fa26/rubrics/problem-framing/)
 
 ### Tasks
 
-**Design notebook.** Keep a chronological Markdown notebook in your personal repository throughout the project. Record your design decisions and interesting moments: what happened, what you learned, and any relevant links to your work. Use these notes when writing your final reflection.
+**Design notebook.** Keep a chronological Markdown notebook in your personal repository throughout the project. Record your design decisions and interesting moments: what happened, what you learned, and any relevant links to your work. Keep these notes to support your final reflection, which will be graded in P5.
 
 **Problem framing.** Include a separate problem-framing section. You may copy or revise your framing from E1, taking account of feedback. Follow the [problem-framing rubric](https://61040.github.io/fa26/rubrics/problem-framing/).
 
