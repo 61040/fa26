@@ -218,6 +218,55 @@ article { max-width: 75vw; margin: auto; padding: 3rem 0 1rem; }
   font-weight: 600;
 }
 
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+.prose :not(pre) > code {
+  padding: 0.1em 0.35em;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.prose pre {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1.1rem;
+  overflow-x: auto;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.prose pre code { font-size: inherit; }
+
+.prose details {
+  margin: 0 0 0.75rem;
+  padding: 0 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.prose details > summary {
+  margin: 0 -1.1rem;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.prose details > summary:hover { color: var(--accent-red); }
+
+.prose details[open] > summary {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose details > :last-child { margin-bottom: 1rem; }
+
+.prose details + :not(details) { margin-top: 1.5rem; }
+
 .guide-step {
   width: 100%;
   margin: 1.25rem 0 2.5rem;

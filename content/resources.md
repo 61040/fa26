@@ -6,6 +6,7 @@ title: Resources
 
 - [**How to set up your repo for the class**](guides/repo.md)
 - [**How to submit a git commit hash**](guides/hash.md)
+- [**How to set up MongoDB for local development**](resources/mongodb-setup.md)
 
 <h2>Technical resources</h2>
 
