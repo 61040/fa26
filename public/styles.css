@@ -242,6 +242,30 @@ article { max-width: 75vw; margin: auto; padding: 3rem 0 1rem; }
 
 .prose pre code { font-size: inherit; }
 
+.prose .code-block {
+  position: relative;
+}
+
+.prose .copy-code {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.prose .copy-code:hover,
+.prose .copy-code:focus-visible {
+  color: var(--accent-red);
+  border-color: currentColor;
+}
+
 .prose details {
   margin: 0 0 0.75rem;
   padding: 0 1.1rem;
