@@ -57,19 +57,19 @@ Make a new, empty folder for the app and set it up with sync-engine. We'll call 
 ```sh
 mkdir reservations
 cd reservations
-bunx --package @mit-sdg/sync-engine@1.0.0 sync-engine setup
+bunx --package @mit-sdg/sync-engine@1.1.0 sync-engine setup
 ```
 
-`setup` creates a `package.json` with sync-engine pinned to version 1.0.0, installs it, and writes a few starter files. Run it while the folder is still empty. In a folder that already has files, it doesn't install anything.
+`setup` creates a `package.json` with sync-engine pinned to version 1.1.0, installs it, and writes a few starter files. Run it while the folder is still empty. In a folder that already has files, it doesn't install anything.
 
 Then add the HTTP adapter and the MongoDB driver:
 
 ```sh
-bun add --exact @mit-sdg/sync-engine-http@1.0.0
+bun add --exact @mit-sdg/sync-engine-http@1.1.0
 bun add mongodb
 ```
 
-The HTTP adapter's version has to match sync-engine's exactly, so it's pinned to 1.0.0 too.
+The HTTP adapter's version has to match sync-engine's exactly, so it's pinned to 1.1.0 too.
 
 Next, create a file called `.env` with the connection string from the MongoDB guide:
 
@@ -154,30 +154,30 @@ external Resource
 
 ```state
 a set of Reservations with
-  a user User
-  a unique resource Resource
+  a User
+  a unique Resource
 ```
 
 ## Actions
 
 ```actions
-reserve(user: User, resource: Resource) : return (reservation: Reservation)
+reserve(user: User, resource: Resource) : returns (reservation: Reservation)
   where resource is already reserved
   then
-    refuse ALREADY_RESERVED "That resource is already reserved."
+    refuses ALREADY_RESERVED "That resource is already reserved."
   where resource is not reserved
   then
     add a new reservation with user and resource
-    return reservation
+    returns reservation
 
-cancel(reservation: Reservation) : return (reservation: Reservation)
-  where reservation exists
+cancel(reservation: Reservation) : returns (reservation: Reservation)
+  where reservation is in Reservations
   then
     remove reservation
-    return reservation
-  where reservation does not exist
+    returns reservation
+  where reservation is not in Reservations
   then
-    refuse NO_SUCH_RESERVATION "There is no such reservation."
+    refuses NO_SUCH_RESERVATION "There is no such reservation."
 ```
 
 ## Queries
@@ -187,6 +187,8 @@ _all() : many (reservation: Reservation, user: User, resource: Resource)
   Answers every reservation, ordered by resource, and no rows when there are none.
 ```
 ````
+
+In State, a field written as just a type is named after that type. So `a User` gives each reservation a `user`, and `a unique Resource` gives it a `resource` that no other reservation shares.
 
 The app's design lists every concept instance and what fills in its external types. Save this as `design/types.md`:
 
@@ -238,6 +240,15 @@ bun run check:design
 ```
 
 You should see `Design form check passed for 3 files.` This checks how the files are written, before there's any code. Once the code exists, `bun run check` also compares the two.
+
+<details>
+<summary>Troubleshooting</summary>
+
+**"an action's signature resolves with `: returns (…)`."** The specification uses the keywords from sync-engine 1.0.0. Since 1.1.0, an action's signature uses `: returns (...)`, and each branch ends with `returns` or `refuses`. The check lists every line to change.
+
+**Any other message.** It names the file, the line, and what it expected there. The [concept specification reference](https://github.com/mit-sdg/sync-engine/blob/main/docs/user/reference/concept-specification.md) shows the whole format.
+
+</details>
 
 ## 3. Write the backend
 
