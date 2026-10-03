@@ -15,8 +15,8 @@ title: Schedule
 | Wed Sep 23 | **Modularity** ([Slides](/lectures/modularity.pdf))
 | Thu Sep 24 | _HTTP and REST_ | | [Prep 3: HTTP and REST](./preps/http-rest.md)
 | Mon Sep 28 | **Designing state** ([Slides](/lectures/designing-state.pdf)) | [E3: Understanding composition](./assignments/e3.md)
-| Wed Sep 30 | **Design case studies** ([Slides](/lectures/design-case-studies.pdf)) 
-| Thu Oct 1 | _Mongo_ | | Prep 4: Mongo
+| Wed Sep 30 | **Design case studies** ([Slides](/lectures/design-case-studies.pdf))
+| Thu Oct 1 | [_Mongo_](/recitations/recitation-4.pdf) | | [Prep 4: Mongo](./preps.md/mongodb.md)
 | Mon Oct 5 | **Client server apps** | [P1: Design](./assignments/personal-project.md)
 | Wed Oct 7 | **Context & AI coding**
 | Thu Oct 8 | _Vue_ | | Prep 5: Vue
