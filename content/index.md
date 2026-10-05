@@ -3,6 +3,8 @@ title: "6.1040: Software Design"
 home: true
 ---
 
+## [Need help? Contact us &rarr;](./guide.md#getting-help)
+
 In this class, you’ll go beyond coding and learn how to design and build
 software that is elegant, powerful and flexible. In addition to classic
 software design and UX techniques, you’ll learn concept design, a new way to
