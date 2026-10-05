@@ -71,11 +71,27 @@ bun add mongodb
 
 The HTTP adapter's version has to match sync-engine's exactly, so it's pinned to 1.1.0 too.
 
+The finished app pins MongoDB's BSON dependency to 7.2.0 for Bun 1.3 compatibility.
+Add this top-level section to `package.json`, then run `bun install`:
+
+```json
+  "overrides": {
+    "bson": "7.2.0"
+  }
+```
+
+Bun 1.4 also works with this pin.
+
 Next, create a file called `.env` with the connection string from the MongoDB guide:
 
 ```
-MONGODB_URL=mongodb://dev:dev@127.0.0.1:27017
+MONGODB_URL=mongodb://dev:dev@127.0.0.1:27017/myapp?authSource=admin
 ```
+
+The `/myapp` part names the database. `authSource=admin` tells MongoDB where to
+check the credentials, because the container's root user belongs to `admin`.
+When you use managed MongoDB, keep the database name and authentication settings
+from its connection string.
 
 Save the same line in `.env.example`, which is the copy you commit. The `.gitignore` that `setup` wrote ignores every file whose name starts with `.env.`, and that includes `.env.example`. Add this line at the end of `.gitignore`, so `.env.example` can be committed while `.env` stays on your computer:
 
@@ -83,7 +99,7 @@ Save the same line in `.env.example`, which is the copy you commit. The `.gitign
 !.env.example
 ```
 
-Finally, add the commands we'll use. Open `package.json` and replace the `"scripts"` section at the end with this:
+Finally, add the commands we'll use. Open `package.json` and replace the `"scripts"` section with this:
 
 ```json
   "scripts": {
@@ -124,7 +140,7 @@ You'll replace the last four in step 3. `setup` never overwrites a file that alr
 
 ## 2. Write the design
 
-A sync-engine app starts with its design. The design files in `design/` say what each concept does and how the app connects the concepts, and later `bun run check` makes sure the code agrees with them. Finish all of the design before you write any code. This guide is about running an app rather than designing one, so we'll go quickly. The [background docs](../resources.md#background) explain how to design concepts, and sync-engine's [authoring guide](https://github.com/mit-sdg/sync-engine/blob/main/docs/user/guide/authoring.md) explains each file.
+A sync-engine app starts with its design. The design files in `design/` say what each concept does and how the app connects the concepts, and later `bun run check` makes sure the code agrees with them. Finish all of the design before you write any code. This guide is about running an app rather than designing one, so we'll go quickly. The [background docs](../resources.md#background) explain how to design concepts, and sync-engine's [authoring guide](https://github.com/mit-sdg/sync-engine/blob/v1.1.0/docs/user/guide/authoring.md) explains each file.
 
 We'll reuse Reserving from the MongoDB guide, trimmed down to reserving and cancelling. Save its specification as `design/concepts/Reserving.md`:
 
@@ -246,7 +262,7 @@ You should see `Design form check passed for 3 files.` This checks how the files
 
 **"an action's signature resolves with `: returns (…)`."** The specification uses the keywords from sync-engine 1.0.0. Since 1.1.0, an action's signature uses `: returns (...)`, and each branch ends with `returns` or `refuses`. The check lists every line to change.
 
-**Any other message.** It names the file, the line, and what it expected there. The [concept specification reference](https://github.com/mit-sdg/sync-engine/blob/main/docs/user/reference/concept-specification.md) shows the whole format.
+**Any other message.** It names the file, the line, and what it expected there. The [concept specification reference](https://github.com/mit-sdg/sync-engine/blob/v1.1.0/docs/user/reference/concept-specification.md) shows the whole format.
 
 </details>
 
@@ -256,7 +272,7 @@ Now the backend, from the concept's class to the server. It's all in `src/`.
 
 ### Connecting to MongoDB
 
-The connection is the same as in the MongoDB guide. Save this as `src/db.ts`:
+The connection uses the URI from `.env`, including its database name. Save this as `src/db.ts`:
 
 ```ts
 import { MongoClient } from "mongodb";
@@ -267,7 +283,7 @@ if (!url) {
 }
 
 export const client = new MongoClient(url);
-export const db = client.db("myapp");
+export const db = client.db();
 ```
 
 ### The concept
@@ -440,6 +456,7 @@ import { createGateway } from "@mit-sdg/sync-engine/boundary";
 import { createHttpHandler } from "@mit-sdg/sync-engine-http/handler";
 import { assembleApplication } from "./assembly.ts";
 import { policy } from "./http.ts";
+import { db } from "./db.ts";
 
 const application = assembleApplication();
 const gateway = createGateway({ application });
@@ -448,13 +465,26 @@ const api = createHttpHandler({ application, gateway, policy });
 const server = Bun.serve({
   hostname: process.env.HOST ?? "127.0.0.1",
   port: Number(process.env.PORT ?? 3000),
-  routes: { "/api/*": api },
+  routes: {
+    "/api/*": api,
+    "/health": async () => {
+      try {
+        await db.collection("reserving.reservations").findOne({}, { maxTimeMS: 2000, timeoutMS: 3000 });
+        return Response.json({ status: "ok" }, { headers: { "Cache-Control": "no-store" } });
+      } catch {
+        return Response.json(
+          { status: "unavailable" },
+          { status: 503, headers: { "Cache-Control": "no-store" } },
+        );
+      }
+    },
+  },
 });
 
 console.log(`Backend listening on ${server.url}`);
 ```
 
-`createHttpHandler` turns the application into a function that answers HTTP requests, and `Bun.serve` runs it on port 3000. The server listens on `127.0.0.1` unless the `HOST` environment variable says otherwise, which the container in step 6 uses.
+`createHttpHandler` turns the application into a function that answers HTTP requests, and `Bun.serve` runs it on port 3000. The server listens on `127.0.0.1` unless the `HOST` environment variable says otherwise, which the container in step 6 uses. Its `/health` route returns HTTP 200 when it can read MongoDB, or 503 while the database is unavailable.
 
 Last, replace `generated.config.ts`, which tells sync-engine's tools where everything is:
 
@@ -705,25 +735,42 @@ import homepage from "./index.html";
 
 const backend = process.env.BACKEND_URL ?? "http://127.0.0.1:3000";
 
+// Pass API requests and health checks on to the backend.
+function proxy(request: Request) {
+  const url = new URL(request.url);
+  return fetch(new URL(url.pathname + url.search, backend), request).catch(
+    () => Response.json({ error: "UNAVAILABLE" }, { status: 503 }),
+  );
+}
+
 const server = Bun.serve({
   hostname: process.env.HOST ?? "127.0.0.1",
   port: Number(process.env.PORT ?? 8080),
   routes: {
     "/": homepage,
-    // Pass API requests on to the backend, so the browser only ever talks to this server.
-    "/api/*": (request) => {
-      const url = new URL(request.url);
-      return fetch(new URL(url.pathname + url.search, backend), request).catch(
-        () => Response.json({ error: "UNAVAILABLE" }, { status: 503 }),
-      );
-    },
+    "/api/*": proxy,
+    "/health": proxy,
   },
 });
 
 console.log(`Frontend listening on ${server.url}`);
 ```
 
-Importing `index.html` hands Bun the whole frontend. Bun reads the page, finds `app.ts` and `styles.css` in it, turns the TypeScript into JavaScript, and serves the result at `/`. Unless `NODE_ENV` is set to `production`, the server runs in development mode. It rebuilds the page whenever you save one of its files and tells the browser to update. Requests under `/api/` go on to the backend, and if the backend can't be reached, the frontend answers with an `UNAVAILABLE` error instead.
+Importing `index.html` hands Bun the whole frontend. Bun reads the page, finds `app.ts` and `styles.css` in it, turns the TypeScript into JavaScript, and serves the result at `/`. Unless `NODE_ENV` is set to `production`, the server runs in development mode. It rebuilds the page whenever you save one of its files and tells the browser to update. Requests under `/api/`, and the `/health` check, go on to the backend, and if the backend can't be reached, the frontend answers with an `UNAVAILABLE` error instead.
+
+Now that both servers exist, replace `start` in `package.json` and add two scripts:
+
+```json
+    "start": "bun run --parallel start:backend start:frontend",
+    "start:backend": "HOST=127.0.0.1 PORT=4000 bun src/main.ts",
+    "start:frontend": "HOST=0.0.0.0 BACKEND_URL=http://127.0.0.1:4000 bun web/server.ts"
+```
+
+`bun run start` runs both servers together. The frontend accepts
+connections on port 8080, or the `PORT` you set, and the backend stays on the
+internal port 4000. If your deployment platform sets `PORT`, configure its app
+port to match and use `/health` as its readiness check. The `dev` commands keep
+the separate local ports used below.
 
 Now the whole app can run. Press Ctrl+C to stop `bun run dev:backend`, then start everything:
 
@@ -832,7 +879,7 @@ services:
     ports:
       - "127.0.0.1:3000:3000"
     environment:
-      MONGODB_URL: mongodb://dev:dev@mongo:27017
+      MONGODB_URL: mongodb://dev:dev@mongo:27017/myapp?authSource=admin
     depends_on:
       - mongo
 
