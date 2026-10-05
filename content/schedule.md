@@ -17,8 +17,7 @@ title: Schedule
 | Mon Sep 28 | **Designing state** ([Slides](/lectures/designing-state.pdf)) | [E3: Understanding composition](./assignments/e3.md)
 | Wed Sep 30 | **Design case studies** ([Slides](/lectures/design-case-studies.pdf))
 | Thu Oct 1 | [_Mongo_](/recitations/recitation-4.pdf) | | [Prep 4: Mongo](./preps/mongodb.md)
-| Mon Oct 5 | **Client server** ([Slides](/lectures/everything.pdf))
-| [P1: Design](./assignments/personal-project.md)
+| Mon Oct 5 | **Client server** ([Slides](/lectures/everything.pdf)) | [P1: Design](./assignments/personal-project.md)
 | Wed Oct 7 | **Context & AI coding**
 | Thu Oct 8 | _Vue_ | | Prep 5: Vue
 | Tue Oct 13 | **Interaction design (Monday schedule)** | P2: Alpha (MVP)
