@@ -37,5 +37,9 @@ title: Technical Resources
 - [httpbin](https://httpbin.org) (HTTP request playground)
 - [Swagger Petstore](https://petstore.swagger.io) (interactive REST API)
 
+<h2 id="vue">Vue</h2>
 
-
+- [Vue tutorial](https://vuejs.org/tutorial/) (set the API Preference to Composition and SFC)
+- [Vue SFC Playground](https://play.vuejs.org/)
+- [Introduction to Vue](https://vuejs.org/guide/introduction.html)
+- [Vue Guide: Essentials](https://vuejs.org/guide/essentials/application.html)
