@@ -7,6 +7,7 @@ title: Resources
 - [**How to set up your repo for the class**](guides/repo.md)
 - [**How to submit a git commit hash**](guides/hash.md)
 - [**How to set up MongoDB for local development**](resources/mongodb-setup.md)
+- [**How to develop a sync-engine app locally**](resources/sync-engine-local-dev.md)
 
 <h2>Technical resources</h2>
 
