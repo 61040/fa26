@@ -18,7 +18,7 @@ title: Schedule
 | Wed Sep 30 | **Design case studies** ([Slides](/lectures/design-case-studies.pdf))
 | Thu Oct 1 | [_Mongo_](/recitations/recitation-4.pdf) | | [Prep 4: Mongo](./preps/mongodb.md)
 | Mon Oct 5 | **Client server** ([Slides](/lectures/everything.pdf)) | [P1: Design](./assignments/personal-project.md)
-| Wed Oct 7 | **Context & AI coding**
+| Wed Oct 7 | **Coding a concept design**
 | Thu Oct 8 | _Vue_ | | [Prep 5: Vue](./preps/vue.md)
 | Tue Oct 13 | **Interaction design (Monday schedule)** | P2: Alpha (MVP)
 | Wed Oct 14 | **Visual design**
