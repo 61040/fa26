@@ -17,10 +17,10 @@ title: Schedule
 | Mon Sep 28 | **Designing state** ([Slides](/lectures/designing-state.pdf)) | [E3: Understanding composition](./assignments/e3.md)
 | Wed Sep 30 | **Design case studies** ([Slides](/lectures/design-case-studies.pdf))
 | Thu Oct 1 | [_Mongo_](/recitations/recitation-4.pdf) | | [Prep 4: Mongo](./preps/mongodb.md)
-| Mon Oct 5 | **Client server** ([Slides](/lectures/everything.pdf)) | [P1: Design](./assignments/personal-project.md)
+| Mon Oct 5 | **Client server** ([Slides](/lectures/everything.pdf)) | [P1: Design](./assignments/p1.md)
 | Wed Oct 7 | **Coding a concept design**
 | Thu Oct 8 | _Vue_ | | [Prep 5: Vue](./preps/vue.md)
-| Tue Oct 13 | **Interaction design (Monday schedule)** | P2: Alpha (MVP)
+| Tue Oct 13 | **Interaction design (Monday schedule)** | [P2: Alpha (MVP)](./assignments/p2.md)
 | Wed Oct 14 | **Visual design**
 | Thu Oct 15 | _Cookies and sessions_ | | Prep 6: Cookies and sessions
 | Mon Oct 19 | **Engaging users: problem, design** | P3: Beta (complete functionality)

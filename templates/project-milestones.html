@@ -1,0 +1,18 @@
+{%- comment -%}
+  Personal project milestone table, shared by the overview and each phase page.
+  Pass `current` as the slug of the including page ("overview", "p1", ...) so its
+  row renders bold instead of as a self-link. Phases with an empty url have no
+  page yet and render unlinked. Output is unindented so Markdown doesn't treat it
+  as a code block.
+{%- endcomment -%}
+{%- assign phases = "p1|P1: Design|Monday, October 5, 2026, 11:59 PM|/assignments/p1/;p2|P2: Alpha (MVP)|Tuesday, October 13, 2026, 11:59 PM|/assignments/p2/;p3|P3: Beta (complete functionality)|Monday, October 19, 2026, 11:59 PM|;p4|P4: Code complete|Monday, October 26, 2026, 11:59 PM|;p5|P5: User testing|Monday, November 2, 2026, 11:59 PM|" | split: ";" -%}
+<table class="project-milestones">
+<thead><tr><th style="text-align: left">Milestone</th><th style="text-align: left">Due date</th></tr></thead>
+<tbody>
+<tr><td>{% if current == "overview" %}<strong>Overview</strong>{% else %}<a href="/assignments/personal-project/">Overview</a>{% endif %}</td><td></td></tr>
+{%- for phase in phases %}
+{%- assign f = phase | split: "|" %}
+<tr><td>{% if f[0] == current %}<strong>{{ f[1] }}</strong>{% elsif f[3] %}<a href="{{ f[3] }}">{{ f[1] }}</a>{% else %}{{ f[1] }}{% endif %}</td><td>{{ f[2] }}</td></tr>
+{%- endfor %}
+</tbody>
+</table>

@@ -11,8 +11,8 @@ title: Assignments
 ### Personal Project
 
 
-- [**P1:** Design](./assignments/personal-project.md)
-- **P2:** Alpha (MVP)
+- [**P1:** Design](./assignments/p1.md)
+- [**P2:** Alpha (MVP)](./assignments/p2.md)
 - **P3:** Beta
 - **P4:** Code Complete
 - **P5:** User Testing
