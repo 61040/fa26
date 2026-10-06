@@ -1,7 +1,6 @@
 ---
-title: Technical Writing
+title: Rubric for Technical Writing
 ---
-# Rubric for technical writing
 
 A piece of technical writing should be:
 - **Directed**. Whenever you write, you need to know your target reader, and direct your writing to them. Take into account their expertise and background knowledge, and adopt a tone that's appropriate for the relationship you have with them.

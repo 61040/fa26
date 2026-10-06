@@ -1,5 +1,5 @@
 ---
-title: "Concept design"
+title: Rubric for concept design
 ---
 
 A good concept design should have these qualities:

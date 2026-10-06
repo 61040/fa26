@@ -1,7 +1,6 @@
 ---
-title: Reflective Practice
+title: Rubric for Reflective Practice
 ---
-# Rubric for Reflective Practice
 
 This rubric applies to all reflection activities, including personal goals, lessons from personal projects, collaboration notes, etc. Note that reflecting well does not mean that your conclusions have to all be positive! On the contrary, the best reflections are often those that point to things that went wrong and try to diagnose them so you can be more successful in the future.
 

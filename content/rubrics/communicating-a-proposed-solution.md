@@ -1,5 +1,5 @@
 ---
-title: "Communicating a proposed solution"
+title: Rubric for communicating a proposed solution
 ---
 
 A well-communicated solution should have these qualities:

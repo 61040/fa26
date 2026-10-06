@@ -1,7 +1,6 @@
 ---
 title: Rubric for problem framing
 ---
-# Rubric for problem framing
 
 A problem framing should include:
 - **Domain**. A compelling description of the general problem domain, understandable to someone who has no experience in this domain. For example, if the problem is about customer support tickets, this would explain how tickets are used, and how support staff are organized and conduct their work.
