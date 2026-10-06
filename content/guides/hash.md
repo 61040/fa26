@@ -10,7 +10,7 @@ Your commit URL tells us which repository and exact version of your work to grad
 On your repository's main page, check that you are on the branch you want to submit. Click the short hash beside your latest commit.
 
 <figure class="guide-step">
-  <img src="assets/step-1.png" alt="GitHub repository page with the latest commit's short hash highlighted">
+  <img src="assets/hash/step-1.png" alt="GitHub repository page with the latest commit's short hash highlighted">
   <figcaption>Click the short hash next to your latest commit.</figcaption>
 </figure>
 
@@ -19,7 +19,7 @@ On your repository's main page, check that you are on the branch you want to sub
 On the commit page, click **Browse files**. This opens the repository exactly as it was at that commit.
 
 <figure class="guide-step guide-step--compact">
-  <img src="assets/step-2.png" alt="GitHub commit page with the Browse files button highlighted">
+  <img src="assets/hash/step-2.png" alt="GitHub commit page with the Browse files button highlighted">
   <figcaption>Choose <strong>Browse files</strong>.</figcaption>
 </figure>
 
@@ -28,6 +28,6 @@ On the commit page, click **Browse files**. This opens the repository exactly as
 Copy the entire URL from your browser's address bar. Paste it into the assignment submission form.
 
 <figure class="guide-step guide-step--compact">
-  <img src="assets/step-3.png" alt="Browser address bar with the full GitHub commit URL selected">
+  <img src="assets/hash/step-3.png" alt="Browser address bar with the full GitHub commit URL selected">
   <figcaption>Copy and submit the full URL, including the commit hash at the end.</figcaption>
 </figure>

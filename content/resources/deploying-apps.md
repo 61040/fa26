@@ -24,7 +24,7 @@ The platform never sees your `.env`, so you'll enter those settings on the site.
 Open [mit-sdg.dev](https://mit-sdg.dev) and click **Sign in with your class account**. It's the same account you use on Commons. The first time, Commons asks whether `mit-sdg.dev` may see your name, username, and email. Click **Allow**.
 
 <figure class="guide-step guide-step--compact">
-  <img src="assets/deploy-sign-in.png" alt="Commons permission page for mit-sdg.dev, showing the user's name, username, and email, with Cancel and Allow buttons">
+  <img src="assets/deploying-apps/sign-in.png" alt="Commons permission page for mit-sdg.dev, showing the user's name, username, and email, with Cancel and Allow buttons">
   <figcaption>Commons remembers your answer until you remove the app in its settings.</figcaption>
 </figure>
 
@@ -35,7 +35,7 @@ Click **Create app** and name your app. Any name works if no one has taken it an
 Choose carefully, because you can't change it later. It becomes part of your app's address: the example named `reservations` gets `https://reservations.mit-sdg.dev`.
 
 <figure class="guide-step guide-step--compact">
-  <img src="assets/deploy-create-app.png" alt="Create app form with reservations entered as the app name and the naming rule below it">
+  <img src="assets/deploying-apps/create-app.png" alt="Create app form with reservations entered as the app name and the naming rule below it">
   <figcaption>The example app is called <code>reservations</code>. Use your own app's name.</figcaption>
 </figure>
 
@@ -57,7 +57,7 @@ Creating the app opens its **Settings** tab. Fill in the fields for your app.
 Click **Save settings**.
 
 <figure class="guide-step">
-  <img src="assets/deploy-settings.png" alt="Settings form for sync-engine-reservations, with branch main, Bun selected, package directories set to a dot, an empty build script with a grey build placeholder, start script start, port 3000, and health check path /health">
+  <img src="assets/deploying-apps/settings.png" alt="Settings form for sync-engine-reservations, with branch main, Bun selected, package directories set to a dot, an empty build script with a grey build placeholder, start script start, port 3000, and health check path /health">
   <figcaption>The reservations app's settings. Its <strong>Build script</strong> field is empty.</figcaption>
 </figure>
 
@@ -111,14 +111,14 @@ The **Deploy** tab shows which version a commit specifies, and each deployment r
 If your app uses MongoDB, scroll down to **Databases and storage** on the **Settings** tab, click **Add MongoDB**, and confirm. You can't remove a database yourself later, so only add one your app needs.
 
 <figure class="guide-step">
-  <img src="assets/deploy-storage-add.png" alt="Databases and storage section showing PostgreSQL, MongoDB, and S3 storage as not added, with a button to add each">
+  <img src="assets/deploying-apps/storage-add.png" alt="Databases and storage section showing PostgreSQL, MongoDB, and S3 storage as not added, with a button to add each">
   <figcaption>Add the database or storage your app uses.</figcaption>
 </figure>
 
 The next dialog asks which environment variable your app reads for the connection string. It suggests `MONGODB_URI`. Change that if your code uses a different name. For example, the reservations app reads `MONGODB_URL`. Click **Save variables**.
 
 <figure class="guide-step guide-step--compact">
-  <img src="assets/deploy-mongodb.png" alt="MongoDB variables dialog with uri mapped to MONGODB_URL and a Save variables button">
+  <img src="assets/deploying-apps/mongodb.png" alt="MongoDB variables dialog with uri mapped to MONGODB_URL and a Save variables button">
   <figcaption>The variable name must match your code. The platform supplies the connection string.</figcaption>
 </figure>
 
@@ -138,14 +138,14 @@ Click **Add PostgreSQL**. With the suggested variable names, your app gets `DATA
 Open the **Deploy** tab and pick a commit from your branch, usually the newest. The platform checks that it has `package.json`, the scripts you named, and the lockfile, and shows which Bun or Node.js version it specifies.
 
 <figure class="guide-step">
-  <img src="assets/deploy-commit.png" alt="Deploy tab with the newest commit selected, a passing check for package.json, scripts, and lockfile, a note requesting Bun 1.4.0, and the saved app settings">
+  <img src="assets/deploying-apps/commit.png" alt="Deploy tab with the newest commit selected, a passing check for package.json, scripts, and lockfile, a note requesting Bun 1.4.0, and the saved app settings">
   <figcaption>Check the selected commit and settings before deploying.</figcaption>
 </figure>
 
 Click **Review deployment**, check the commit and variables, then click **Deploy**. Progress appears on the **Deploy** tab.
 
 <figure class="guide-step">
-  <img src="assets/deploy-progress.png" alt="Deploy tab showing a commit deployment marked In progress while the app is marked Not deployed">
+  <img src="assets/deploying-apps/progress.png" alt="Deploy tab showing a commit deployment marked In progress while the app is marked Not deployed">
   <figcaption>On the first deployment, the app stays marked "Not deployed" until it finishes.</figcaption>
 </figure>
 
@@ -154,7 +154,7 @@ A deployment can take 10 to 15 minutes. The platform starts new machines to buil
 When it finishes, you should see "Deployment succeeded. Your app is running this commit."
 
 <figure class="guide-step">
-  <img src="assets/deploy-succeeded.png" alt="Deployment marked Deployed, with the message Deployment succeeded. Your app is running this commit. and a View app button">
+  <img src="assets/deploying-apps/succeeded.png" alt="Deployment marked Deployed, with the message Deployment succeeded. Your app is running this commit. and a View app button">
   <figcaption>The selected commit is now running at your app's address.</figcaption>
 </figure>
 
@@ -167,7 +167,7 @@ For later changes, push your code to GitHub, then choose the new commit on the *
 The **Overview** tab shows your app's health and the commit it's running. You can also deploy, stop, or restart it there.
 
 <figure class="guide-step">
-  <img src="assets/deploy-overview.png" alt="Overview tab showing the app as Healthy, its current commit, Deploy latest and Deploy buttons, and Stop app and Restart app controls">
+  <img src="assets/deploying-apps/overview.png" alt="Overview tab showing the app as Healthy, its current commit, Deploy latest and Deploy buttons, and Stop app and Restart app controls">
   <figcaption>"Healthy" means the app is running and its health check passes.</figcaption>
 </figure>
 
@@ -176,14 +176,14 @@ Open **Deployments** to see past deployments and their build output. Each one re
 If a version deploys successfully but breaks something, open an earlier deployment and click **Deploy this commit again**. This redeploys the old code with your current settings and environment variables. It doesn't restore earlier database contents.
 
 <figure class="guide-step">
-  <img src="assets/deploy-deployment.png" alt="Successful deployment details showing its commit, repository, Bun 1.4.0 from packageManager, image digest, Deploy this commit again button, and build output">
+  <img src="assets/deploying-apps/deployment.png" alt="Successful deployment details showing its commit, repository, Bun 1.4.0 from packageManager, image digest, Deploy this commit again button, and build output">
   <figcaption>The <strong>Runtime</strong> row records the version used and where it was specified.</figcaption>
 </figure>
 
 The **Logs** tab shows what the running app prints, with **Output** and **Errors** kept apart, much like `bun run logs` did locally.
 
 <figure class="guide-step">
-  <img src="assets/deploy-logs.png" alt="Logs showing the reservations app's start command, backend listening on 127.0.0.1:4000, and frontend listening on 0.0.0.0:3000">
+  <img src="assets/deploying-apps/logs.png" alt="Logs showing the reservations app's start command, backend listening on 127.0.0.1:4000, and frontend listening on 0.0.0.0:3000">
   <figcaption>The example runs both servers, with the frontend on the port visitors reach.</figcaption>
 </figure>
 
@@ -324,7 +324,7 @@ For a failed build, open its build output on **Deployments**. If the app built b
 **"Your app exited with code 1".** Click **See why it stopped** and read **Errors** to find what failed.
 
 <figure class="guide-step">
-  <img src="assets/deploy-failed.png" alt="Why it stopped panel reporting exit code 1 after three restarts, with Errors showing MONGODB_URL is not set">
+  <img src="assets/deploying-apps/failed.png" alt="Why it stopped panel reporting exit code 1 after three restarts, with Errors showing MONGODB_URL is not set">
   <figcaption>In this example, the backend stopped because <code>MONGODB_URL</code> was missing.</figcaption>
 </figure>
 
