@@ -8,6 +8,7 @@ title: Resources
 - [**How to submit a git commit hash**](guides/hash.md)
 - [**How to set up MongoDB for local development**](resources/mongodb-setup.md)
 - [**How to develop a sync-engine app locally**](resources/sync-engine-local-dev.md)
+- [**How to deploy your app on 6.1040 Apps**](resources/deploying-apps.md)
 
 <h2>Technical resources</h2>
 
