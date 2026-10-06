@@ -35,3 +35,8 @@ Your work in this class will be evaluated by its quality, not its quantity. Your
 - **Expert.** You applied the skill with the insight and creativity that distinguishes an expert from a routine practitioner.
 
 Use the [problem framing](../rubrics/problem-framing.md), [technical writing](../rubrics/technical-writing.md), and [reflective practice](../rubrics/reflective-practice.md) rubrics, along with the project rubrics below.
+
+<script>
+  // P1 used to live on this page; send old #p1-design links to its own page.
+  if (location.hash === "#p1-design") location.replace("/assignments/p1/");
+</script>
