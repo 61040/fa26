@@ -793,7 +793,7 @@ Then run `bun run check` to typecheck the frontend too.
 <details>
 <summary>Writing the frontend in React</summary>
 
-Bun compiles React's `.tsx` files too, so React needs no other tools. `web/server.ts`, `bun run dev`, and the containers in step 6 stay the same. Make three changes:
+Bun compiles React's `.tsx` files too, so React needs no other tools. `web/server.ts`, `bun run dev`, and the containers in step 6 stay the same. Start here unless you're following a React tutorial that uses Vite, or want React's Fast Refresh, which keeps a component's state while you edit it. For Vite, see "Using React, Svelte, or another frontend framework" under "The stack" at the top of this guide. Otherwise, make three changes:
 
 1. Install React:
    ```sh
