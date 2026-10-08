@@ -813,16 +813,16 @@ import type { ReservationsWireHttp } from "../generated/wire.ts";
 
 const client = createHttpClient<ReservationsWireHttp>({ baseUrl: "/api" });
 
-type Reservation = ReservationsWireHttp["/reservations/list"]["output"]["book"]["reservations"][number];
+type List = ReservationsWireHttp["/reservations/list"]["output"];
 
 function App() {
-  const [reservations, setReservations] = useState<Reservation[]>([]);
+  const [list, setList] = useState<List | null>(null);
   const [status, setStatus] = useState("");
 
   async function load() {
     const result = await client.reservations.list({});
     if ("error" in result) setStatus(`Could not load reservations: ${result.error}`);
-    else setReservations(result.book.reservations);
+    else setList(result);
   }
 
   useEffect(() => {
@@ -840,11 +840,6 @@ function App() {
     await load();
   }
 
-  async function cancel(reservation: Reservation["reservation"]) {
-    await client.reservations.cancel({ reservation });
-    await load();
-  }
-
   return (
     <>
       <h1>Reservations</h1>
@@ -855,9 +850,16 @@ function App() {
       </form>
       <p>{status}</p>
       <ul>
-        {reservations.map(({ reservation, user, resource }) => (
+        {list?.book.reservations.map(({ reservation, user, resource }) => (
           <li key={reservation}>
-            {resource}, reserved by {user} <button onClick={() => cancel(reservation)}>Cancel</button>
+            {resource}, reserved by {user} <button
+              onClick={async () => {
+                await client.reservations.cancel({ reservation });
+                await load();
+              }}
+            >
+              Cancel
+            </button>
           </li>
         ))}
       </ul>
@@ -868,7 +870,7 @@ function App() {
 createRoot(document.getElementById("root")!).render(<App />);
 ```
 
-`Reservation` is the type of one entry in the list's answer, taken from `generated/wire.ts` by the endpoint's path.
+`List` is the type of the list endpoint's answer. `generated/wire.ts` gives each endpoint's input and output types by its path.
 
 </details>
 
