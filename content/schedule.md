@@ -27,9 +27,9 @@ title: Schedule
 | Wed Oct 21 | **Engaging users: evaluation, signals**
 | Thu Oct 22 | _LLM APIs, MCP_ | | Prep 7: LLM APIs, MCP
 | Mon Oct 26 | **Value-sensitive design** | P4: Personal project code complete
-| Wed Oct 28 | **Designing agentic features** | F0: Team Contract
+| Wed Oct 28 | **Human-AI interaction fundamentals** | F0: Team Contract
 | Thu Oct 29 | _Injection attacks (SQL, prompt)_ | | Prep 8: Injection attacks
-| Mon Nov 2 | **Designing AI-powered features** | P5: User Testing
+| Mon Nov 2 | **UI design for AI-powered features** | P5: User Testing
 | Wed Nov 4 | **Team pitches**
 | Thu Nov 5 | _GitHub_ | | Prep 9: GitHub
 | Mon Nov 9 | **Team pitches** | F1: Team Problem
