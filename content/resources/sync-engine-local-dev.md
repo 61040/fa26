@@ -19,7 +19,7 @@ The database is MongoDB, running in a container as in the MongoDB guide. sync-en
 <details>
 <summary>Using React, Svelte, or another frontend framework</summary>
 
-Frameworks like React, Svelte, and Vue usually come with Vite, a tool that serves the frontend while you develop and builds it for deployment. Vite would take the place of the frontend server we write in step 5. Its `proxy` setting passes API requests on to the backend, the same way ours does. In `vite.config.ts`:
+Frameworks like React, Svelte, and Vue usually come with Vite, a tool that serves the frontend while you develop and builds it for deployment. React doesn't need Vite here, since Bun compiles React code too, and step 5 shows how. If you'd rather use Vite, it takes the place of the frontend server we write in step 5. Its `proxy` setting passes API requests on to the backend, the same way ours does. In `vite.config.ts`:
 
 ```ts
 import { defineConfig } from "vite";
@@ -789,6 +789,88 @@ Now leave the page open, change something, and save:
 - Change a backend file, and the backend restarts. The page keeps working.
 
 Then run `bun run check` to typecheck the frontend too.
+
+<details>
+<summary>Writing the frontend in React</summary>
+
+Bun compiles React's `.tsx` files too, so React needs no other tools. `web/server.ts`, `bun run dev`, and the containers in step 6 stay the same. Make three changes:
+
+1. Install React:
+   ```sh
+   bun add react react-dom
+   bun add -d @types/react @types/react-dom
+   ```
+2. In `tsconfig.json`, add `"jsx": "react-jsx"` to `compilerOptions`.
+3. In `web/index.html`, replace the body with `<div id="root"></div>`, and change the script's `src` to `./app.tsx`.
+
+Then write `web/app.tsx` as ordinary React, calling the backend with the same typed client as before. Here is the reservations page from above:
+
+```tsx
+import { createHttpClient } from "@mit-sdg/sync-engine-http/client";
+import { type FormEvent, useEffect, useState } from "react";
+import { createRoot } from "react-dom/client";
+import type { ReservationsWireHttp } from "../generated/wire.ts";
+
+const client = createHttpClient<ReservationsWireHttp>({ baseUrl: "/api" });
+
+type Reservation = ReservationsWireHttp["/reservations/list"]["output"]["book"]["reservations"][number];
+
+function App() {
+  const [reservations, setReservations] = useState<Reservation[]>([]);
+  const [status, setStatus] = useState("");
+
+  async function load() {
+    const result = await client.reservations.list({});
+    if ("error" in result) setStatus(`Could not load reservations: ${result.error}`);
+    else setReservations(result.book.reservations);
+  }
+
+  useEffect(() => {
+    load();
+  }, []);
+
+  async function reserve(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const result = await client.reservations.reserve({
+      user: String(data.get("user")),
+      resource: String(data.get("resource")),
+    });
+    setStatus("error" in result ? `Could not reserve: ${result.error}` : "Reserved!");
+    await load();
+  }
+
+  async function cancel(reservation: Reservation["reservation"]) {
+    await client.reservations.cancel({ reservation });
+    await load();
+  }
+
+  return (
+    <>
+      <h1>Reservations</h1>
+      <form onSubmit={reserve}>
+        <input name="user" placeholder="Your name" required />
+        <input name="resource" placeholder="friday-7pm-table-4" required />
+        <button>Reserve</button>
+      </form>
+      <p>{status}</p>
+      <ul>
+        {reservations.map(({ reservation, user, resource }) => (
+          <li key={reservation}>
+            {resource}, reserved by {user} <button onClick={() => cancel(reservation)}>Cancel</button>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
+createRoot(document.getElementById("root")!).render(<App />);
+```
+
+`Reservation` is the type of one entry in the list's answer, taken from `generated/wire.ts` by the endpoint's path.
+
+</details>
 
 <details>
 <summary>Why does the frontend pass API requests on to the backend?</summary>
