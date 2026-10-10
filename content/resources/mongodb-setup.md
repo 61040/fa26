@@ -287,10 +287,10 @@ bun add mongodb
 Next, tell your app where to find the database. Create a file called `.env` in the same folder with this line:
 
 ```
-MONGODB_URL=mongodb://dev:dev@127.0.0.1:27017
+MONGODB_URL=mongodb://dev:dev@127.0.0.1:27017/myapp?authSource=admin
 ```
 
-The `dev:dev` part is the username and password from `compose.yaml`. Bun reads `.env` automatically whenever it runs your code, and the value shows up as `process.env.MONGODB_URL`.
+The `dev:dev` part is the username and password from `compose.yaml`. The `/myapp` part names the database, and `authSource=admin` tells MongoDB where to check the credentials, because the container's user belongs to the `admin` database. Bun reads `.env` automatically whenever it runs your code, and the value shows up as `process.env.MONGODB_URL`.
 
 Also save the same line in a file called `.env.example`. Your `.env` stays on your computer, since the `.gitignore` that `bun init` created already lists it. `.env.example` is the copy you commit, so teammates and agents know what to put in their own `.env`.
 
@@ -299,14 +299,14 @@ Now let's make sure your code can reach MongoDB. Create a folder called `scripts
 ```ts
 import { MongoClient } from "mongodb";
 
-const url = process.env.MONGODB_URL ?? "mongodb://127.0.0.1:27017";
+const url = process.env.MONGODB_URL ?? "mongodb://127.0.0.1:27017/myapp";
 // With --wait, keep trying for 30 seconds. That gives a fresh container time to start.
 const timeout = process.argv.includes("--wait") ? 30_000 : 3_000;
 const client = new MongoClient(url, { serverSelectionTimeoutMS: timeout });
 
 try {
   await client.connect();
-  const db = client.db("myapp");
+  const db = client.db();
   await db.command({ ping: 1 });
   const checks = db.collection("setup_checks");
   await checks.insertOne({ at: new Date() });
@@ -326,7 +326,7 @@ Then run it:
 bun scripts/check-db.ts
 ```
 
-You should see `Connected to myapp. It has 1 check(s).` Here `myapp` is the name of the database, chosen in the code with `client.db("myapp")`. MongoDB creates it the first time you write to it. In a real project, you'd name it after the project. Run it again and the count goes up, which tells you the data is being saved. If something's wrong, it prints "Could not reach MongoDB" along with the reason. By default it gives up after three seconds. With `--wait`, it keeps trying for thirty seconds, which step 4 uses.
+You should see `Connected to myapp. It has 1 check(s).` Here `myapp` is the database named in the connection string. `client.db()` with no name uses that database, so the code works unchanged when a deployed app gets a different connection string. MongoDB creates the database the first time you write to it. In a real project, you'd name it after the project. Run it again and the count goes up, which tells you the data is being saved. If something's wrong, it prints "Could not reach MongoDB" along with the reason. By default it gives up after three seconds. With `--wait`, it keeps trying for thirty seconds, which step 4 uses.
 
 The script is a one-off check. In your actual app, create one client when the app starts and share it everywhere. The client keeps a pool of connections open and reuses them, so making a new client for every request is slow and can run out of connections. Create a folder called `src`, and save this in it as `db.ts`. The example below uses it.
 
@@ -339,7 +339,7 @@ if (!url) {
 }
 
 export const client = new MongoClient(url);
-export const db = client.db("myapp");
+export const db = client.db();
 ```
 
 Other files in `src` can then `import { db } from "./db.ts"` and use `db.collection(...)`. You don't need to call `connect()` yourself. The driver connects the first time you run a query.
