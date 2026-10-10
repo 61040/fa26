@@ -3,21 +3,99 @@ title: Deploying your app on 6.1040 Apps
 description: Put your app online on the class platform, with its own address, database, and logs.
 ---
 
-In [Developing a sync-engine app locally](sync-engine-local-dev.md), you ran an app with local commands, then used Compose to run the backend, frontend, and MongoDB in containers. That setup also works on a dedicated server. You copy the code over, run `podman compose up`, and look after the machine yourself.
+This guide puts your app online at `https://<name>.mit-sdg.dev`, using 6.1040 Apps, the class's platform at [mit-sdg.dev](https://mit-sdg.dev). You pick a commit on GitHub. The platform builds and runs it, gives your app its own database, restarts the app if it crashes, and keeps the logs. Once it's running, your classmates, or anyone else, can try your app.
 
-Lately, more apps run on managed platforms like Cloudflare and AWS. You give the platform your code, and it builds and runs the app, gives it a web address, and restarts it if it crashes. For this class, we have our own platform, 6.1040 Apps, at [mit-sdg.dev](https://mit-sdg.dev).
-
-This guide puts your own app online there. The screenshots use the reservations app from the local guide as a worked example; use your app's repository and settings. Follow the numbered steps in order. The collapsed sections cover optional features and background.
+It follows on from [Developing a sync-engine app locally](sync-engine-local-dev.md). The screenshots use the reservations app from that guide as a worked example; use your own app's repository and settings. Plan on about half an hour, most of it waiting for the first deployment. Follow the numbered steps in order. The collapsed sections cover optional features and background.
 
 ## Before you start
 
-The platform builds from a commit on GitHub. It installs packages from your lockfile, runs your build script if you have one, and makes an image to run. It doesn't use your `Dockerfile` or `compose.yaml`. You enter the settings on the **Settings** tab instead.
+The platform builds your app from a commit on GitHub. It installs packages from your lockfile, runs your build script if you have one, then runs your start script. It doesn't use your `Dockerfile` or `compose.yaml`. You enter the settings on the site instead.
 
-Push your code to GitHub, including `bun.lock` for Bun or `package-lock.json` for Node.js. Your repository needs `package.json` at its root, with a script that starts the app and a build script if it needs one. The setup from the local guide already has these.
+Your app needs:
 
-The server that visitors reach must listen on `PORT` at `0.0.0.0`. The platform sets both `PORT` and `HOST` for you, and only that port is reachable from outside. Your app also needs a health check path, such as `/health`, that returns HTTP 2xx when the app is working.
+- **Its code on GitHub**, including the lockfile: `bun.lock` for Bun, or `package-lock.json` for Node.js. Keep `.env` out of git, since project repositories are public.
+- **One server that visitors reach.** It listens on the port in `PORT`, at the address in `HOST`. The platform sets `PORT` to the port you choose in step 3, and `HOST` to `0.0.0.0`. In the local guide's app, that server is the frontend server, which passes API requests on to the backend, and it already reads both. In a Vue app, it's your backend, once you make the changes [below](#vue).
+- **A health check**, such as `/health`, that returns HTTP 2xx when the app can reach its database. If yours doesn't, copy the `/health` route from `src/main.ts` in the local guide's step 3, "Putting it together".
+- **A list of the variables your code reads from `.env`**, especially the one for the database.
 
-The platform never sees your `.env`, so you'll enter those settings on the site. Note which variable names your code reads, especially the one for the database.
+Most apps also need a few small code changes, below. Make the ones that apply, try the app, then commit and push.
+
+### If you use Bun
+
+`sync-engine setup` wrote `"packageManager": "bun@1.3.4"` in `package.json`. Change it to:
+
+```json
+  "packageManager": "bun@1.4.0",
+```
+
+The platform builds and runs your app with the version named here. On Bun 1.3.4, `bun run --parallel` runs only the first script, so only part of your app would start. Bun ignores this line on your computer, so you wouldn't see the problem until you deploy.
+
+<h3 id="vue">If your frontend uses Vue</h3>
+
+The local guide's frontend is plain TypeScript, which its Bun server builds when it starts. A Vue frontend is built by Vite instead, and Vite's development server doesn't run on the platform. Your backend can send the built files, so one server handles both the pages and the API.
+
+These steps assume your frontend is in a folder named `frontend` at the root of your repository. `npm create vue@latest` makes a folder named after the project name you give it; if you chose another name, use it in place of `frontend`.
+
+- **Build with Vite alone.** In `frontend/package.json`, set the build script to:
+
+  ```json
+      "build": "vite build",
+  ```
+
+  The build script from `create-vue` also runs `vue-tsc`, which fails on the platform, because the platform's Bun image has no Node.js. `create-vue`'s `type-check` script still runs `vue-tsc`, so run `bun run type-check` in `frontend` on your computer before you push.
+
+- **Build the frontend and start the backend from the root.** In the root `package.json`:
+
+  ```json
+      "build": "bun run --cwd frontend build",
+      "start": "bun src/main.ts",
+  ```
+
+- **Send the built files from the backend.** In `src/main.ts`, add a `page` function and pass it to `Bun.serve` as `fetch`:
+
+  ```ts
+  const dist = `${import.meta.dir}/../frontend/dist`;
+
+  // Send a file that `vite build` made, or index.html for any other path, so Vue Router can show the page.
+  async function page(request: Request) {
+    const file = Bun.file(dist + new URL(request.url).pathname);
+    return new Response((await file.exists()) ? file : Bun.file(`${dist}/index.html`));
+  }
+
+  const server = Bun.serve({
+    // hostname, port, and routes stay as they are
+    fetch: page,
+  });
+  ```
+
+  Bun checks `routes` first, so `/api/...` and `/health` still reach your backend. Every other path calls `page`.
+
+- **Call the API by path.** Make the frontend call `/api/...`, as the typed client does with `baseUrl: "/api"`, not `http://localhost:3000/api/...`. On the deployed app, `localhost` is each visitor's own computer. While you develop, Vite's `proxy` setting passes `/api` to your backend.
+
+- **Install the frontend with Bun.** Run `bun install` in `frontend` and commit `frontend/bun.lock`, even if you created the frontend with npm. The platform needs a `bun.lock` in each folder it installs.
+
+You still develop with Vite's dev server, as before.
+
+<h3 id="sign-in">If your app signs people in</h3>
+
+Requests to sign in, sign out, or do anything that needs a signed-in person are refused with status 403 and `{"error":"FORBIDDEN"}` unless the page that sent them is at the `publicOrigin` address in your `httpPolicy`. On the platform, that address is `https://<name>.mit-sdg.dev`, so where your code calls `httpPolicy`, read it from a variable:
+
+```ts
+  publicOrigin: process.env.PUBLIC_ORIGIN ?? "http://localhost:5173",
+```
+
+The fallback is the address in your browser's address bar while you develop, such as `http://localhost:5173` with Vite. `localhost` and `127.0.0.1` count as different addresses. You'll set `PUBLIC_ORIGIN` on the platform in step 4.
+
+### Try it and push
+
+Run your app the way the platform does. First stop `bun run dev` if it's running, since its backend uses port 3000, and start your local MongoDB (`bun run db:up` in the local guide's setup). Then:
+
+```sh
+bun run build    # only if your app has a build script
+PORT=3000 PUBLIC_ORIGIN=http://127.0.0.1:3000 bun run start
+```
+
+Open http://127.0.0.1:3000/health and check that it returns `ok`. Then open http://127.0.0.1:3000 and use the app, including signing in if it has sign-in. Press Ctrl+C, then commit and push.
 
 ## 1. Sign in
 
@@ -25,12 +103,12 @@ Open [mit-sdg.dev](https://mit-sdg.dev) and click **Sign in with your class acco
 
 <figure class="guide-step guide-step--compact">
   <img src="assets/deploying-apps/sign-in.png" alt="Commons permission page for mit-sdg.dev, showing the user's name, username, and email, with Cancel and Allow buttons">
-  <figcaption>Commons remembers your answer until you remove the app in its settings.</figcaption>
+  <figcaption>To change your answer later, remove mit-sdg.dev from the apps listed in your Commons settings.</figcaption>
 </figure>
 
 ## 2. Create the app
 
-Click **Create app** and name your app. Any name works if no one has taken it and it follows the rule under the field (3 to 40 lowercase letters, numbers, and single hyphens, starting with a letter).
+Click **Create app** and type a name: 3 to 40 lowercase letters, numbers, and single hyphens, starting with a letter and ending with a letter or number. If someone has taken the name, or it's reserved, like `admin`, you'll see an error.
 
 Choose carefully, because you can't change it later. It becomes part of your app's address: the example named `reservations` gets `https://reservations.mit-sdg.dev`.
 
@@ -39,32 +117,30 @@ Choose carefully, because you can't change it later. It becomes part of your app
   <figcaption>The example app is called <code>reservations</code>. Use your own app's name.</figcaption>
 </figure>
 
-If you're working in a team, one person creates the app and adds the others on the **Team** tab. Step 6 covers that.
+You can create two apps, and a stopped app still counts. Use one for your personal project and keep the other for your team project. On a team, one person creates the team's app and adds the others, as step 6 shows.
 
 ## 3. Fill in the settings
 
 Creating the app opens its **Settings** tab. Fill in the fields for your app.
 
-- **Repository URL**: your repository on GitHub. The screenshot uses `https://github.com/mit-sdg/sync-engine-reservations`. If your repository is private, save the settings first, then open the collapsed section below.
+- **Repository URL**: your repository on GitHub. The screenshot uses `https://github.com/mit-sdg/sync-engine-reservations`. If your repository is private, save the settings first, then open "Deploying from a private repository" below.
 - **Branch**: usually `main`. You'll pick an exact commit from it each time you deploy.
 - **Runtime**: **Bun** or **Node.js**, whichever your app uses.
-- **Package directories**: leave this as `.`, the repository root.
-- **Build script**: the name of your build script, if your app has a build step. The grey `build` in the screenshot is only a placeholder. A Vite frontend still needs its build script here, even on Bun. The reservations app leaves this empty because its Bun server builds the frontend when it starts.
+- **Package directories**: `.`, the repository root. For a Vue app with its own `frontend` folder, add `frontend` on a second line.
+- **Build script**: `build` for a Vue app. Leave it empty if your app has no build step, like the reservations app.
 - **Start script**: the name of the script in `package.json` that starts your app, usually `start`. Give the name, not the command. On Bun, the platform runs it as `bun run start`.
-- **Port**: the port the server visitors reach listens on. The platform passes this number to your app as `PORT`. The example uses `3000`.
+- **Port**: `3000` works for most apps, and the example uses it. With the local guide's two servers, don't pick `4000`, which the backend uses.
 - **Health check path**: your app's health check, such as `/health`.
 
 Click **Save settings**.
 
 <figure class="guide-step">
   <img src="assets/deploying-apps/settings.png" alt="Settings form for sync-engine-reservations, with branch main, Bun selected, package directories set to a dot, an empty build script with a grey build placeholder, start script start, port 3000, and health check path /health">
-  <figcaption>The reservations app's settings. Its <strong>Build script</strong> field is empty.</figcaption>
+  <figcaption>The reservations app's settings.</figcaption>
 </figure>
 
-If your server reads `PORT`, the number you choose doesn't matter, as long as it listens on that port at `0.0.0.0`. For an app with one server serving both pages and API requests, configure that server.
-
 <details>
-<summary>If your app has separate frontend and backend servers</summary>
+<summary>If your app has a frontend server and a backend server</summary>
 
 One start script can run both servers. The reservations app uses `bun run --parallel start:backend start:frontend`. Its frontend listens on `PORT` at `0.0.0.0`, while the backend stays on `127.0.0.1:4000`. Visitors reach the frontend, which passes API requests to the backend.
 
@@ -75,7 +151,7 @@ In the local guide, the frontend used port 8080 because `PORT` wasn't set. With 
 <details>
 <summary>Deploying from a private repository</summary>
 
-For a private repository, the platform needs a deploy key that lets it read that repository. Someone with admin access to the GitHub repository must add the key.
+To deploy a private repository, you add a deploy key to it on GitHub. The key lets the platform read that one repository. Someone with admin access to the repository must add it.
 
 1. Save the repository URL in **Settings**. Under **Private repository**, click **Create deploy key** and copy the key.
 2. On GitHub, open the repository's **Settings**, then **Deploy keys**, then **Add deploy key**. Paste the key and leave **Allow write access** off.
@@ -86,13 +162,7 @@ For a private repository, the platform needs a deploy key that lets it read that
 <details>
 <summary>Choosing the Bun or Node.js version</summary>
 
-Your repository can pick the version to build with. The reservations app pins Bun 1.4.0 in `package.json`:
-
-```json
-  "packageManager": "bun@1.4.0",
-```
-
-`packageManager` needs an exact Bun version. To specify a range, use `engines` instead:
+The `packageManager` line from "Before you start" names an exact Bun version. To specify a range, use `engines` instead:
 
 ```json
   "engines": { "node": ">=22" }
@@ -100,13 +170,13 @@ Your repository can pick the version to build with. The reservations app pins Bu
 
 `engines.bun` works the same way. If `package.json` doesn't specify a version, the platform checks `.nvmrc` or `.node-version` for Node.js, or `.bun-version` for Bun. Without any of these, it uses the platform's default.
 
-A range selects the newest release it allows. For Node.js, the platform chooses the newest long-term support (LTS) release in the range, so `>=22` won't select a short-lived odd-numbered release. Node.js versions before 20 and Bun versions before 1.1 aren't supported.
+A range selects the newest release it allows. For Node.js, the platform prefers the newest long-term support (LTS) release in the range, so `>=22` won't select a short-lived odd-numbered release. Node.js versions before 20 and Bun versions before 1.1 aren't supported.
 
 The **Deploy** tab shows which version a commit specifies, and each deployment records the exact version it used.
 
 </details>
 
-## 4. Add a database
+## 4. Add a database and your variables
 
 If your app uses MongoDB, scroll down to **Databases and storage** on the **Settings** tab, click **Add MongoDB**, and confirm. You can't remove a database yourself later, so only add one your app needs.
 
@@ -115,16 +185,16 @@ If your app uses MongoDB, scroll down to **Databases and storage** on the **Sett
   <figcaption>Add the database or storage your app uses.</figcaption>
 </figure>
 
-The next dialog asks which environment variable your app reads for the connection string. It suggests `MONGODB_URI`. Change that if your code uses a different name. For example, the reservations app reads `MONGODB_URL`. Click **Save variables**.
+In the next dialog, type the name of the variable your code reads for the connection string. The field starts as `MONGODB_URI`. If you followed the local guide, your code reads `MONGODB_URL`, so change it. Click **Save variables**.
 
 <figure class="guide-step guide-step--compact">
   <img src="assets/deploying-apps/mongodb.png" alt="MongoDB variables dialog with uri mapped to MONGODB_URL and a Save variables button">
   <figcaption>The variable name must match your code. The platform supplies the connection string.</figcaption>
 </figure>
 
-Pass that connection string to the MongoDB client unchanged. It already includes the database name and password. The new database is empty; your local MongoDB data stays on your computer.
+Pass that connection string to the MongoDB client unchanged. It already includes the database name and password. Call `client.db()` with no name, so the driver uses that database; your app's database user can't use any other. The new database is empty, and your local MongoDB data stays on your computer.
 
-Add any other settings your app needs, such as API keys, under **Environment variables**. Saved values aren't shown again. Saving a variable restarts the app if it's running.
+Wait until the database no longer shows **Setting up**. Until then, a deploy or a variable change is refused with "Check the change in the app's Overview before trying again." The platform makes one change at a time, across all your apps.
 
 <details>
 <summary>Using PostgreSQL instead</summary>
@@ -132,6 +202,10 @@ Add any other settings your app needs, such as API keys, under **Environment var
 Click **Add PostgreSQL**. With the suggested variable names, your app gets `DATABASE_URL`, which includes the password, and the standard `PG` variables, such as `PGHOST` and `PGUSER`. Most PostgreSQL clients can connect with `DATABASE_URL` alone.
 
 </details>
+
+Under **Environment variables**, add the other variables from your `.env`, such as API keys. Leave out the database's variable, `PORT`, and `HOST`, which the platform sets. Saved values aren't shown again, and saving one restarts the app if it's running. Variables reach your app when it runs, not while it builds, so a `VITE_` variable never reaches the built pages. If the frontend needs a value, have the backend return it from an endpoint.
+
+If your app signs people in, add `PUBLIC_ORIGIN` with your app's address, such as `https://reservations.mit-sdg.dev`. Start it with `https://`, and leave off any slash at the end.
 
 ## 5. Deploy
 
@@ -142,23 +216,23 @@ Open the **Deploy** tab and pick a commit from your branch, usually the newest. 
   <figcaption>Check the selected commit and settings before deploying.</figcaption>
 </figure>
 
-Click **Review deployment**, check the commit and variables, then click **Deploy**. Progress appears on the **Deploy** tab.
+Click **Review deployment**, check that the commit is the one you meant and that your variables are listed, then click **Deploy**. Progress appears on the **Deploy** tab.
 
 <figure class="guide-step">
   <img src="assets/deploying-apps/progress.png" alt="Deploy tab showing a commit deployment marked In progress while the app is marked Not deployed">
   <figcaption>On the first deployment, the app stays marked "Not deployed" until it finishes.</figcaption>
 </figure>
 
-A deployment can take 10 to 15 minutes. The platform starts new machines to build and run your app, and CSAIL's servers take a while to launch them, so a slow deployment is normal. You can close the page and come back later. The deployment keeps going.
+A deployment can take 10 to 15 minutes. The platform starts new machines to build and run your app, and CSAIL's servers take a while to launch them, so a slow deployment is normal. You can close the page and come back later. The deployment keeps going, and **Overview** shows how it went.
 
-When it finishes, you should see "Deployment succeeded. Your app is running this commit."
+If you stay on the page, you'll see "Deployment succeeded. Your app is running this commit." when it finishes.
 
 <figure class="guide-step">
   <img src="assets/deploying-apps/succeeded.png" alt="Deployment marked Deployed, with the message Deployment succeeded. Your app is running this commit. and a View app button">
   <figcaption>The selected commit is now running at your app's address.</figcaption>
 </figure>
 
-Click **View app** and try it. Test something that saves data: create an item, reload the page, and check that it's still there. If the deployment fails, the **Deploy** tab explains why. Open Troubleshooting at the end of this guide for help.
+**View app** opens the app's **Overview**. Your app itself is at the link under its name at the top of the page. Open it and try the app. Test something that saves data: create an item, reload the page, and check that it's still there. If the deployment fails, the **Deploy** tab explains why, and [If something goes wrong](#troubleshooting) has the common causes.
 
 For later changes, push your code to GitHub, then choose the new commit on the **Deploy** tab. Pushing alone doesn't deploy it. **Deploy latest** on **Overview** is a shortcut to deploy the newest commit on your branch.
 
@@ -171,7 +245,7 @@ The **Overview** tab shows your app's health and the commit it's running. You ca
   <figcaption>"Healthy" means the app is running and its health check passes.</figcaption>
 </figure>
 
-Open **Deployments** to see past deployments and their build output. Each one records the commit and the exact Bun or Node.js version used. If a deployment fails, the previous version keeps serving.
+Open **Deployments** to see past deployments and their build output. Each one records the commit and the exact Bun or Node.js version used. If a deployment fails, your app goes on running the previous commit.
 
 If a version deploys successfully but breaks something, open an earlier deployment and click **Deploy this commit again**. This redeploys the old code with your current settings and environment variables. It doesn't restore earlier database contents.
 
@@ -187,12 +261,65 @@ The **Logs** tab shows what the running app prints, with **Output** and **Errors
   <figcaption>The example runs both servers, with the frontend on the port visitors reach.</figcaption>
 </figure>
 
-On **Team**, the app's owner can add or remove teammates by username. Each teammate must sign in to 6.1040 Apps once before you can add them. Teammates can change settings, deploy, and read logs.
+On **Team**, the app's owner adds or removes teammates by their Commons username. Each teammate must sign in to 6.1040 Apps once before you can add them. Teammates can change settings, deploy, and read logs.
+
+<h2 id="troubleshooting">If something goes wrong</h2>
+
+For a failed build, open its build output on **Deployments**. If the app built but stopped, click **See why it stopped** on **Deploy**. For an app that runs but behaves incorrectly, check **Logs**. If you're stuck, post on the class forum on Commons.
+
+**The Deploy tab says "This commit will fail to build".** Read the reason below it. If it asks for a lockfile, run `bun install` (or `npm install` on Node.js) in the folder it names, commit the lockfile, push, and select the new commit.
+
+**The build says `vite: command not found`.** The frontend's packages weren't installed. Add `frontend` under **Package directories** in **Settings**.
+
+**The build says `Cannot find module './App.vue'`.** The build script runs `vue-tsc`. Make `frontend`'s build script `vite build`, as in [If your frontend uses Vue](#vue).
+
+**The deployment is still going after 15 minutes.** CSAIL's servers sometimes take longer to launch. Give it more time. If it hasn't finished after half an hour, post on the forum.
+
+**Deploying or saving a variable says "Check the change in the app's Overview before trying again."** Another change to the app hasn't finished, such as the database being set up. Wait for it, then try again. "Wait for your current operation to finish." means a change to another of your apps is still running.
+
+**Overview shows Needs attention.** A deployment or change stopped partway. Click **Resume**, or **Finish change**, there.
+
+**"Your app started but didn't pass the health check".** Check that the server listens on the **Port** from **Settings**, at `0.0.0.0`, and that the **Health check path** exists and returns HTTP 2xx. If **Logs** shows only one of your servers starting, check that `package.json` names `bun@1.4.0`. If the check reads the database, check that the database variable's name matches your code.
+
+**"Your app exited with code 1".** Click **See why it stopped** and read **Errors** to find what failed.
+
+<figure class="guide-step">
+  <img src="assets/deploying-apps/failed.png" alt="Why it stopped panel reporting exit code 1 after three restarts, with Errors showing MONGODB_URL is not set">
+  <figcaption>In this example, the backend stopped because <code>MONGODB_URL</code> was missing.</figcaption>
+</figure>
+
+The example's error says to add the variable to `.env`, because the same code runs locally. On the platform, check the variable name under **Databases and storage** in **Settings** instead.
+
+**The page is blank, or your app's address returns 404.** The app is running, but no server sends the frontend's files. For a Vue app, see [If your frontend uses Vue](#vue). With the local guide's two servers, check that `start` runs both.
+
+**Errors say "not authorized on myapp to execute command".** Your code names a database, as in `client.db("myapp")`. Use `client.db()`, so the driver uses the database in the connection string.
+
+**Signing in works locally but gets `FORBIDDEN` on the platform.** Check that `PUBLIC_ORIGIN` is your app's `https://` address with no slash at the end, and that your code reads it, as in [If your app signs people in](#sign-in).
+
+**Data or uploaded files disappear after a deployment.** Your code saved them as files on the server, and each deployment starts on a fresh machine. Save data in the database and files in S3 storage.
+
+**Signing in to mit-sdg.dev says "Sign-in was cancelled" or "That sign-in expired".** Click **Sign in with your class account** again. If you clicked **Cancel** on Commons, it asks again next time.
+
+**It works locally but fails after deployment.** Check for a setting that only exists in `.env`, an ignored file the app needs, or a commit you haven't pushed. If you used the local guide's setup, try `bun run up`. It runs the app from an image without `.env`, much like the platform does.
+
+## More
+
+<details>
+<summary>Letting people sign in</summary>
+
+Your app can sign people in with their class account, with a password, or both. ConceptBox, the example app from lecture, has each as a part you can copy into a sync-engine app. Its README's [Copy parts into your app](https://github.com/mit-sdg/conceptbox#copy-parts-into-your-app) lists the files and how to connect them.
+
+- **With a class account**, classmates and course staff sign in through Commons, as you did in step 1. This works at `https://<name>.mit-sdg.dev`, and at `http://localhost:<port>` or `http://127.0.0.1:<port>` while you develop. Copy the "Signing in with Commons" part. To write sign-in yourself, [Commons' deployment guide](https://github.com/mit-sdg/commons/blob/main/DEPLOYMENT.md#sign-in-with-commons-for-course-apps) lists the requests your server makes.
+- **With a password**, anyone can sign up. Copy the "Signing in with a password" part rather than writing your own. It saves a hash of each password, made with argon2id, never the password itself. Your app will hold strangers' passwords, so ask only for what it needs, and don't collect anything sensitive.
+
+Either way, set `PUBLIC_ORIGIN`, as in [If your app signs people in](#sign-in).
+
+</details>
 
 <details>
 <summary>Storing files with S3</summary>
 
-Files saved to your app's own disk can disappear on a restart or deployment. Keep data in the database and uploaded files in S3 storage. Under **Databases and storage**, click **Add S3 storage** and keep the suggested variable names.
+Files your code writes to disk can disappear on a restart or deployment. Keep data in the database and uploaded files in S3 storage. Under **Databases and storage**, click **Add S3 storage** and keep the suggested variable names.
 
 | Variable | What your app uses it for |
 | --- | --- |
@@ -229,7 +356,12 @@ await fetch(url, { method: "PUT", body: file });
 
 Save `key` in your database so the app can find the file later. For downloads, use `publicS3.presign(key, { expiresIn: 300 })`.
 
-Check the person's permission to use a file before signing its URL. Anyone with that URL can use it until it expires. Always set `expiresIn`; Bun's default is a whole day. Browser uploads are allowed only from your app's pages, but that restriction doesn't stop someone using a signed URL from another tool. Each upload can be up to 100 MB.
+A few rules for signed URLs:
+
+- Check the person's permission to use a file before signing its URL. Anyone with that URL can use it until it expires.
+- Always set `expiresIn`. Bun's default is a whole day.
+- Browsers can upload only from `https` pages on `mit-sdg.dev`, so try browser uploads on your deployed app, not on `localhost`. This doesn't stop someone using a signed URL from another tool.
+- Each upload can be up to 100 MB.
 
 For Node.js, use `@aws-sdk/client-s3` and `@aws-sdk/s3-request-presigner`. They read the same credentials and region variables. Pass in the endpoints and set `forcePathStyle` on the client that signs browser URLs:
 
@@ -240,48 +372,10 @@ import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 const s3 = new S3Client({ endpoint: process.env.AWS_ENDPOINT_URL_S3, forcePathStyle: true });
 const publicS3 = new S3Client({ endpoint: process.env.S3_PUBLIC_ENDPOINT, forcePathStyle: true });
 
+const key = `uploads/${crypto.randomUUID()}`;
 const command = new PutObjectCommand({ Bucket: process.env.S3_BUCKET, Key: key });
 const url = await getSignedUrl(publicS3, command, { expiresIn: 600 });
 ```
-
-</details>
-
-<details>
-<summary>Letting people sign in with their class account</summary>
-
-Your app can use Commons for sign-in too. It works at `https://<name>.mit-sdg.dev`, and at `http://localhost` on any port during development. Your app handles the exchange below, then starts its own session.
-
-1. Save a random `state` value in an `HttpOnly` cookie, then send the browser to Commons with that value and your app's origin. Replace the example address with your app's address, without a path:
-
-   ```ts
-   const origin = "https://reservations.mit-sdg.dev"; // or http://localhost:8080
-   const state = crypto.randomUUID();
-   const url = new URL("https://class.mit-sdg.dev/connect");
-   url.searchParams.set("app", origin);
-   url.searchParams.set("state", state);
-   ```
-
-   A UUID works as `state`.
-
-2. Commons asks the person to allow your app, then returns them to `<origin>/auth/commons/callback?code=…&state=…`. Your app needs a route at that fixed path. If they cancel, it receives `error=access_denied` instead of a code.
-3. In the callback, compare `state` with the cookie and stop if they don't match. From your server, exchange the code for the person's details:
-
-   ```ts
-   const response = await fetch("https://class.mit-sdg.dev/api/connect/redeem", {
-     method: "POST",
-     headers: { "Content-Type": "application/json" },
-     body: JSON.stringify({ code, app: origin }),
-   });
-   // A 400 means the code was used, expired, or issued to another app.
-   if (!response.ok) {
-     return new Response("Sign-in failed. Try again.", { status: 400 });
-   }
-   const { user, username, displayName, email } = await response.json();
-   ```
-
-4. Start your app's session for `user`, the person's permanent Commons ID.
-
-Each code works once and expires after 60 seconds. Your app never sees the person's password.
 
 </details>
 
@@ -300,40 +394,12 @@ There are five kinds of machines:
 - Each app gets its own worker machine, with no SSH and no persistent disk.
 - Each build gets a single-use builder machine.
 
-When you deploy, a fresh builder fetches the exact commit and uses BuildKit to build a container image from the official Node.js or Bun image. It pushes the result to the private registry, then is deleted. The platform starts a fresh worker for your app, and Nomad runs the image there. Traffic switches only after the app, the scheduler, and the public address all pass their health checks. Starting these virtual machines is most of the 10 to 15 minutes. If the new version fails, it's removed and the previous version keeps serving.
+When you deploy, the platform fetches the exact commit, and a fresh builder uses BuildKit to build a container image from the official Node.js or Bun image. It pushes the result to the private registry, then is deleted. The platform starts a fresh worker for your app, and Nomad runs the image there. Traffic switches only after the app, the scheduler, and the public address all pass their health checks. Starting these virtual machines is most of the 10 to 15 minutes.
 
 Public traffic reaches Cloudflare first, which handles HTTPS. Traefik then forwards it to the app. Databases and S3 files go into encrypted backups every night.
 
 Students don't get SSH, OpenStack, or database-admin access. Secrets and environment values stay on the platform and aren't shown again after saving.
 
 The code is public. You can read the [platform repository](https://github.com/mit-sdg/openstack-deployment-infra) and [Commons](https://github.com/mit-sdg/commons), the class site whose accounts you use to sign in.
-
-</details>
-
-<details>
-<summary>Troubleshooting</summary>
-
-For a failed build, open its build output on **Deployments**. If the app built but stopped, click **See why it stopped** on **Deploy**. For an app that runs but behaves incorrectly, check **Logs**. A failed deployment leaves the previous version running, if there is one.
-
-**The Deploy tab says "This commit will fail to build".** Read the reason below it. If the lockfile is missing, run `bun install` or `npm install` locally, commit the lockfile, push, and select the new commit.
-
-**The deployment is still going after 15 minutes.** CSAIL's servers sometimes take longer to launch. Give it more time. If it hasn't finished after half an hour, let the course staff know.
-
-**"Your app started but didn't pass the health check".** Check that the server listens on the **Port** from **Settings**, at `0.0.0.0`, and that the **Health check path** exists and returns HTTP 2xx. If the check reads the database, check that the database variable's name matches your code.
-
-**"Your app exited with code 1".** Click **See why it stopped** and read **Errors** to find what failed.
-
-<figure class="guide-step">
-  <img src="assets/deploying-apps/failed.png" alt="Why it stopped panel reporting exit code 1 after three restarts, with Errors showing MONGODB_URL is not set">
-  <figcaption>In this example, the backend stopped because <code>MONGODB_URL</code> was missing.</figcaption>
-</figure>
-
-The example's error says to add the variable to `.env`, because the same code runs locally. On the platform, check the variable name under **Databases and storage** in **Settings** instead.
-
-**It works locally but fails after deployment.** Check for a setting that only exists in `.env`, an ignored file the app needs, or a commit you haven't pushed. If you used the local guide's setup, try `bun run up`. It runs the app from an image without `.env`, much like the platform does.
-
-**Data or uploaded files disappear after a deployment.** They were saved to the app's own disk. Use the database for data and S3 storage for files.
-
-**Sign-in says "Sign-in was cancelled" or "That sign-in expired".** Click **Sign in with your class account** again. If you clicked **Cancel** on Commons, it asks again next time.
 
 </details>

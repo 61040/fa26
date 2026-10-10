@@ -9,6 +9,7 @@ title: Resources
 - [**How to set up MongoDB for local development**](resources/mongodb-setup.md)
 - [**How to develop a sync-engine app locally**](resources/sync-engine-local-dev.md)
 - [**How to deploy your app on 6.1040 Apps**](resources/deploying-apps.md)
+- [**ConceptBox, an example app you can copy parts from**](https://github.com/mit-sdg/conceptbox)
 
 <h2>Technical resources</h2>
 
