@@ -73,15 +73,19 @@ These steps assume your frontend is in a folder named `frontend` at the root of 
 
   Bun checks `routes` first, so `/api/...` and `/health` still reach your backend. Every other path calls `page`.
 
-- **Call the API by path.** Make the frontend call `/api/...`, as the typed client does with `baseUrl: "/api"`, not `http://localhost:3000/api/...`. On the deployed app, `localhost` is each visitor's own computer. While you develop, Vite's `proxy` setting passes `/api` to your backend.
+- **Call the API by path.** Make the frontend call `/api/...`, as the typed client does with `baseUrl: "/api"`, not `http://localhost:3000/api/...`. On the deployed app, `localhost` is each visitor's own computer. While you develop, Vite's `proxy` setting passes `/api` to your backend. `create-vue` doesn't add one, so if `defineConfig` in `frontend/vite.config.ts` has no `server` entry, add:
 
-- **Install the frontend with Bun.** Run `bun install` in `frontend` and commit `frontend/bun.lock`, even if you created the frontend with npm. The platform needs a `bun.lock` in each folder it installs.
+  ```ts
+    server: { proxy: { "/api": "http://127.0.0.1:3000" } },
+  ```
+
+- **Install the frontend with Bun.** Run `bun install` in `frontend` and commit `frontend/bun.lock`, even if you created the frontend with npm. The platform needs a `bun.lock` in each folder it installs. Delete `frontend/package-lock.json` if there is one, and from now on add packages with `bun add`, not `npm install`.
 
 You still develop with Vite's dev server, as before.
 
 <h3 id="sign-in">If your app signs people in</h3>
 
-Requests to sign in, sign out, or do anything that needs a signed-in person are refused with status 403 and `{"error":"FORBIDDEN"}` unless the page that sent them is at the `publicOrigin` address in your `httpPolicy`. On the platform, that address is `https://<name>.mit-sdg.dev`, so where your code calls `httpPolicy`, read it from a variable:
+This applies if your `httpPolicy` sets `publicOrigin`, as it does when sessions are kept in a cookie, like ConceptBox's. Requests to sign in, sign out, or do anything that needs a signed-in person are refused with status 403 and `{"error":"FORBIDDEN"}` unless the page that sent them is at the `publicOrigin` address in your `httpPolicy`. On the platform, that address is `https://<name>.mit-sdg.dev`, so where your code calls `httpPolicy`, read it from a variable:
 
 ```ts
   publicOrigin: process.env.PUBLIC_ORIGIN ?? "http://localhost:5173",
@@ -97,6 +101,14 @@ Run your app the way the platform does. First stop `bun run dev` if it's running
 bun run build    # only if your app has a build script
 PORT=3000 PUBLIC_ORIGIN=http://127.0.0.1:3000 bun run start
 ```
+
+In PowerShell on Windows, the last line is:
+
+```powershell
+$env:PORT="3000"; $env:PUBLIC_ORIGIN="http://127.0.0.1:3000"; bun run start
+```
+
+These variables stay set until you close that PowerShell window. If Windows asks whether to let Bun through the firewall, click **Cancel**; the app still works on your computer.
 
 Open http://127.0.0.1:3000/health and check that it returns `ok`. Then open http://127.0.0.1:3000 and use the app, including signing in if it has sign-in. Press Ctrl+C, then commit and push.
 
@@ -165,7 +177,7 @@ To deploy a private repository, you add a deploy key to it on GitHub. The key le
 <details>
 <summary>Choosing the Bun or Node.js version</summary>
 
-The `packageManager` line from "Before you start" names an exact Bun version. To specify a range, use `engines` instead:
+The `packageManager` line from "Before you start" names an exact Bun version. To specify a range, remove that line and use `engines` instead:
 
 ```json
   "engines": { "node": ">=22" }
@@ -274,7 +286,7 @@ For a failed build, open its build output on **Deployments**. If the app built b
 
 **The Deploy tab says "This commit will fail to build".** Read the reason below it. If it asks for a lockfile, run `bun install` (or `npm install` on Node.js) in the folder it names, commit the lockfile, push, and select the new commit.
 
-**The build says "lockfile had changes, but lockfile is frozen".** Your `bun.lock` was written by a newer Bun than the one `package.json` names. Name the version that `bun --version` prints, as in [If you use Bun](#bun).
+**The build says "lockfile had changes, but lockfile is frozen".** If the lines above it say "Unknown lockfile version", your `bun.lock` was written by a newer Bun than the one `package.json` names. Name the version that `bun --version` prints, as in [If you use Bun](#bun). Otherwise, a `package.json` lists packages its `bun.lock` doesn't, often after an `npm install`. Run `bun install` in that folder, commit `bun.lock`, push, and select the new commit.
 
 **The build says `vite: command not found`.** The frontend's packages weren't installed. Add `frontend` under **Package directories** in **Settings**.
 
@@ -284,7 +296,7 @@ For a failed build, open its build output on **Deployments**. If the app built b
 
 **Deploying or saving a variable says "Check the change in the app's Overview before trying again."** Another change to the app hasn't finished, such as the database being set up. Wait for it, then try again. "Wait for your current operation to finish." means a change to another of your apps is still running.
 
-**Overview shows Needs attention.** A deployment or change stopped partway. Click **Resume**, or **Finish change**, there.
+**Overview shows Needs attention.** A deployment or change stopped partway. Click **Resume** there. If a variable change stopped, click **Finish change** under **Environment variables** in **Settings**, and enter the value again.
 
 **"Your app started but didn't pass the health check".** Check that the server listens on the **Port** from **Settings**, at `0.0.0.0`, and that the **Health check path** exists and returns HTTP 2xx. If **Logs** shows only one of your servers starting, check that `package.json` names Bun 1.4.0 or later, as in [If you use Bun](#bun). If the check reads the database, check that the database variable's name matches your code.
 
@@ -297,7 +309,7 @@ For a failed build, open its build output on **Deployments**. If the app built b
 
 The example's error says to add the variable to `.env`, because the same code runs locally. On the platform, check the variable name under **Databases and storage** in **Settings** instead.
 
-**The page is blank, or your app's address returns 404.** The app is running, but no server sends the frontend's files. For a Vue app, see [If your frontend uses Vue](#vue). With the local guide's two servers, check that `start` runs both.
+**The page is blank, or your app's address returns 404.** The app is running, but no server sends the frontend's files. For a Vue app, check that **Build script** in **Settings** is `build`, and see [If your frontend uses Vue](#vue). With the local guide's two servers, check that `start` runs both.
 
 **Errors say "not authorized on myapp to execute command".** Your code names a database, as in `client.db("myapp")`. Use `client.db()`, so the driver uses the database in the connection string.
 
@@ -305,7 +317,7 @@ The example's error says to add the variable to `.env`, because the same code ru
 
 **Signing in works locally but gets `FORBIDDEN` on the platform.** Check that `PUBLIC_ORIGIN` is your app's `https://` address with no slash at the end, and that your code reads it, as in [If your app signs people in](#sign-in).
 
-**Data or uploaded files disappear after a deployment.** Your code saved them as files on the server, and each deployment starts on a fresh machine. Save data in the database and files in S3 storage.
+**Errors say "read-only file system", or files disappear after a deployment.** Your code saved data or uploads as files on the server. Your app's folders are read-only, and each deployment starts on a fresh machine. Save data in the database and files in S3 storage.
 
 **Signing in to mit-sdg.dev says "Sign-in was cancelled" or "That sign-in expired".** Click **Sign in with your class account** again. If you clicked **Cancel** on Commons, it asks again next time.
 
