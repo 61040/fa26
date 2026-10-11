@@ -20,15 +20,18 @@ Your app needs:
 
 Most apps also need a few small code changes, below. Make the ones that apply, try the app, then commit and push.
 
-### If you use Bun
+<h3 id="bun">If you use Bun</h3>
 
-`sync-engine setup` wrote `"packageManager": "bun@1.3.4"` in `package.json`. Change it to:
+`sync-engine setup` wrote `"packageManager": "bun@1.3.4"` in `package.json`. The platform builds and runs your app with exactly the version named there, but Bun on your computer ignores the line, so check two things:
+
+- **It's at least as new as your own Bun.** Run `bun --version`. Bun 1.4 writes a `bun.lock` that 1.3.4 can't read, so if you have 1.4 or later, name that version here.
+- **Your start script works on it.** On the platform's Bun 1.3.4, `bun run --parallel` starts only the first script. If your `start` script uses `--parallel`, as the local guide's does, name 1.4.0 or later.
+
+Otherwise, 1.3.4 is fine. To change it:
 
 ```json
   "packageManager": "bun@1.4.0",
 ```
-
-The platform builds and runs your app with the version named here. On Bun 1.3.4, `bun run --parallel` runs only the first script, so only part of your app would start. Bun ignores this line on your computer, so you wouldn't see the problem until you deploy.
 
 <h3 id="vue">If your frontend uses Vue</h3>
 
@@ -271,6 +274,8 @@ For a failed build, open its build output on **Deployments**. If the app built b
 
 **The Deploy tab says "This commit will fail to build".** Read the reason below it. If it asks for a lockfile, run `bun install` (or `npm install` on Node.js) in the folder it names, commit the lockfile, push, and select the new commit.
 
+**The build says "lockfile had changes, but lockfile is frozen".** Your `bun.lock` was written by a newer Bun than the one `package.json` names. Name the version that `bun --version` prints, as in [If you use Bun](#bun).
+
 **The build says `vite: command not found`.** The frontend's packages weren't installed. Add `frontend` under **Package directories** in **Settings**.
 
 **The build says `Cannot find module './App.vue'`.** The build script runs `vue-tsc`. Make `frontend`'s build script `vite build`, as in [If your frontend uses Vue](#vue).
@@ -281,7 +286,7 @@ For a failed build, open its build output on **Deployments**. If the app built b
 
 **Overview shows Needs attention.** A deployment or change stopped partway. Click **Resume**, or **Finish change**, there.
 
-**"Your app started but didn't pass the health check".** Check that the server listens on the **Port** from **Settings**, at `0.0.0.0`, and that the **Health check path** exists and returns HTTP 2xx. If **Logs** shows only one of your servers starting, check that `package.json` names `bun@1.4.0`. If the check reads the database, check that the database variable's name matches your code.
+**"Your app started but didn't pass the health check".** Check that the server listens on the **Port** from **Settings**, at `0.0.0.0`, and that the **Health check path** exists and returns HTTP 2xx. If **Logs** shows only one of your servers starting, check that `package.json` names Bun 1.4.0 or later, as in [If you use Bun](#bun). If the check reads the database, check that the database variable's name matches your code.
 
 **"Your app exited with code 1".** Click **See why it stopped** and read **Errors** to find what failed.
 
