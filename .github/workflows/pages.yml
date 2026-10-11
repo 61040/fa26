@@ -92,6 +92,10 @@ jobs:
         with:
           ref: ${{ matrix.ref }}
           persist-credentials: false
+          # Pull request entries are already limited to this repository's
+          # branches and people with write access (see build-matrix), and this
+          # job's token is read-only, so their fork branches may be checked out.
+          allow-unsafe-pr-checkout: ${{ startsWith(matrix.name, 'pr/') }}
 
       - name: Determine configuration for ${{ matrix.name }}
         id: config
