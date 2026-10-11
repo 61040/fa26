@@ -117,7 +117,7 @@ Choose carefully, because you can't change it later. It becomes part of your app
   <figcaption>The example app is called <code>reservations</code>. Use your own app's name.</figcaption>
 </figure>
 
-You can create two apps, and a stopped app still counts. Use one for your personal project and keep the other for your team project. On a team, one person creates the team's app and adds the others, as step 6 shows.
+You can create two apps, and a stopped app still counts. You can't delete an app yourself, so use one for your personal project and keep the other for your team project. If you need a slot back, ask the course staff. On a team, one person creates the team's app and adds the others, as step 6 shows.
 
 ## 3. Fill in the settings
 
@@ -194,6 +194,8 @@ In the next dialog, type the name of the variable your code reads for the connec
 
 Pass that connection string to the MongoDB client unchanged. It already includes the database name and password. Call `client.db()` with no name, so the driver uses that database; your app's database user can't use any other. The new database is empty, and your local MongoDB data stays on your computer.
 
+Your database runs on its own server, so another app's load can't slow it down. It can hold 2 GB and take 10 connections at a time, and **Settings** shows how much of that you're using. Create one `MongoClient` when your app starts and use it everywhere; the connection string already limits it to 10 connections. If the data grows past 2 GB, the database pauses writes until you delete some. Reads and deletes keep working, and the course staff can raise the limit if your app needs more.
+
 Wait until the database no longer shows **Setting up**. Until then, a deploy or a variable change is refused with "Check the change in the app's Overview before trying again." The platform makes one change at a time, across all your apps.
 
 <details>
@@ -223,7 +225,7 @@ Click **Review deployment**, check that the commit is the one you meant and that
   <figcaption>On the first deployment, the app stays marked "Not deployed" until it finishes.</figcaption>
 </figure>
 
-A deployment can take 10 to 15 minutes. The platform starts new machines to build and run your app, and CSAIL's servers take a while to launch them, so a slow deployment is normal. You can close the page and come back later. The deployment keeps going, and **Overview** shows how it went.
+A deployment usually takes about 10 minutes. The platform starts new machines to build and run your app, and CSAIL's servers take a while to launch them, so a slow deployment is normal. You can close the page and come back later. The deployment keeps going, and **Overview** shows how it went.
 
 If you stay on the page, you'll see "Deployment succeeded. Your app is running this commit." when it finishes.
 
@@ -238,7 +240,7 @@ For later changes, push your code to GitHub, then choose the new commit on the *
 
 ## 6. Manage your app
 
-The **Overview** tab shows your app's health and the commit it's running. You can also deploy, stop, or restart it there.
+The **Overview** tab shows your app's health and the commit it's running. You can also deploy, stop, or restart it there. Under **Machines**, it shows how much memory your app can use; if the app goes over, the platform restarts it.
 
 <figure class="guide-step">
   <img src="assets/deploying-apps/overview.png" alt="Overview tab showing the app as Healthy, its current commit, Deploy latest and Deploy buttons, and Stop app and Restart app controls">
@@ -273,7 +275,7 @@ For a failed build, open its build output on **Deployments**. If the app built b
 
 **The build says `Cannot find module './App.vue'`.** The build script runs `vue-tsc`. Make `frontend`'s build script `vite build`, as in [If your frontend uses Vue](#vue).
 
-**The deployment is still going after 15 minutes.** CSAIL's servers sometimes take longer to launch. Give it more time. If it hasn't finished after half an hour, post on the forum.
+**The deployment is still going after 15 minutes.** CSAIL's servers sometimes take longer to launch machines. And if your app doesn't pass its health check, the platform keeps waiting for up to 10 minutes before it gives up, so a failing deployment can take 20 minutes or more. Check **Logs** while you wait. If it hasn't finished after half an hour, post on the forum.
 
 **Deploying or saving a variable says "Check the change in the app's Overview before trying again."** Another change to the app hasn't finished, such as the database being set up. Wait for it, then try again. "Wait for your current operation to finish." means a change to another of your apps is still running.
 
@@ -293,6 +295,8 @@ The example's error says to add the variable to `.env`, because the same code ru
 **The page is blank, or your app's address returns 404.** The app is running, but no server sends the frontend's files. For a Vue app, see [If your frontend uses Vue](#vue). With the local guide's two servers, check that `start` runs both.
 
 **Errors say "not authorized on myapp to execute command".** Your code names a database, as in `client.db("myapp")`. Use `client.db()`, so the driver uses the database in the connection string.
+
+**Saving data fails with "not authorized", but reading still works.** Your database is over its size limit. **Settings** says "Writes are paused because this database is over its size limit." Delete enough data to leave at least 5% of the limit free, and writes resume within a few minutes. If your app needs more space, ask the course staff.
 
 **Signing in works locally but gets `FORBIDDEN` on the platform.** Check that `PUBLIC_ORIGIN` is your app's `https://` address with no slash at the end, and that your code reads it, as in [If your app signs people in](#sign-in).
 
@@ -361,7 +365,7 @@ A few rules for signed URLs:
 - Check the person's permission to use a file before signing its URL. Anyone with that URL can use it until it expires.
 - Always set `expiresIn`. Bun's default is a whole day.
 - Browsers can upload only from `https` pages on `mit-sdg.dev`, so try browser uploads on your deployed app, not on `localhost`. This doesn't stop someone using a signed URL from another tool.
-- Each upload can be up to 100 MB.
+- Each upload can be up to 100 MB, and your app's storage holds up to 5 GB and 100,000 files.
 
 For Node.js, use `@aws-sdk/client-s3` and `@aws-sdk/s3-request-presigner`. They read the same credentials and region variables. Pass in the endpoints and set `forcePathStyle` on the client that signs browser URLs:
 
@@ -390,11 +394,11 @@ There are five kinds of machines:
 
 - The admin machine runs Nomad, which schedules app containers, and the controller that manages deployments.
 - The ingress machine runs Traefik, which routes each app's address to the right app.
-- The storage machine runs PostgreSQL, MongoDB, Garage (an S3-compatible file store), and the private registry for app images.
+- The storage machine runs a separate PostgreSQL or MongoDB server for each app's database, each with its own memory, CPU, and disk limits. It also runs Garage, an S3-compatible file store shared by all apps with a separate bucket for each, and the private registry for app images.
 - Each app gets its own worker machine, with no SSH and no persistent disk.
 - Each build gets a single-use builder machine.
 
-When you deploy, the platform fetches the exact commit, and a fresh builder uses BuildKit to build a container image from the official Node.js or Bun image. It pushes the result to the private registry, then is deleted. The platform starts a fresh worker for your app, and Nomad runs the image there. Traffic switches only after the app, the scheduler, and the public address all pass their health checks. Starting these virtual machines is most of the 10 to 15 minutes.
+When you deploy, the platform fetches the exact commit, and a fresh builder uses BuildKit to build a container image from the official Node.js or Bun image. It pushes the result to the private registry, then is deleted. The platform starts a fresh worker for your app, and Nomad runs the image there. Traffic switches only after the app, the scheduler, and the public address all pass their health checks. Starting these virtual machines is most of the 10 minutes.
 
 Public traffic reaches Cloudflare first, which handles HTTPS. Traefik then forwards it to the app. Databases and S3 files go into encrypted backups every night.
 
