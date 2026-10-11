@@ -135,7 +135,7 @@ Creating the app opens its **Settings** tab. Fill in the fields for your app.
 Click **Save settings**.
 
 <figure class="guide-step">
-  <img src="assets/deploying-apps/settings.png" alt="Settings form for sync-engine-reservations, with branch main, Bun selected, package directories set to a dot, an empty build script with a grey build placeholder, start script start, port 3000, and health check path /health">
+  <img src="assets/deploying-apps/settings.png" alt="Settings form for sync-engine-reservations, with branch main, Bun selected, package directories set to a dot, an empty build script with the hint Leave empty if your app has no build step, start script start, port 3000, and health check path /health">
   <figcaption>The reservations app's settings.</figcaption>
 </figure>
 
@@ -240,7 +240,7 @@ For later changes, push your code to GitHub, then choose the new commit on the *
 
 ## 6. Manage your app
 
-The **Overview** tab shows your app's health and the commit it's running. You can also deploy, stop, or restart it there. Under **Machines**, it shows how much memory your app can use; if the app goes over, the platform restarts it.
+The **Overview** tab shows your app's health and the commit it's running. You can also deploy, stop, or restart it there.
 
 <figure class="guide-step">
   <img src="assets/deploying-apps/overview.png" alt="Overview tab showing the app as Healthy, its current commit, Deploy latest and Deploy buttons, and Stop app and Restart app controls">
