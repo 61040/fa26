@@ -15,3 +15,4 @@ Attend recitations to discuss any difficulties with the prep work.
 3. [**HTTP and REST**](./preps/http-rest.md)
 4. [**MongoDB**](./preps/mongodb.md)
 5. [**Vue**](./preps/vue.md)
+6. [**Cookies and Sessions**](./preps/cookies.md)
