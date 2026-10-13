@@ -22,7 +22,7 @@ title: Schedule
 | Thu Oct 8 | _Vue_ | | [Prep 5: Vue](./preps/vue.md)
 | Tue Oct 13 | **Interaction design (Monday schedule)** | [P2: Alpha (MVP)](./assignments/p2.md)
 | Wed Oct 14 | **Visual design**
-| Thu Oct 15 | _Cookies and sessions_ | | Prep 6: Cookies and sessions
+| Thu Oct 15 | _Cookies and sessions_ | | [Prep 6: Cookies and sessions](./preps/cookies.md)
 | Mon Oct 19 | **Engaging users: problem, design** | P3: Beta (Function complete)
 | Wed Oct 21 | **Engaging users: evaluation, signals**
 | Thu Oct 22 | _LLM APIs, MCP_ | | Prep 7: LLM APIs, MCP
