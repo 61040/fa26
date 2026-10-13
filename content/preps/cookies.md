@@ -38,9 +38,10 @@ In this prep, you will inspect cookies in your browser and use `curl` to make an
 
 2. **Obtain your session cookie.** Open developer tools and navigate once again to cookie storage.  Find the cookie named `__Host-commons-session`. Copy its value somewhere temporary.
 
-**Important:** Treat this value like a password:
+<span class="emphasize">**Important:** Treat this value like a password:
 _do not_ commit your cookie to Git, _do not_ include it in your prep submission, and _do not_ share it with anyone.
-Anyone who obtains a valid session cookie may be able to access your account.
+Anyone who obtains a valid session cookie may be able to access your
+account.</span>
 Now we will see that in action.
 
 3. **Make an API request.**
@@ -95,5 +96,10 @@ curl https://class.mit-sdg.dev/api/roster/class \
 
 3. Paste the resulting JSON in the Markdown file.
 4. Commit and push to your repo and submit the commit URL on Commons.
+5. <span class="emphasize">**Important security step:** Log out of Commons and log back in to refresh your session ID.</span>
 
-**Never include your session cookie or a command containing its value in your submission.** Do not include a screenshot or terminal output that exposes the cookie.
+<span class="emphasize">**Never include your session cookie or a command containing its value in your submission.** Do not include a screenshot or terminal output that exposes the cookie.</span>
+
+<style>
+span.emphasize { color: var(--accent-red-light); }
+</style>
