@@ -20,8 +20,8 @@ title: Schedule
 | Mon Oct 5 | **Client server** ([Slides](/lectures/everything.pdf)) | [P1: Design](./assignments/p1.md)
 | Wed Oct 7 | **Coding a concept design** ([Slides](/lectures/coding-a-concept-design.pdf))
 | Thu Oct 8 | _Vue_ | | [Prep 5: Vue](./preps/vue.md)
-| Tue Oct 13 | **Interaction design (Monday schedule)** | [P2: Alpha (MVP)](./assignments/p2.md)
-| Wed Oct 14 | **Visual design**
+| Tue Oct 13 | **Interaction design (Monday schedule)** ([Slides](/lectures/interaction-design.pdf)) | [P2: Alpha (MVP)](./assignments/p2.md)
+| Wed Oct 14 | **Visual design** ([Slides](/lectures/visual-design.pdf))
 | Thu Oct 15 | _Cookies and sessions_ | | [Prep 6: Cookies and sessions](./preps/cookies.md)
 | Mon Oct 19 | **Engaging users: problem, design** | [P3: Beta (Function complete)](./assignments/p3.md)
 | Wed Oct 21 | **Engaging users: evaluation, signals**
