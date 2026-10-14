@@ -13,7 +13,7 @@ title: Assignments
 
 - [**P1:** Design](./assignments/p1.md)
 - [**P2:** Alpha (MVP)](./assignments/p2.md)
-- **P3:** Beta
+- [**P3:** Beta](./assignments/p3.md)
 - **P4:** Code Complete
 - **P5:** User Testing
 
