@@ -50,6 +50,9 @@ Now we will see that in action.
    <details>
    <summary>Note for Windows users</summary>
    <p>This command may not work in Command Prompt or Powershell. You can use <a href="https://learn.microsoft.com/en-us/windows/wsl/install">WSL</a> to emulate bash on Windows.</p>
+   <p>
+   If you would prefer to use Command Prompt, replace the backslashes with <code>^</code> (or backticks <code>&#96;</code> in Powershell), replace the single quotes with <code>"</code>, and replace <code>curl</code> with <code>curl.exe</code>.
+   </p>
    </details>
 
 
