@@ -344,19 +344,19 @@ Files your code writes to disk can disappear on a restart or deployment. Keep da
 
 | Variable | What your app uses it for |
 | --- | --- |
-| `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` | Credentials. Keep them on the server. |
-| `AWS_REGION` | The region. Use the supplied value. |
+| `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY` | Credentials. Keep them on the server. |
+| `S3_REGION` | The region. Use the supplied value. |
 | `S3_BUCKET` | Your app's bucket. |
-| `AWS_ENDPOINT_URL_S3` | The private address for requests from your server. |
+| `S3_ENDPOINT` | The private address for requests from your server. |
 | `S3_PUBLIC_ENDPOINT` | The public address for URLs sent to browsers. |
 
-Bun's S3 client reads the credentials, region, and bucket from these variables. Pass in the addresses:
+Bun's S3 client reads all of these except `S3_PUBLIC_ENDPOINT` by itself, so only the public address needs passing in:
 
 ```ts
 import { S3Client } from "bun";
 
 // For your server's own reads and writes.
-export const s3 = new S3Client({ endpoint: process.env.AWS_ENDPOINT_URL_S3 });
+export const s3 = new S3Client();
 
 // Only for signing URLs that browsers will use.
 export const publicS3 = new S3Client({ endpoint: process.env.S3_PUBLIC_ENDPOINT });
@@ -384,19 +384,29 @@ A few rules for signed URLs:
 - Browsers can upload only from `https` pages on `mit-sdg.dev`, so try browser uploads on your deployed app, not on `localhost`. This doesn't stop someone using a signed URL from another tool.
 - Each upload can be up to 100 MB, and your app's storage holds up to 5 GB and 100,000 files.
 
-For Node.js, use `@aws-sdk/client-s3` and `@aws-sdk/s3-request-presigner`. They read the same credentials and region variables. Pass in the endpoints and set `forcePathStyle` on the client that signs browser URLs:
+For Node.js, use `@aws-sdk/client-s3` and `@aws-sdk/s3-request-presigner`. The AWS SDK doesn't read these variables, so pass them in, along with `forcePathStyle`:
 
 ```ts
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
-const s3 = new S3Client({ endpoint: process.env.AWS_ENDPOINT_URL_S3, forcePathStyle: true });
-const publicS3 = new S3Client({ endpoint: process.env.S3_PUBLIC_ENDPOINT, forcePathStyle: true });
+const options = {
+  region: process.env.S3_REGION,
+  credentials: {
+    accessKeyId: process.env.S3_ACCESS_KEY_ID!,
+    secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
+  },
+  forcePathStyle: true,
+};
+const s3 = new S3Client({ ...options, endpoint: process.env.S3_ENDPOINT });
+const publicS3 = new S3Client({ ...options, endpoint: process.env.S3_PUBLIC_ENDPOINT });
 
 const key = `uploads/${crypto.randomUUID()}`;
 const command = new PutObjectCommand({ Bucket: process.env.S3_BUCKET, Key: key });
 const url = await getSignedUrl(publicS3, command, { expiresIn: 600 });
 ```
+
+If you added S3 storage before October 14, your app still has the older names, such as `AWS_ACCESS_KEY_ID`, and your code keeps working. To switch to the names above, click **Edit variables** next to the storage, then **Reset to defaults** and **Save variables**, update your code, and deploy again.
 
 </details>
 
