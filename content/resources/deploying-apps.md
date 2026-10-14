@@ -35,15 +35,15 @@ For a Vue frontend, read each check. If it already matches your code, you can le
 <summary>If your whole app is a copy of ConceptBox</summary>
 <div id="conceptbox"></div>
 
-Check the [Bun version](#bun), then skip the Vue checks. Leave `.db("conceptbox")` unchanged; it selects the local in-memory database.
+Check the [Bun version](#bun), then skip the Vue checks. Leave `.db("conceptbox")` unchanged. It names only the local in-memory database; with the platform's MongoDB, ConceptBox calls `client.db()` with no name.
 
-When you reach [Try it and push](#test), run `bun run storage` in a second terminal and leave it running for the local preview. If you haven't run ConceptBox locally before, also run `bun run storage:setup` once, as its README describes. Add this `preview` script to the root `package.json`:
+When you reach [Try it and push](#test), first run `bun run storage:setup` once if you haven't run ConceptBox locally before, as its README describes. Then run `bun run storage` in a second terminal and leave it running for the local preview. Add this `preview` script to the root `package.json`:
 
 ```json
-    "preview": "bun run build && PORT=3000 PUBLIC_ORIGIN=http://localhost:3000 bun run start",
+    "preview": "bun run build && NODE_ENV=production PORT=3000 PUBLIC_ORIGIN=http://localhost:3000 bun run start",
 ```
 
-Use `localhost` in the addresses you open; local file storage accepts uploads only from `localhost`. In [step 4](#variables), keep the suggested variable names for MongoDB and for [S3 storage](#s3), which you add as well.
+Use `localhost` in the addresses you open; local file storage accepts uploads only from `localhost`. In [step 4](#variables), add MongoDB and [S3 storage](#s3), and keep the suggested variable names for both.
 
 </details>
 
@@ -110,7 +110,7 @@ In the root `package.json`, add this `build` script under `scripts`:
     "build": "bun run --cwd frontend build",
 ```
 
-In `frontend/package.json`, replace the `build` script, which `create-vue` sets with TypeScript to `run-p type-check "build-only {@}" --`, with:
+In `frontend/package.json`, replace the `build` script that `create-vue` writes for TypeScript projects, `run-p type-check "build-only {@}" --`, with:
 
 ```json
     "build": "vite build",
@@ -195,7 +195,7 @@ If your app uses a cookie to remember who is signed in, the backend accepts sign
 For Vue, add this `preview` script to the root `package.json`. For [ConceptBox](#conceptbox) or [plain TypeScript](#typescript), use the script in that section instead.
 
 ```json
-    "preview": "bun run db:up && bun run build && PORT=3000 PUBLIC_ORIGIN=http://127.0.0.1:3000 bun run start",
+    "preview": "bun run db:up && bun run build && NODE_ENV=production PORT=3000 PUBLIC_ORIGIN=http://127.0.0.1:3000 bun run start",
 ```
 
 Stop `bun run dev`, since its backend uses port 3000. Then, in the root folder:
@@ -206,7 +206,7 @@ bun run preview
 
 You may see a build warning that modules were "externalized for browser compatibility". This can happen because the typed client imports server code that isn't used in the browser. It doesn't by itself mean the build failed; continue with the steps below.
 
-For ConceptBox, use `localhost` instead of `127.0.0.1` in both addresses below. Open http://127.0.0.1:3000/health and check that it reports `ok`. Then open http://127.0.0.1:3000 and try your app, including signing in if you've added sign-in. Create something and reload the page to check that it's still there. With Vue Router, also reload a page other than the home page. When you're done, press Ctrl+C in the terminal, then commit and push your changes, including the lockfiles. Keep `.env` out of git.
+For ConceptBox, use `localhost` instead of `127.0.0.1` in both addresses below. Open http://127.0.0.1:3000/health and check that it reports `ok`. Then open http://127.0.0.1:3000 and try your app, including signing in if you've added sign-in. Create something and reload the page to check that it's still there. With Vue Router, also reload a page other than the home page. When you're done, press Ctrl+C in the terminal to stop the preview. Then commit and push your changes, including the lockfiles. Keep `.env` out of git.
 
 <h2 id="platform-sign-in">1. Sign in</h2>
 
@@ -221,7 +221,7 @@ Open [mit-sdg.dev](https://mit-sdg.dev) and click **Sign in with your class acco
 
 Each student can have two apps. Only course staff can delete an app. Use one for your personal project and keep the other for your team project. On a team, one person creates the team's app and adds the others, as [step 6](#manage) shows.
 
-Click **Create app** and type a name. It becomes your app's address, such as `https://reservations.mit-sdg.dev`, and you can't change it later.
+Click **Create app** and type a name. The name becomes your app's address, such as `https://reservations.mit-sdg.dev`, and you can't change it later.
 
 <figure class="guide-step guide-step--compact">
   <img src="assets/deploying-apps/create-app.png" alt="Create app form with reservations entered as the app name and the naming rule below it">
@@ -257,7 +257,7 @@ Click **Save settings**.
 <details>
 <summary>Deploying from a private repository</summary>
 
-To deploy a private repository, you add a deploy key to it on GitHub. The key lets the platform read that one repository. Someone with admin access to the repository must add it.
+To deploy from a private repository, add a deploy key to it on GitHub. The key lets the platform read that one repository. Someone with admin access to the repository must add it.
 
 1. Save the repository URL in **Settings**. Under **Private repository**, click **Create deploy key** and copy the key.
 2. On GitHub, open the repository's **Settings**, then **Deploy keys**, then **Add deploy key**. Paste the key and leave **Allow write access** off.
@@ -325,7 +325,7 @@ For later changes, push your code, then click **Deploy latest** on **Overview** 
 
 - **Logs** shows what your app prints, with separate **Output** and **Errors** views.
 - On **Team**, the app's owner adds or removes teammates by their Commons username. Each teammate must sign in to 6.1040 Apps once first. Teammates can change settings, deploy, and read logs.
-- **Deployments** lists past deployments; open one for its build output and the exact Bun version it used. If a deployment fails, your app goes on running the previous commit. To go back to an earlier commit, open its deployment and click **Deploy this commit again**, then **Review deployment** and **Deploy**. It uses your current settings and variables, and doesn't restore earlier data.
+- **Deployments** lists past deployments; open one for its build output and the exact Bun version it used. If a deployment fails, your app keeps running the previous commit. To go back to an earlier commit, open its deployment and click **Deploy this commit again**, then **Review deployment** and **Deploy**. The redeployment uses your current settings and variables, and doesn't restore earlier data.
 
 <figure class="guide-step">
   <img src="assets/deploying-apps/deployment.png" alt="Successful deployment details showing its commit, repository, Bun 1.4.0 from packageManager, image digest, Deploy this commit again button, and build output">
@@ -357,13 +357,15 @@ If a build fails, open it on **Deployments** and read the build output. If the b
 
 For a missing variable on the platform, check the name under **Databases and storage** or **Environment variables** in **Settings**. Changes to database variables take effect on the next deployment, so deploy again after correcting one.
 
-**"Your app started but didn't pass the health check".** Check that `Bun.serve` listens on `process.env.PORT` at `process.env.HOST`, as in the local guide; the platform sets `HOST` to `0.0.0.0`. Check that `/health` returns HTTP 2xx, and, if it reads the database, that the database variable's name matches your code and `client.db()` names no database.
+**"Your app started but didn't pass the health check".** Check that `Bun.serve` listens on `process.env.PORT` at `process.env.HOST`, as in the local guide; the platform sets `HOST` to `0.0.0.0`. Check that `/health` returns HTTP 2xx. If it reads the database, also check that the database variable's name matches your code and that `client.db()` names no database.
 
 **Every page says "Something went wrong!", or returns 404.** The app is running, but the frontend's files weren't built or aren't sent; **Errors** may name `index.html`. For Vue, check that **Build script** is `build`, and that the backend sends the built files from your Vue folder's `dist`, as in [Pages](#pages). For the local guide's plain TypeScript app, check that `start` runs both servers.
 
 **Reads and writes fail with "not authorized on myapp to execute command".** Your code names a database, as in `client.db("myapp")`. For connections to the platform's MongoDB, use `client.db()` so the driver uses the database in the connection string. Leave the separate local in-memory database in ConceptBox unchanged.
 
 **Saving data fails with "not authorized", but reading still works.** The database is over its 2 GB limit, and **Settings** says "Writes are paused because this database is over its size limit." Delete enough data to leave at least 5% free, and writes resume within a few minutes. If your app needs more space, ask the course staff.
+
+**A new deployment stops with `too many connections for role "u_…"`.** During a deployment, the new version starts while the old one is still running, so both use database connections at once. If the old version already holds most of the connections, the new one can't connect. Give your database client a smaller pool, such as `new SQL({ max: 5 })` with Bun's SQL client, so two versions fit, or ask the course staff to raise the limit.
 
 **Signing in to your app gets `FORBIDDEN`.** Check that `PUBLIC_ORIGIN` is your app's `https://` address, and that your code reads it. For a local preview, the browser address must match `PUBLIC_ORIGIN`, or the default in your code if the variable isn't set. `localhost` and `127.0.0.1` count as different addresses.
 
@@ -411,7 +413,7 @@ Your app's folders are read-only, and each deployment starts on a fresh machine,
 | `S3_ENDPOINT` | The private address for requests from your server. |
 | `S3_PUBLIC_ENDPOINT` | The public address for URLs sent to browsers. |
 
-Bun's S3 client reads all of these except `S3_PUBLIC_ENDPOINT` by itself, so only the public address needs passing in:
+Bun's S3 client reads all of these except `S3_PUBLIC_ENDPOINT` by itself, so you only pass in the public address:
 
 ```ts
 import { S3Client } from "bun";
@@ -454,11 +456,13 @@ S3 storage added before October 14 keeps the older names: **Edit variables** nex
 
 **Running.** Your app has a fixed memory limit, and going over it stops the app. The platform restarts an app that crashes, up to three times within five minutes.
 
-**Changes.** The platform makes one change at a time, across all your apps. Settings, and database and S3 variables, take effect on the next deployment. Saving an environment variable restarts the app right away.
+**Changes.** The platform makes one change at a time, across all your apps. Changes to settings and to database and S3 variables take effect on the next deployment. Saving an environment variable restarts the app right away.
 
 **Health checks.** Visitors reach a new deployment only after its health check returns HTTP 2xx, with a body of at most 4 KB and no redirect. The platform waits up to 10 minutes for that before the deployment fails. A failed deployment leaves the previous one running.
 
 **MongoDB.** Your database runs on a separate server, with separate memory, CPU, and disk limits. It holds 2 GB and allows 10 connections at a time. The connection string already sets the connection limit, so create one `MongoClient` when your app starts and reuse it throughout your code. If the database grows past 2 GB, writes pause until at least 5% of the space is free. Reads and deletes still work. The course staff can raise the limit.
+
+**PostgreSQL.** Your database holds 2 GB and allows 20 connections.
 
 **Files.** S3 storage holds up to 5 GB and 100,000 files, with uploads of up to about 100 MB each.
 
@@ -514,7 +518,7 @@ There are five kinds of machines:
 - Each app gets its own worker machine, with no SSH and no persistent disk.
 - Each build gets a single-use builder machine.
 
-When you deploy, the platform fetches the exact commit, and a fresh builder uses BuildKit to build a container image from the official Bun or Node.js image. It pushes the result to the private registry, then is deleted. The platform starts a fresh worker for your app, and Nomad runs the image there. Traffic switches only after the app, the scheduler, and the public address all pass their health checks. Starting these virtual machines takes most of the deployment's time.
+When you deploy, the platform fetches the exact commit, and a fresh builder uses BuildKit to build a container image from the official Bun or Node.js image. The builder pushes the image to the private registry and is then deleted. The platform starts a fresh worker for your app, and Nomad runs the image there. Traffic switches only after the app, the scheduler, and the public address all pass their health checks. Starting these virtual machines takes most of the deployment's time.
 
 Public traffic reaches Cloudflare first, which handles HTTPS. Traefik then forwards it to the app.
 
