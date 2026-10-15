@@ -27,6 +27,8 @@ This guide follows on from [Developing a sync-engine app locally](sync-engine-lo
 
 The platform builds and runs your app from a commit on GitHub. It runs `bun install` in each folder you list, then your build script, then your start script. These instructions use the Bun runtime, which doesn't include Node.js. You won't run Vite's development server on the platform either; your app will serve the built pages instead. The platform doesn't use your local `Dockerfile`, `compose.yaml`, or `.env`. You'll enter the deployment settings and environment variables on the site.
 
+Keep demo videos out of your repository. The files in the commit you deploy must total at most **50 MB**; larger commits are rejected before the build starts. Upload videos to Google Drive or YouTube and put a link in your README or project page instead. Check that classmates and course staff can open the link. If you've already committed a video, follow [Remove a committed video](#source-size).
+
 If you copied [ConceptBox](#conceptbox) or kept the [local guide's plain TypeScript frontend](#typescript), open those instructions first. You can skip most of the checks below.
 
 For a Vue frontend, read each check. If it already matches your code, you can leave the section closed. If not, or if you're unsure, open it for instructions and an explanation. You can also give a coding agent this page's address and ask it to follow "Before you start".
@@ -339,6 +341,31 @@ If a build fails, open it on **Deployments** and read the build output. If the b
 **Signing in to mit-sdg.dev says "Sign-in was cancelled" or "That sign-in expired".** Click **Sign in with your class account** again. If you clicked **Cancel** on Commons, you're asked again next time.
 
 **The Deploy tab says "This commit will fail to build".** Read the reason below it. If it names a missing lockfile, run `bun install` in that folder, commit `bun.lock`, push, and pick the new commit. If it says "frontend isn't a folder in this commit.", check that **Package directories** names your Vue folder and that the folder is committed. If the folder shows on GitHub as a single entry you can't open, it was committed as a separate repository. If you didn't intend that, move the hidden `frontend/.git` folder to a backup location outside your project so you keep its history. From the project root, run `git rm --cached frontend`, then `git add frontend`. Check that the frontend files appear in `git diff --cached --stat`, then commit and push. If you intended to use a Git submodule, ask the course staff before changing it.
+
+<div id="source-size"></div>
+
+**The deployment fails before the build starts after adding a video or another large file.** Check the files in the commit you selected on GitHub. The source limit is **50 MB for all files combined**, so a 54 MB demo video alone exceeds it. The failure message may not name the size limit.
+
+To remove a committed video:
+
+1. Upload it to Google Drive or YouTube, check the sharing permissions, and replace the video link in your README with the shared link.
+2. From your repository's root folder, run the command below, replacing `MVP Demo.mp4` with your video's path. This stops tracking the video in git and keeps your local copy.
+
+   ```sh
+   git rm --cached "MVP Demo.mp4"
+   ```
+
+3. Add the video's path to `.gitignore` so you don't commit it again. Adding it to `.gitignore` alone won't remove an already tracked file. Then commit and push the removal and link:
+
+   ```sh
+   git add .gitignore README.md
+   git commit -m "Link demo video instead of committing it"
+   git push
+   ```
+
+4. On GitHub, check that the new commit no longer contains the video. In the **Deploy** tab, select that new commit and deploy again. Remove other large files too if the remaining source still exceeds 50 MB.
+
+You don't need to rewrite git history: only the files in the commit you deploy count toward this limit.
 
 **The build says "lockfile had changes, but lockfile is frozen".** The platform installs packages without changing `bun.lock`. If the lines above say "Unknown lockfile version", the lockfile was written by a newer version of Bun than the one in `packageManager`; update that setting as in [Bun version](#bun). Otherwise, the packages listed in `package.json` and `bun.lock` don't match, often after running `npm install`. Run `bun install` in that folder, commit `bun.lock`, push, and pick the new commit.
 
