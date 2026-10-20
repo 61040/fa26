@@ -25,7 +25,7 @@ title: Schedule
 | Thu Oct 15 | _Cookies and sessions_ | | [Prep 6: Cookies and sessions](./preps/cookies.md)
 | Mon Oct 19 | **Engaging users: problem, design** | [P3: Beta (Function complete)](./assignments/p3.md)
 | Wed Oct 21 | **Engaging users: evaluation, signals**
-| Thu Oct 22 | _LLM APIs, MCP_ | | Prep 7: LLM APIs, MCP
+| Thu Oct 22 | _LLM APIs, MCP_ | | [Prep 7: LLM APIs, MCP](./preps/llm-apis-and-mcp.md)
 | Mon Oct 26 | **Value-sensitive design** | P4: Deploy (Project complete)
 | Wed Oct 28 | **Human-AI interaction fundamentals** | F0: Team Contract
 | Thu Oct 29 | _Injection attacks (SQL, prompt)_ | | Prep 8: Injection attacks

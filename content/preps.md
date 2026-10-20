@@ -16,3 +16,4 @@ Attend recitations to discuss any difficulties with the prep work.
 4. [**MongoDB**](./preps/mongodb.md)
 5. [**Vue**](./preps/vue.md)
 6. [**Cookies and Sessions**](./preps/cookies.md)
+7. [**LLM APIs and MCP**](./preps/llm-apis-and-mcp.md)
