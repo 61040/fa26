@@ -281,13 +281,13 @@ When tools are declared, the model does not execute code itself. Instead, it res
 
 ## Part 4: Tools across applications with MCP
 
-In Part 3, the tools were hardcoded inside `store.ts`. The Model Context Protocol (MCP) standardizes tool discovery and execution so that any client or agent can use tools provided by an external service. An MCP server answers two standard JSON-RPC methods, sent as POST requests to one URL:
+In Part 3, the tools were hardcoded inside `store.ts`. The Model Context Protocol (MCP) standardizes tool discovery and execution so that any client or agent can use tools provided by an external service. An MCP server takes JSON-RPC requests at one URL. This prep sends two of them:
 - `tools/list`: returns the list of tools the server provides;
 - `tools/call`: executes a tool with given arguments and returns the result.
 
 [DeepWiki](https://docs.devin.ai/work-with-devin/deepwiki-mcp) runs a public MCP server providing tools that query GitHub repositories. These requests require no API key.
 
-1. **List available tools.** Send a JSON-RPC request for `tools/list`. (A full MCP client first sends an `initialize` request; DeepWiki answers without one.)
+1. **List available tools.** Send a JSON-RPC request for `tools/list`:
 
    ```sh
    curl -s https://mcp.deepwiki.com/mcp \
@@ -310,8 +310,8 @@ In Part 3, the tools were hardcoded inside `store.ts`. The Model Context Protoco
 **Record:**
 - The names of the tools DeepWiki exposes.
 - Which of DeepWiki's tools only read data, and which could make changes?
-- Do any of DeepWiki's tool declarations include `annotations`? A server can mark its own tools with `readOnlyHint`, and under the specification a client must treat that mark as untrusted unless the server itself is trusted.
-- How did you decide which tools only read? What risk does that create when an agent calls a third-party server's tools?
+- Do any of DeepWiki's tool declarations include `annotations`? A server can mark a tool as read-only with `readOnlyHint: true`. Who writes that mark?
+- How did you decide which tools only read data, and what risk does that create when an agent calls a third-party server's tools?
 
 ## Submission
 
