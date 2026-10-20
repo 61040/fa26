@@ -18,7 +18,7 @@ In this prep, you will call Gemini's API with `curl` for the assistant of an onl
 - run a short tool loop in TypeScript that lets the model search the store's inventory and update a cart;
 - query a public MCP (Model Context Protocol) server to see how tools can be shared across applications.
 
-Plan on about 45 minutes.
+Plan on about 30 minutes.
 
 <details>
 <summary>Note for Windows users</summary>
