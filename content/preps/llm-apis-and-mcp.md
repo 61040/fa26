@@ -109,11 +109,6 @@ When a customer chats with the candy store's assistant, the store's backend send
    EOF
    ```
 
-**Record:**
-- What did the model reply to "How many are in it?" when sent alone versus when sent with history?
-- Did anything in either request tell the model how many bars are in a bag? Where did the number in the response come from?
-- What was `promptTokenCount` for request 1 versus request 3, and why did it increase?
-
 ## Part 2: Structured output (shape vs. truth)
 
 The store's frontend displays a product card with a name, a price, and an "Add" button that is disabled when an item is out of stock. The frontend needs structured data to render this card.
@@ -159,11 +154,6 @@ curl -s "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flas
 }
 EOF
 ```
-
-**Record:**
-- The JSON returned by the model.
-- Compare the `price` and `inStock` the model returned with the Kit Kat row in the table above.
-- What does structured output guarantee about the response, and what does it *not* guarantee?
 
 ## Part 3: Tool calling and the agent loop
 
@@ -272,13 +262,6 @@ When tools are declared, the model does not execute code itself. Instead, it res
    bun store.ts "Add 2 Kit Kats to my cart."
    ```
 
-**Record:**
-- Each tool call the model made in each run (the function name and arguments).
-- Who executed the function: Gemini, or your local TypeScript code?
-- How many HTTP requests did your script send to Gemini before the final text answer was printed?
-- Does the final cart printed by the script match the assistant's text answer?
-- In the Kit Kat run, which request to Gemini first included the fact that Kit Kats are sold out, and in which part of it?
-
 ## Part 4: Tools across applications with MCP
 
 In Part 3, the tools were hardcoded inside `store.ts`. The Model Context Protocol (MCP) standardizes tool discovery and execution so that any client or agent can use tools provided by an external service. An MCP server takes JSON-RPC requests at one URL. This prep sends two of them:
@@ -307,15 +290,13 @@ In Part 3, the tools were hardcoded inside `store.ts`. The Model Context Protoco
        -d '{"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": {"name": "ask_wiki_question", "arguments": {"repoName": "vuejs/core", "question": "In one paragraph: how does Vue know when to re-render a component?"}}}' && echo ""
    ```
 
-**Record:**
-- The names of the tools DeepWiki exposes.
-- Which of DeepWiki's tools only read data, and which could make changes?
-- Do any of DeepWiki's tool declarations include `annotations`? A server can mark a tool as read-only with `readOnlyHint: true`. Who writes that mark?
-- How did you decide which tools only read data, and what risk does that create when an agent calls a third-party server's tools?
-
 ## Submission
 
-1. In your private repository, create a Markdown file named `prep-7.md` answering all prompts marked **Record**.
+1. In your private repository, create a Markdown file named `prep-7.md` with:
+   - **Part 1:** Gemini's reply to "How many are in it?" sent with history. Did either request say how many bars are in a bag?
+   - **Part 2:** the JSON the model returned (the `text` field).
+   - **Part 3:** the script's output for the Kit Kat run.
+   - **Part 4:** the names of DeepWiki's tools, and whether any of their declarations include `annotations` (where a server can mark a tool as read-only).
 2. Commit and push your changes, and submit the commit URL on Commons.
 
 <span class="emphasize">**Never include your API key, or terminal output containing your key, in your submission.**</span>
