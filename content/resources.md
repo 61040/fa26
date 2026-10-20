@@ -43,5 +43,13 @@ See the [Technical Resources](./resources/technical.md) page.
 <h2 id="rubrics">Rubrics</h2>
 
 - [Problem framing](rubrics/problem-framing.md)
+- [Communicating a proposed solution](rubrics/communicating-a-proposed-solution.md)
+- [Concept design](rubrics/concept-design.md)
+- [Interaction design](rubrics/interaction-design.md)
+- [Interaction visual design](rubrics/interaction-visual-design.md)
+- [Visual design](rubrics/visual-design.md)
+- [Implementing concepts](rubrics/implementing-concepts.md)
+- [Testing and validating](rubrics/testing-validating.md)
 - [Reflective practice](rubrics/reflective-practice.md)
+- [Professionalism](rubrics/professionalism.md)
 - [Technical writing](rubrics/technical-writing.md)
