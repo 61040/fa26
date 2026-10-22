@@ -27,8 +27,9 @@ title: Schedule
 | Wed Oct 21 | **Engaging users: evaluation, signals**
 | Thu Oct 22 | _LLM APIs, MCP_ | | [Prep 7: LLM APIs, MCP](./preps/llm-apis-and-mcp.md)
 | Mon Oct 26 | **Value-sensitive design** | [P4: Deploy (Project complete)](./assignments/p4.md)
-| Wed Oct 28 | **Human-AI interaction fundamentals** | F0: Team Contract
+| Wed Oct 28 | **Human-AI interaction fundamentals** 
 | Thu Oct 29 | _Injection attacks (SQL, prompt)_ | | Prep 8: Injection attacks
+| Fri Oct 30 | | | F0: Team Contract
 | Mon Nov 2 | **UI design for AI-powered features** | P5: User Testing
 | Wed Nov 4 | **Team pitches**
 | Thu Nov 5 | _GitHub_ | | Prep 9: GitHub
@@ -36,9 +37,9 @@ title: Schedule
 | Wed Nov 11 | Holiday; no class
 | Mon Nov 16 | TBD | F2: Team Design
 | Mon Nov 18 | **Security**
-| Wed Nov 23 | **Data privacy** | F3: Team MVP
+| Wed Nov 23 | **Data privacy** | F3: Team Alpha (MVP)
 | Wed Nov 25 | **Agentic risk**
-| Mon Nov 30 | | F4: Team Deploy
+| Mon Nov 30 | | F4: Team Beta (Function complete)
 | Wed Dec 2 |
 | Mon Dec 7 | | F5: Team User Testing
 | Wed Dec 9 | **Project Fair** | F6: Team Report
