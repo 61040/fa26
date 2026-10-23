@@ -1,8 +1,8 @@
 ---
 layout: assignment
-title: "Final Project"
+title: Final Project
 categories: assignments
-due_date: 2025-12-09 23:59:00 -0400
+due_date: 2026-12-09 23:59:00 -0400
 ---
 ## Overview
 
