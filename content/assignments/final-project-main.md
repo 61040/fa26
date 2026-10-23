@@ -135,8 +135,6 @@ Relevant rubrics:
 
 The problem framing is like the one you did for the personal project, augmented with the ethics analysis using VSD. Since the ethical analysis is new, a full explanation of the steps involved is provided in a [separate document](./final-project-ethical-analysis). 
 
-We are also providing guidance on what makes a suitable project [here](./final-project-guidance).
-
 Deliverables:
 - **Domain**: an explanation of the domain, or general area, in which the problem lies.
 - **Bad situations**: one or more bad situations that arise in the domain and that call for a design intervention.
