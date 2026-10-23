@@ -6,7 +6,7 @@ due_date: 2026-12-09 23:59:00 -0400
 ---
 ## Overview
 
-**Purpose**. The purpose of the final project is to give you an opportunity to deepen your skills and understanding of the ideas taught in the class by applying them again, this time in a team setting. 
+**Purpose**. The purpose of the final project is to give you an opportunity to deepen your skills and understanding of the ideas taught in the class by applying them again, this time in a team setting.
 
 **Expectations**. All members of the team are expected to contribute roughly equally, and to engage in *all* activities. This means that you are welcome to divide responsibilities so that team members work on different areas of the project, but you may *not* divide by activity: every member must be involved in problem framing, designing, implementation, and so on. At the same time, you may choose to assign primary *oversight* of a given activity to a single team member. All members of the team should expect to receive the same grade unless there are major inequities in effort; we hope this won't happen and should be notified early on if it seems to be happening so that we can help remedy it.
 
@@ -17,7 +17,7 @@ due_date: 2026-12-09 23:59:00 -0400
 - **Project plan**. As part of your design document, you will include a plan that explains how you will develop your project incrementally; what risks you are most concerned about; and how you will mitigate them.
 
 **Advice**. We hope that this project will be a wonderful experience for you; that you'll build an exciting app, do creative and thoughtful design work, and learn a lot. With that in mind, we offer the following advice:
-- **Engage with us**. Your teaching staff are here to help, so make good use of us! Come to your mentoring meetings with your TAs well prepared with a clear articulation of the problems you're currently facing, the issues you'd like advice on, and your plans going forward. When hard design questions arise, feel free to post questions on Commons. The lecturers are also available and eager to help. 
+- **Engage with us**. Your teaching staff are here to help, so make good use of us! Come to your mentoring meetings with your TAs well prepared with a clear articulation of the problems you're currently facing, the issues you'd like advice on, and your plans going forward. When hard design questions arise, feel free to post questions on Commons. The lecturers are also available and eager to help.
 - **Be ambitious but control risk**. This project is a chance to do something exciting, so be ambitious. But work hard from the start to keep your project focused and avoid including non-essential concepts: better to have one great concept than a dozen mediocre ones. If your design involves some aspect that might fail (for example, use of an API or a technology that might not work as expected), make sure to include a fall-back option in your design.
 - **Stick to your plan**. Don't let your team get behind. If you find that some activity is taking much longer than expected, then revisit your plan and consider cutting back or changing directions rather than just forging ahead and hoping for the best.
 - **Collaborate fully**. Take the time to meet with your teammates in person, and to stay in regular contact. You can assign tasks and do them independently so long as you sync up frequently, but you might also consider getting together to work for camaraderie and to bounce ideas off each other.
@@ -31,8 +31,8 @@ Grades will be provided as competency levels for each of the relevant rubrics. T
 
 | Deliverable       | Deadline | Notes                                |
 | ----------------- | -------- | ------------------------------------ |
-| Team proposal     | Oct 28   | One form per team                    |
-| Team contract     | Oct 30   | Prior to start of team work          |
+| Team proposal     | Oct 27   | One form per student                 |
+| Team contract     | Nov 1    | Prior to start of team work          |
 | Project updates   | Weekly   | By arrangement with your mentors     |
 | Project pitch     | Nov 4    | In person class presentation         |
 | Peer critique     | Nov 7    | Of project pitch                     |
@@ -61,7 +61,7 @@ Your first task will be to propose your team membership by submitting a form (on
 
 Each team will have four members (with perhaps one or two exceptions if the class roster is not divisible by four). You can propose a full team of four member, or fewer, and we will find additional team members for you.
 
-Submit the form [here]().
+Submit the form [here](https://class.mit-sdg.dev/staff/live/3e61eae0-356b-431f-862b-6fcd49bc083a) with code **5XNL6H**.
 
 ### Team contract
 
@@ -75,12 +75,12 @@ You should address the following questions:
 - How tasks will be assigned, and what to do if deadlines are missed;
 - How decisions will be made and any disagreements resolved.
 
-Because of its potentially personal nature, you should not place your team contract in your team repo. Instead, you should place it in the personal repo of one of the team members and submit that. 
+Because of its potentially personal nature, you should not place your team contract in your team repo. Instead, you should place it in the personal repo of one of the team members and submit that.
 
 Relevant rubrics:
 - [Professionalism rubric](../rubrics/professionalism.md)
 
-### Project updates   
+### Project updates
 
 You will meet with your TA mentors weekly to get advice and feedback on the progress of your project. Every team member is expected to attend every meeting. If for some reason, you are unable to come to a meeting, you should let your mentor know in advance.
 
@@ -101,7 +101,7 @@ Relevant rubrics:
 
 ### Project pitch
 
-Each team will deliver a 4-minute presentation in person to the entire class. It is up to each team how to present, but we recommend that you prepare 3-5 slides and that you share the talking. 
+Each team will deliver a 4-minute presentation in person to the entire class. It is up to each team how to present, but we recommend that you prepare 3-5 slides and that you share the talking.
 
 The content of the pitch is a dry run for your problem framing, and an opportunity to get feedback early on. It should include at least:
 - **The bad situation**: that you've identified and why it matters
@@ -133,7 +133,7 @@ Relevant rubrics:
 
 ### Problem framing
 
-The problem framing is like the one you did for the personal project, augmented with the ethics analysis using VSD. Since the ethical analysis is new, a full explanation of the steps involved is provided in a [separate document](./final-project-ethical-analysis). 
+The problem framing is like the one you did for the personal project, augmented with the ethics analysis using VSD. Since the ethical analysis is new, a full explanation of the steps involved is provided in a [separate document](./final-project-ethical-analysis).
 
 Deliverables:
 - **Domain**: an explanation of the domain, or general area, in which the problem lies.
@@ -191,7 +191,7 @@ Relevant rubrics:
 
 ### User testing
 
-Your user testing will follow the same protocol that you applied on your personal projects. 
+Your user testing will follow the same protocol that you applied on your personal projects.
 
 *The deliverables are*:
 
@@ -203,7 +203,7 @@ Relevant rubrics:
 - [Technical writing rubric](../rubrics/technical-writing.md)
 - [Professionalism rubric](../rubrics/professionalism.md)
 
-### Full demo         
+### Full demo
 
 For your final project demo, you should make a video with an audio narrative that presents your project. It should include at least the following elements:
 - The bad situation your project addresses
