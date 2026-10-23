@@ -31,7 +31,7 @@ Grades will be provided as competency levels for each of the relevant rubrics. T
 
 | Deliverable       | Deadline | Notes                                |
 | ----------------- | -------- | ------------------------------------ |
-| Team proposal     | Oct 26   | One form per team                    |
+| Team proposal     | Oct 28   | One form per team                    |
 | Team contract     | Oct 30   | Prior to start of team work          |
 | Project updates   | Weekly   | By arrangement with your mentors     |
 | Project pitch     | Nov 4    | In person class presentation         |
