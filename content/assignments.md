@@ -19,7 +19,7 @@ title: Assignments
 
 ### Final Team Project
 
-- **F0:** Team Contract
+- [**F0:** Team Contract](./assignments/final-project-main.md)
 - **F1:** Problem framing
 - **F2:** Pitches
 - **F3:** Functional design
