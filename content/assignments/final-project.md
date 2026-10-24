@@ -66,7 +66,9 @@ Your first task will be to propose your team membership by submitting a form (on
 
 Each team will have four members (with perhaps one or two exceptions if the class roster is not divisible by four). You can propose a full team of four member, or fewer, and we will find additional team members for you.
 
-Submit the form [here](https://class.mit-sdg.dev/staff/live/3e61eae0-356b-431f-862b-6fcd49bc083a) with code **2R8DZE**. Every student must submit a form.
+Every student must submit a form. When inputting any of you or your teammate’s information, use the email associated with the Commons account.
+
+Submit the form [here](https://class.mit-sdg.dev/staff/live/3e61eae0-356b-431f-862b-6fcd49bc083a) with code **2R8DZE**.
 
 ### Team contract
 
