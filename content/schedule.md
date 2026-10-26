@@ -24,9 +24,9 @@ title: Schedule
 | Wed Oct 14 | **Visual design** ([Slides](/lectures/visual-design.pdf))
 | Thu Oct 15 | _Cookies and sessions_ | | [Prep 6: Cookies and sessions](./preps/cookies.md)
 | Mon Oct 19 | **Engaging users: problem, design** | [P3: Beta (Function complete)](./assignments/p3.md)
-| Wed Oct 21 | **Engaging users: evaluation, signals**
+| Wed Oct 21 | **Engaging users: evaluation, signals** ([Slides](/lectures/user-testing.pdf))
 | Thu Oct 22 | _LLM APIs, MCP_ | | [Prep 7: LLM APIs, MCP](./preps/llm-apis-and-mcp.md)
-| Mon Oct 26 | **Value-sensitive design** | [P4: Deploy (Project complete)](./assignments/p4.md)
+| Mon Oct 26 | **Value-sensitive design** ([Slides](/lectures/vsd.pdf)) | [P4: Deploy (Project complete)](./assignments/p4.md)
 | Wed Oct 28 | **Human-AI interaction fundamentals** 
 | Thu Oct 29 | _Injection attacks (SQL, prompt)_ | | [Prep 8: Injection attacks](./preps/injection-attacks.md)
 | Mon Nov 2 | **UI design for AI-powered features** | P5: User Testing
