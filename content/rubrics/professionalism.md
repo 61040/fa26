@@ -20,6 +20,8 @@ Common pitfalls:
 
 * **Missing orientation.** The individual parts are acceptable, but the overview does not explain the work or help readers find what matters.
 
+* **Anonymity**. Unless there are good reasons for anonymity, the authors of a presentation (whether written or oral) should introduce themselves to their audience. 
+
 Competency levels:
 
 * **Deficient.** The submission cannot be used or understood without help from the author, or essential overview and instructions are missing.

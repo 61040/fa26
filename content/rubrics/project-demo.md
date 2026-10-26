@@ -6,6 +6,7 @@ A demo of a software project should be:
 - **Situated**. The demo starts by explaining, perhaps very briefly, what the context of use is.
 - **Informative**. It should be clear to the audience what the project is for (what problem it solves) and how it works.
 - **Compelling**. The demo should convey the novel and exciting aspects of the project, and convince the audience that they are worthy of attention.
+- **Dramatic**. A demo should tell a story that follows a dramatic path, rather than being a series of unconnected interactions.
 - **Easy to follow**. It should be obvious what is being done at each point in the demo, and why.
 - **Populated**. The app has been populated in advance so that the data shown appears realistic, simulating how the app would appear once successful and widely deployed.
 - **Complete**. The demo should include sufficient functionality (a full enough user journey) to show not just that the app runs but that it fulfills its intended purpose.
