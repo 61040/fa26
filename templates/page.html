@@ -32,10 +32,10 @@
         <header class="article-header">
         {% if page.data.title %}<h1>{{ page.data.title }}</h1>{% endif %}
         </header>
-        <div class="home-panes">
-          <div class="prose"> {{ page.content }} </div>
+        <div class="prose"> {{ page.content }} </div>
+        <!--<div class="home-panes">
           {% render "announcements.html" %}
-        </div>
+        </div>-->
       </article>
     {% else %}
       <article>
