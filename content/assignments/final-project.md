@@ -68,7 +68,7 @@ Each team will have four members (with perhaps one or two exceptions if the clas
 
 Every student must submit a form. When inputting any of you or your teammate’s information, use the email associated with the Commons account.
 
-Submit the form [here](https://class.mit-sdg.dev/staff/live/3e61eae0-356b-431f-862b-6fcd49bc083a).
+Submit the form [here](https://class.mit-sdg.dev/q/ce796ae7-ad47-418e-81d0-8a22bd496db5?by=code).
 
 ### Team contract
 
