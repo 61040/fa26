@@ -15,7 +15,7 @@ title: Assignments
 - [**P2:** Alpha (MVP)](./assignments/p2.md)
 - [**P3:** Beta](./assignments/p3.md)
 - [**P4:** Code Complete](./assignments/p4.md)
-- **P5:** User Testing
+- [**P5:** User Testing](./assignments/p5.md)
 
 ### Final Team Project
 
