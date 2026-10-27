@@ -68,7 +68,7 @@ Each team will have four members (with perhaps one or two exceptions if the clas
 
 Every student must submit a form. When inputting any of you or your teammate’s information, use the email associated with the Commons account.
 
-Submit the form [here](https://class.mit-sdg.dev/staff/live/3e61eae0-356b-431f-862b-6fcd49bc083a) with code **2R8DZE**.
+Submit the form [here](https://class.mit-sdg.dev/staff/live/3e61eae0-356b-431f-862b-6fcd49bc083a).
 
 ### Team contract
 
@@ -89,13 +89,14 @@ Relevant rubrics:
 
 - [Professionalism rubric](../rubrics/professionalism.md)
 
-<!-- ### Project updates
+### Project updates
 
 You will meet with your TA mentors weekly to get advice and feedback on the progress of your project. Every team member is expected to attend every meeting. If for some reason, you are unable to come to a meeting, you should let your mentor know in advance.
 
-It is *your* job to structure the meetings and make sure that they are helpful to you; you should think of your mentor as a consultant rather than a grader. For each meeting, you should come prepared with: a brief report on your progress since the last meeting; a list of problems or issues you want help with; an agenda for the meeting (what order you want to discuss things in, and how long each will take). At the meeting, you should write down your plan for the following week and any decisions you made.
+It is _your_ job to structure the meetings and make sure that they are helpful to you; you should think of your mentor as a consultant rather than a grader. For each meeting, you should come prepared with: a brief report on your progress since the last meeting; a list of problems or issues you want help with; an agenda for the meeting (what order you want to discuss things in, and how long each will take). At the meeting, you should write down your plan for the following week and any decisions you made.
 
 Deliverables associated with each meeting:
+
 - **Agenda**: topics to be discussed with time allocated to each
 - **Progress report**: how last week went, alignment to plan
 - **Design changes**: what changes were made to the design since the last meeting
@@ -105,22 +106,29 @@ Deliverables associated with each meeting:
 You should have a separate folder in your team repo for your mentor meetings. You can organize these deliverables as you please; you might, for example, have a single markdown file for each meeting with sections for each area. There is no official submission, but the quality of these deliverables will be taken into account at the end in determining a portion of your team's grade.
 
 Relevant rubrics:
-- [Professionalism rubric](../rubrics/professionalism.md)
-- [Project management rubric](../rubrics/project-management.md) -->
 
-<!-- ### Project pitch
+- [Professionalism rubric](../rubrics/professionalism.md)
+- [Project management rubric](../rubrics/project-management.md)
+
+### Project pitch
 
 Each team will deliver a 4-minute presentation in person to the entire class. It is up to each team how to present, but we recommend that you prepare 3-5 slides and that you share the talking.
 
 The content of the pitch is a dry run for your problem framing, and an opportunity to get feedback early on. It should include at least:
+
 - **The bad situation**: that you've identified and why it matters
 - **Some solution ideas**: an outline, or some ingredients
 - **What you'd like help with**: risks, concerns, etc
 
-The purpose of the project pitch is to encourage you to get going quickly on a project idea, and to get feedback with time to adjust your direction. It will also be graded, according to the rubric. There is no deliverable to be handed in.
+The purpose of the project pitch is to encourage you to get going quickly on a project idea, and to get feedback with time to adjust your direction. It will also be graded, according to the rubric.
+
+**Deliverables**
+**a.** Create an initial team thread on Commons where the **title** is your **team name**. Feel free to include an intro :)
+**b.** Reply to that team thread with a URL that is publically viewable of your pitch content.
 
 Relevant rubrics:
-- [Project pitching rubric](../rubrics/project-pitching.md) -->
+
+- [Project pitching rubric](../rubrics/project-pitching.md)
 
 <!-- ### Peer critique
 
@@ -133,7 +141,9 @@ You should structure each critique in three parts:
 
 You should expect to each spend a few hours in total on this, and to write no more than half a page in total for each critique. In grading this, we will consider primarily how *helpful* your critique is likely to be the receiving team.
 
-Your critique should be placed in your personal repo and submitted like a regular assignment.
+**Expectations.**
+- Go to your assigned project team's thread and reply to the thread with the designated artifact.
+Please reply directly to that message. Don't nest replies. Don't create higher level threads.
 
 Relevant rubrics:
 - [Peer critique rubric](../rubrics/peer-critique.md)
@@ -200,7 +210,7 @@ Relevant rubrics:
 
 ### User testing
 
-Your user testing will follow the same protocol that you applied on your personal projects.
+Your user testing will follow the same protocol that you applied on your personal projects, as described [here](../assignments/p5.md).
 
 *The deliverables are*:
 
@@ -208,7 +218,7 @@ Your user testing will follow the same protocol that you applied on your persona
 - **Summary of lessons**: reports on each user, key flaws/opportunities
 
 Relevant rubrics:
-- [User testing rubric](../rubrics/user-testing.md)
+- [User studies rubric](../rubrics/user-studies.md)
 - [Technical writing rubric](../rubrics/technical-writing.md)
 - [Professionalism rubric](../rubrics/professionalism.md)
 
