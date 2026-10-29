@@ -35,20 +35,20 @@ Grades will be provided as competency levels for each of the relevant rubrics. T
 
 | Deliverable       | Deadline | Notes                                |
 | ----------------- | -------- | ------------------------------------ |
-| Team proposal     | Oct 27   | One form per student                 |
-| Team contract     | Nov 1    | Prior to start of team work          |
-| Project updates   | Weekly   | By arrangement with your mentors     |
-| Project pitch     | Nov 4    | In person class presentation         |
-| Peer critique     | Nov 7    | Of project pitch                     |
-| Problem framing   | Nov 9    | Includes ethical analysis            |
-| Peer critique     | Nov 12   | Of problem framing                   |
-| Concept Design    | Nov 16   | Includes development plan            |
-| Peer critique     | Nov 19   | Of concept design                    |
-| Checkpoint: Alpha | Nov 23   | First running version of app         |
-| Checkpoint: Beta  | Nov 30   | Near complete running version of app |
-| User testing      | Dec 7    | Testing completed                    |
-| Full demo         | Dec 9    | Demo of final version of running app |
-| Project report    | Dec 9    | All remaining deliverables           |
+| [Team proposal](#team-proposal)     | Oct 27   | One form per student                 |
+| [Team contract](#team-contract)     | Nov 1    | Prior to start of team work          |
+| [Project updates](#project-updates)   | Weekly   | By arrangement with your mentors     |
+| [Project pitch](#project-pitch)     | Nov 4    | In person class presentation         |
+| [Peer critique](#peer-critique)     | Nov 7    | Of project pitch                     |
+| [Problem framing](#problem-framing)   | Nov 9    | Includes ethical analysis            |
+| [Peer critique](#peer-critique)     | Nov 12   | Of problem framing                   |
+| [Concept Design](#design)    | Nov 16   | Includes development plan            |
+| [Peer critique](#peer-critique)     | Nov 19   | Of concept design                    |
+| [Checkpoint: Alpha](#checkpoints-alpha-and-beta) | Nov 23   | First running version of app         |
+| [Checkpoint: Beta](#checkpoints-alpha-and-beta)  | Nov 30   | Near complete running version of app |
+| [User testing](#user-testing)      | Dec 7    | Testing completed                    |
+| [Full demo](#full-demo)         | Dec 9    | Demo of final version of running app |
+| [Project report](#project-report)    | Dec 9    | All remaining deliverables           |
 
 ## Repos & submissions
 
@@ -112,7 +112,7 @@ Relevant rubrics:
 
 ### Project pitch
 
-Each team will deliver a 4-minute presentation in person to the entire class. It is up to each team how to present, but we recommend that you prepare 3-5 slides and that you share the talking.
+Each team will deliver a 3-4 minute presentation in person to the entire class. It is up to each team how to present, but we recommend that you prepare 3-5 slides and that you share the talking.
 
 The content of the pitch is a dry run for your problem framing, and an opportunity to get feedback early on. It should include at least:
 
@@ -125,6 +125,8 @@ The purpose of the project pitch is to encourage you to get going quickly on a p
 **Deliverables**
 **a.** Create an initial team thread on Commons where the **title** is your **team name**. Feel free to include an intro :)
 **b.** Reply to that team thread with a URL that is publically viewable of your pitch content.
+
+See [here] for an example of what your threads should look like.
 
 Relevant rubrics:
 
@@ -143,7 +145,7 @@ You should expect to each spend a few hours in total on this, and to write no mo
 
 **Expectations.**
 - Go to your assigned project team's thread and reply to the thread with the designated artifact.
-Please reply directly to that message. Don't nest replies. Don't create higher level threads.
+Please reply directly to that message. Don't nest replies. Don't create higher level threads. See [here] for an example of where your critique should go.
 
 Relevant rubrics:
 - [Peer critique rubric](../rubrics/peer-critique.md)
