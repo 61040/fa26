@@ -18,4 +18,5 @@ Attend recitations to discuss any difficulties with the prep work.
 6. [**Cookies and Sessions**](./preps/cookies.md)
 7. [**LLM APIs and MCP**](./preps/llm-apis-and-mcp.md)
 8. [**Injection attacks**](./preps/injection-attacks.md)
+9. [**GitHub**](./preps/github.md)
 
