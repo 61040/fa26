@@ -34,10 +34,10 @@ title: Schedule
 | Thu Nov 5 | _GitHub_ | | Prep 9: GitHub
 | Mon Nov 9 | **Team pitches** | F1: Team Problem
 | Wed Nov 11 | Holiday; no class
-| Mon Nov 16 | TBD | F2: Team Design
-| Wed Nov 18 | TBD
-| Mon Nov 23 | TBD | F3: Team Alpha (MVP)
-| Wed Nov 25 |TBD 
+| Mon Nov 16 | Focus Groups: Day 1 | F2: Team Design
+| Wed Nov 18 | Focus Groups: Day 2
+| Mon Nov 23 | Focus Groups: Day 3 | F3: Team Alpha (MVP)
+| Wed Nov 25 | Focus Groups: Day 4 
 | Mon Nov 30 | | F4: Team Beta (Function complete)
 | Wed Dec 2 |
 | Mon Dec 7 | | F5: Team User Testing
