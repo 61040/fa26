@@ -18,6 +18,8 @@ In this prep, you will practice working in branches and merging into `main`.
 
 ## Tasks
 
+0. **Make sure your final project repo is public.**
+
 1. **Create a new branch.** In terminal, in your team project repo, create and switch to a
    new branch. You can call it whatever you want, but it should describe the
    feature you are adding.
@@ -26,13 +28,15 @@ In this prep, you will practice working in branches and merging into `main`.
 
 2. **Add your bio.** Create a new file called `team.md` (or open it if it
    already exists). Make sure it has a heading, like `# Our Team`. Add a
-   section with your name and a short bio. Commit the file and push to GitHub.
+   section with your name and a short bio and **a question and answer section**.
 
-3. **Open a pull request.** On GitHub in your team project repo, go to the "Pull requests" tab and click "New pull request". Select your branch to merge into the `main` branch. Click create pull request.
+3. **Ask and/or answer a question.** Edit another team member's section to ask a question. (If you're the first member of your team to do the prep, feel free skip this; you can optionally come back later.) Commit the file and push to GitHub.
 
-4. **Merge the PR.** Often, you will wait for your collaborators to review your PR before merging it. In this case, it is okay to go ahead and merge it yourself. If there is a merge conflict, [resolve it](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github) and complete the merge.
+4. **Open a pull request.** On GitHub in your team project repo, go to the "Pull requests" tab and click "New pull request". Select your branch to merge into the `main` branch. Click create pull request.
 
-Once everyone on your team has completed the prep, the `team.md` file on `main` should contain everyone's bios.
+5. **Merge the PR.** Often, you will wait for your collaborators to review your PR before merging it. In this case, it is okay to go ahead and merge it yourself. If there is a merge conflict, [resolve it](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github) and complete the merge.
+
+Once everyone on your team has completed the prep, the `team.md` file on `main` should contain everyone's bios and some Q&As.
 
 ## Submission
 
