@@ -25,16 +25,15 @@ See the [final project overview](./assignments/final-project.md) for all deadlin
 - [**F0:** Team contract](./assignments/f0.md)
 - [**F1:** Project pitch](./assignments/f1.md)
 - [Initial meeting with TA mentor](./assignments/f-mentor-meeting.md)
-- Peer critique: pitch
-- **F2:** Problem framing
-- Peer critique: problem framing
+- [**C1:** Peer critique of pitch](./assignments/c1.md)
+- [**F2:** Problem framing](./assignments/f2.md)
+- **C2:** Peer critique of problem framing
 - **F3:** Concept design
-- Peer critique: concept design
+- **C3:** Peer critique of concept design
 - **F4:** Alpha checkpoint
 - **F5:** Beta checkpoint
 - **F6:** User testing
-- **F7:** Full demo
-- **F8:** Project report
+- **F7:** Full demo and project report
 
 **Project Fair**: December 9
 

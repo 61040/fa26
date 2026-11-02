@@ -58,7 +58,7 @@ collections:
   # Final project overview and phases (final-project.md, f0.md, f-pitch.md, ...).
   # The deadlines table lives on the overview; see templates/final-project.html.
   finalProject:
-    match: "assignments/f*.md"
+    match: "assignments/[fc]*.md"
   projects:
     match: "projects/**/*.md"
     sort:

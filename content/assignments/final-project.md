@@ -9,16 +9,15 @@ deadlines:
   - { label: "F0: Team contract", due: "Sun, Nov 1", note: "Prior to start of team work", page: f0 }
   - { label: "F1: Project pitch", due: "Wed, Nov 4", note: "In person class presentation", page: f1 }
   - { label: "Initial meeting with TA mentor", due: "Fri, Nov 6", note: "By arrangement with your mentor", page: f-mentor-meeting }
-  - { label: "Peer critique: pitch", due: "Sat, Nov 7", note: "Of project pitch", page: f-critique-pitch }
+  - { label: "C1: pitch", due: "Sat, Nov 7", note: "Of project pitch", page: c1 }
   - { label: "F2: Problem framing", due: "Mon, Nov 9", note: "Includes ethical analysis", page: f2 }
-  - { label: "Peer critique: problem framing", due: "Thu, Nov 12", note: "Of problem framing", page: f-critique-problem-framing }
+  - { label: "C2: problem framing", due: "Thu, Nov 12", note: "Of problem framing", page: c2 }
   - { label: "F3: Concept design", due: "Mon, Nov 16", note: "Includes development plan", page: f3 }
-  - { label: "Peer critique: concept design", due: "Thu, Nov 19", note: "Of concept design", page: f-critique-design }
+  - { label: "C3: concept design", due: "Thu, Nov 19", note: "Of concept design", page: c3 }
   - { label: "F4: Alpha checkpoint", due: "Mon, Nov 23", note: "First running version of app", page: f4 }
   - { label: "F5: Beta checkpoint", due: "Mon, Nov 30", note: "Near complete running version of app", page: f5 }
   - { label: "F6: User testing", due: "Mon, Dec 7", note: "Testing completed", page: f6 }
-  - { label: "F7: Full demo", due: "Wed, Dec 9", note: "Demo of final version of running app", page: f7 }
-  - { label: "F8: Project report", due: "Wed, Dec 9", note: "All remaining deliverables", page: f8 }
+  - { label: "F7: Full demo and project report", due: "Wed, Dec 9", note: "Demo and final deliverables", page: f7 }
 ---
 
 ## Overview
@@ -74,7 +73,7 @@ Relevant rubrics:
 
 ## Repos & submissions
 
-**Repositories**. Each team should create one GitHub repository for their design and implementation work; it can be owned by one of the team members, with the other team members as collaborators. The other team members can then clone the repo and push changes to it. We recommend that you use a separate branch for each task or feature, making regular commits, which are pushed to the central repo; then you can open pull requests to merge from the feature branch into the main branch. The individual team members should continue to use their own personal repositories for reflections.
+**Repositories**. Each team should create one GitHub repository for their design and implementation work; it can be owned by one of the team members, with the other team members as collaborators. The other team members can then clone the repo and push changes to it. We recommend that you use a separate branch for each task or feature, making regular commits, which are pushed to the central repo; then you can open pull requests to merge from the feature branch into the main branch. **The individual team members should continue to use their own personal repositories for reflections,** which will be submitted once at the end of the semester and considered for your final grade.
 
 **Document format**. All non-code artifacts should be in markdown format, with any diagrams or screenshots inserted as linked images.
 
