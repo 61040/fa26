@@ -30,15 +30,18 @@ title: Schedule
 | Wed Oct 28 | **Human-AI interaction fundamentals** 
 | Thu Oct 29 | _Injection attacks (SQL, prompt)_ | | [Prep 8: Injection attacks](./preps/injection-attacks.md)
 | Mon Nov 2 | **UI design for AI-powered features** | P5: User Testing
-| Wed Nov 4 | **Team pitches**
+| Wed Nov 4 | **Team pitches** | [F1: Project pitch](./assignments/f1.md)
 | Thu Nov 5 | _GitHub_ | | Prep 9: GitHub
-| Mon Nov 9 | **Team pitches** | F1: Team Problem
+| Fri Nov 6 | | [Schedule mentor meeting](./assignments/f-mentor-meeting.md)
+| Sat Nov 7 | | [C1: pitch](./assignments/c1.md)
+| Mon Nov 9 | **Team meetings** | [F2: Problem framing](./assignments/f2.md)
 | Wed Nov 11 | Holiday; no class
-| Mon Nov 16 | Focus Groups: Day 1 | F2: Team Design
+| Thu Nov 12 | | C2: Problem framing
+| Mon Nov 16 | Focus Groups: Day 1 | F3: Concept design
 | Wed Nov 18 | Focus Groups: Day 2
-| Mon Nov 23 | Focus Groups: Day 3 | F3: Team Alpha (MVP)
-| Wed Nov 25 | Focus Groups: Day 4 
-| Mon Nov 30 | | F4: Team Beta (Function complete)
-| Wed Dec 2 |
-| Mon Dec 7 | | F5: Team User Testing
-| Wed Dec 9 | **Project Fair** | F6: Team Report
+| Thu Nov 19 | | C3: Concept design
+| Mon Nov 23 | Focus Groups: Day 3 | F4: Alpha
+| Wed Nov 25 | Focus Groups: Day 4
+| Mon Nov 30 | | F5: Beta
+| Mon Dec 7 | | F6: User Testing
+| Wed Dec 9 | **Project Fair** | F7: Final demo and Report

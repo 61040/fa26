@@ -1,0 +1,20 @@
+{%- comment -%}
+  The full final project deadlines table; see final-project.html. The rows for
+  the page being viewed are bolded.
+{%- endcomment -%}
+<table class="project-milestones">
+<thead><tr><th style="text-align: left">Deliverable</th><th style="text-align: left">Deadline</th><th style="text-align: left">Notes</th></tr></thead>
+<tbody>
+{%- for row in deadlines %}
+{%- assign url = "/assignments/" | append: row.page | append: "/" %}
+{%- assign released = collections.finalProject | where: "url", url | first %}
+{%- if url == page.url %}
+<tr><td><strong>{{ row.label }}</strong></td><td><strong>{{ row.due }}</strong></td><td><strong>{{ row.note }}</strong></td></tr>
+{%- elsif released %}
+<tr><td><a href="{{ url }}">{{ row.label }}</a></td><td>{{ row.due }}</td><td>{{ row.note }}</td></tr>
+{%- else %}
+<tr><td>{{ row.label }}</td><td>{{ row.due }}</td><td>{{ row.note }}</td></tr>
+{%- endif %}
+{%- endfor %}
+</tbody>
+</table>

@@ -55,6 +55,10 @@ collections:
     match: "assignments/p[0-9]*.md"
     sort:
       by: data.order
+  # Final project overview and phases (final-project.md, f0.md, f-pitch.md, ...).
+  # The deadlines table lives on the overview; see templates/final-project.html.
+  finalProject:
+    match: "assignments/[fc]*.md"
   projects:
     match: "projects/**/*.md"
     sort:

@@ -1,0 +1,23 @@
+{%- comment -%}
+  Final project deadlines, read from the `deadlines` list in the front matter of
+  final-project.md. The list lives there rather than on each phase page because
+  unreleased pages (build.publish: false) aren't in collections but still need rows.
+
+  The overview shows the full table. A phase page shows its own deadline, with
+  the full table collapsed below it. Rows for unreleased pages are listed but
+  not linked. Output is unindented so Markdown doesn't treat it as a code block.
+{%- endcomment -%}
+{%- assign overview = "/assignments/final-project/" -%}
+{%- assign deadlines = collections.finalProject | where: "url", overview | map: "data" | map: "deadlines" | first -%}
+{%- if page.url == overview %}
+{% render "final-project-table.html", deadlines: deadlines %}
+{%- else %}
+{%- assign slug = page.url | remove: "/assignments/" | remove: "/" %}
+{%- assign deadline = deadlines | where: "page", slug | first %}
+<p><strong>Due:</strong> {{ deadline.due }} at 11:59 PM</p>
+<p><a href="{{ overview }}">Final project overview</a></p>
+<details>
+<summary>All final project deadlines</summary>
+{% render "final-project-table.html", deadlines: deadlines %}
+</details>
+{%- endif %}
