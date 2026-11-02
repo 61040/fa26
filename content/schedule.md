@@ -29,7 +29,7 @@ title: Schedule
 | Mon Oct 26 | **Value-sensitive design** ([Slides](/lectures/vsd.pdf)) | [P4: Deploy (Project complete)](./assignments/p4.md)
 | Wed Oct 28 | **Human-AI interaction fundamentals** 
 | Thu Oct 29 | _Injection attacks (SQL, prompt)_ | | [Prep 8: Injection attacks](./preps/injection-attacks.md)
-| Mon Nov 2 | **UI design for AI-powered features** | P5: User Testing
+| Mon Nov 2 | **UI design for AI-powered features** | [P5: User Testing](./assignments/p5.md)
 | Wed Nov 4 | **Team pitches** | [F1: Project pitch](./assignments/f1.md)
 | Thu Nov 5 | _GitHub_ | | Prep 9: GitHub
 | Fri Nov 6 | | [Schedule mentor meeting](./assignments/f-mentor-meeting.md)
