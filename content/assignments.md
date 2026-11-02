@@ -19,13 +19,22 @@ title: Assignments
 
 ### Final Team Project
 
-- [**F0:** Team Contract](./assignments/final-project.md)
-- **F1:** Problem framing
-- **F2:** Pitches
-- **F3:** Functional design
-- **F4:** Alpha/beta releases
-- **F5:** User testing
-- **F6:** Final demonstrations
+See the [final project overview](./assignments/final-project.md) for all deadlines.
+
+- [Team formation](./assignments/f-team-formation.md)
+- [**F0:** Team contract](./assignments/f0.md)
+- [**F1:** Project pitch](./assignments/f1.md)
+- [Initial meeting with TA mentor](./assignments/f-mentor-meeting.md)
+- Peer critique: pitch
+- **F2:** Problem framing
+- Peer critique: problem framing
+- **F3:** Concept design
+- Peer critique: concept design
+- **F4:** Alpha checkpoint
+- **F5:** Beta checkpoint
+- **F6:** User testing
+- **F7:** Full demo
+- **F8:** Project report
 
 **Project Fair**: December 9
 
