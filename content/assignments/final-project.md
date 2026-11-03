@@ -86,5 +86,5 @@ Relevant rubrics:
     "#team-contract": "f0/",
     "#project-pitch": "f1/",
   };
-  if (moved[location.hash]) location.replace("/assignments/" + moved[location.hash]);
+  if (moved[location.hash]) location.replace("/fa26/assignments/" + moved[location.hash]);
 </script>
