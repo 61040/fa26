@@ -8,6 +8,7 @@ Your first meeting with your TA mentor is a chance to introduce your team, talk 
 
 ## Instructions
 
+0. **Identify your TA mentor.** Regard the [table on Commons](https://class.mit-sdg.dev/t/6fe0c1f7-6ea5-4fe9-8bf4-c7a42939d8e3).
 1. **Make a thread on Commons.** Make a new discussion thread on Commons.
    Manually add your entire time and your TA mentor by clicking "Choose people
    or groups..." and selecting each person individually. Publish the thread and
