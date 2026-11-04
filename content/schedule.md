@@ -41,7 +41,7 @@ title: Schedule
 | Wed Nov 18 | Focus Groups: Day 2
 | Thu Nov 19 | | C3: Concept design
 | Mon Nov 23 | Focus Groups: Day 3 | F4: Alpha
-| Wed Nov 25 | Focus Groups: Day 4
+| Wed Nov 25 | Focus Groups: Day 4 (if needed)
 | Mon Nov 30 | | F5: Beta
 | Mon Dec 7 | | F6: User Testing
 | Wed Dec 9 | **Project Fair** | F7: Final demo and Report
