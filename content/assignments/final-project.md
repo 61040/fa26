@@ -7,11 +7,11 @@ title: Final Project
 deadlines:
   - { label: "Team formation", due: "Tue, Oct 27", note: "One form per student", page: f-team-formation }
   - { label: "F0: Team contract", due: "Sun, Nov 1", note: "Prior to start of team work", page: f0 }
-  - { label: "F1: Project pitch", due: "Wed, Nov 4", note: "In person class presentation", page: f1 }
+  - { label: "F1: Project pitch", due: "Mon, Nov 9", note: "In person class presentation", page: f1 }
   - { label: "Initial meeting with TA mentor", due: "Fri, Nov 6", note: "By arrangement with your mentor", page: f-mentor-meeting }
-  - { label: "C1: pitch", due: "Sat, Nov 7", note: "Of project pitch", page: c1 }
-  - { label: "F2: Problem framing", due: "Mon, Nov 9", note: "Includes ethical analysis", page: f2 }
-  - { label: "C2: problem framing", due: "Thu, Nov 12", note: "Of problem framing", page: c2 }
+  - { label: "C1: pitch", due: "Tue, Nov 10", note: "Of project pitch", page: c1 }
+  - { label: "F2: Problem framing", due: "Thu, Nov 12", note: "Includes ethical analysis", page: f2 }
+  - { label: "C2: problem framing", due: "Sat, Nov 14", note: "Of problem framing", page: c2 }
   - { label: "F3: Concept design", due: "Mon, Nov 16", note: "Includes development plan", page: f3 }
   - { label: "C3: concept design", due: "Thu, Nov 19", note: "Of concept design", page: c3 }
   - { label: "F4: Alpha checkpoint", due: "Mon, Nov 23", note: "First running version of app", page: f4 }
