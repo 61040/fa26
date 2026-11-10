@@ -27,9 +27,9 @@ See the [final project overview](./assignments/final-project.md) for all deadlin
 - [Initial meeting with TA mentor](./assignments/f-mentor-meeting.md)
 - [**C1:** Peer critique of pitch](./assignments/c1.md)
 - [**F2:** Problem framing](./assignments/f2.md)
-- **C2:** Peer critique of problem framing
-- **F3:** Concept design
-- **C3:** Peer critique of concept design
+- [**C2:** Peer critique of problem framing](./assignments/c2.md)
+- [**F3:** Concept design](./assignments/f3.md)
+- [**C3:** Peer critique of concept design](./assignments/c3.md)
 - **F4:** Alpha checkpoint
 - **F5:** Beta checkpoint
 - **F6:** User testing

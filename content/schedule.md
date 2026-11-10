@@ -30,16 +30,17 @@ title: Schedule
 | Wed Oct 28 | **Human-AI interaction fundamentals** 
 | Thu Oct 29 | _Injection attacks (SQL, prompt)_ | | [Prep 8: Injection attacks](./preps/injection-attacks.md)
 | Mon Nov 2 | **UI design for AI-powered features** | [P5: User Testing](./assignments/p5.md)
-| Wed Nov 4 | **Team pitches** | [F1: Project pitch](./assignments/f1.md)
+| Wed Nov 4 | **Team pitches** | 
 | Thu Nov 5 | _GitHub_ | | [Prep 9: GitHub](./preps/github.md)
 | Fri Nov 6 | | [Schedule mentor meeting](./assignments/f-mentor-meeting.md)
-| Sat Nov 7 | | [C1: pitch](./assignments/c1.md)
-| Mon Nov 9 | **Team meetings** | [F2: Problem framing](./assignments/f2.md)
+| Mon Nov 9 | **Team meetings** | [F1: Project pitch](./assignments/f1.md)
+| Tue Nov 10 | | [C1: pitch](./assignments/c1.md)
 | Wed Nov 11 | Holiday; no class
-| Thu Nov 12 | | C2: Problem framing
-| Mon Nov 16 | Focus Groups: Day 1 | F3: Concept design
+| Thu Nov 12 | | [F2: Problem framing](./assignments/f2.md)
+| Sat Nov 14 | | [C2: Problem framing](./assignments/c2.md)
+| Mon Nov 16 | Focus Groups: Day 1 | [F3: Concept design](./assignments/f3.md)
 | Wed Nov 18 | Focus Groups: Day 2
-| Thu Nov 19 | | C3: Concept design
+| Thu Nov 19 | | [C3: Concept design](./assignments/c3.md)
 | Mon Nov 23 | Focus Groups: Day 3 | F4: Alpha
 | Wed Nov 25 | Focus Groups: Day 4 (if needed)
 | Mon Nov 30 | | F5: Beta
