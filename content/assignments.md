@@ -30,7 +30,7 @@ See the [final project overview](./assignments/final-project.md) for all deadlin
 - [**C2:** Peer critique of problem framing](./assignments/c2.md)
 - [**F3:** Concept design](./assignments/f3.md)
 - [**C3:** Peer critique of concept design](./assignments/c3.md)
-- **F4:** Alpha checkpoint
+- [**F4:** Alpha checkpoint](./assignments/f4.md)
 - **F5:** Beta checkpoint
 - **F6:** User testing
 - **F7:** Full demo and project report

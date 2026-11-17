@@ -41,7 +41,7 @@ title: Schedule
 | Mon Nov 16 | Focus Groups: Day 1 | [F3: Concept design](./assignments/f3.md)
 | Wed Nov 18 | Focus Groups: Day 2
 | Thu Nov 19 | | [C3: Concept design](./assignments/c3.md)
-| Mon Nov 23 | Focus Groups: Day 3 | F4: Alpha
+| Mon Nov 23 | Focus Groups: Day 3 | [F4: Alpha](./assignments/f4.md)
 | Wed Nov 25 | Focus Groups: Day 4 (if needed)
 | Mon Nov 30 | | F5: Beta
 | Mon Dec 7 | | F6: User Testing
