@@ -43,6 +43,6 @@ title: Schedule
 | Thu Nov 19 | | [C3: Concept design](./assignments/c3.md)
 | Mon Nov 23 | Focus Groups: Day 3 | [F4: Alpha](./assignments/f4.md)
 | Wed Nov 25 | Focus Groups: Day 4 (if needed)
-| Mon Nov 30 | | F5: Beta
-| Mon Dec 7 | | F6: User Testing
+| Wed Dec 2 | | [F5: Beta](./assignments/f5.md)
+| Mon Dec 7 | | [F6: User Testing](./assignments/f6.md)
 | Wed Dec 9 | **Project Fair** | F7: Final demo and Report

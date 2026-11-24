@@ -15,7 +15,7 @@ deadlines:
   - { label: "F3: Concept design", due: "Mon, Nov 16", note: "Includes development plan", page: f3 }
   - { label: "C3: concept design", due: "Thu, Nov 19", note: "Of concept design", page: c3 }
   - { label: "F4: Alpha checkpoint", due: "Mon, Nov 23", note: "First running version of app", page: f4 }
-  - { label: "F5: Beta checkpoint", due: "Mon, Nov 30", note: "Near complete running version of app", page: f5 }
+  - { label: "F5: Beta checkpoint", due: "Wed, Dec 2", note: "Near complete running version of app", page: f5 }
   - { label: "F6: User testing", due: "Mon, Dec 7", note: "Testing completed", page: f6 }
   - { label: "F7: Full demo and project report", due: "Wed, Dec 9", note: "Demo and final deliverables", page: f7 }
 ---

@@ -31,8 +31,8 @@ See the [final project overview](./assignments/final-project.md) for all deadlin
 - [**F3:** Concept design](./assignments/f3.md)
 - [**C3:** Peer critique of concept design](./assignments/c3.md)
 - [**F4:** Alpha checkpoint](./assignments/f4.md)
-- **F5:** Beta checkpoint
-- **F6:** User testing
+- [**F5:** Beta checkpoint](./assignments/f5.md)
+- [**F6:** User testing](./assignments/f6.md)
 - **F7:** Full demo and project report
 
 **Project Fair**: December 9
